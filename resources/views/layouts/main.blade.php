@@ -1,4 +1,4 @@
-<html>
+<html lang="{{ app()->getLocale() }}">
     <head>
         <meta name="viewport" content="width=device-width">
         <meta charset="utf-8">
