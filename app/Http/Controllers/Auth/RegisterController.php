@@ -23,11 +23,23 @@ class RegisterController extends Controller
     use RegistersUsers;
 
     /**
+     * Show the application registration form.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showRegistrationForm()
+    {
+        $langs = ["ES" => "Español", "EN" => "English", "PT" => "Português"];
+
+        return view('auth.register', ['title' => 'Registro'])->with('langs', $langs);
+    }
+
+    /**
      * Where to redirect users after registration.
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -48,9 +60,13 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed',
+            'username' => 'required|string|min:3|max:30|unique:users',
+            'email' => 'required|string|email|unique:users',
+            'password' => 'required|string|min:4|max:25|confirmed',
+            's_question' => 'required|string|max:40|',
+            's_answer' => 'required|string|max:40|',
+            'user_img' => 'required',
+            'terms' => 'required'
         ]);
     }
 
@@ -63,9 +79,14 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'name' => $data['name'],
+            'username' => $data['username'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            's_question' => $data['s_question'],
+            's_answer' => $data['s_answer'],
+            'site_lang' => $data['site_lang'],
+            'privileges' => 1,
+            'state' => 1
         ]);
     }
 }

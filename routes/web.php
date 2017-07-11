@@ -11,8 +11,6 @@
 |
 */
 
-Route::get('/faq', 'FaqController@returnView');
-
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/faq', 'FaqController@returnView')->name('faq');
+Route::get('/terms', 'TermsController@returnView')->name('terms');

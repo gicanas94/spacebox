@@ -1,76 +1,98 @@
-@extends('layouts.app')
+@extends ('layouts.main')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Register</div>
-                <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="{{ route('register') }}">
-                        {{ csrf_field() }}
-
-                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Name</label>
-
-                            <div class="col-md-6">
-                                <input type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
-
-                                @if ($errors->has('name'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
-
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Register
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
+    <h1>REGISTRO</h1>
+    <h2>¡Estás a tan solo un paso de comenzar a escribir!</h2>
+    <form action="{{ route('register') }}" method="post" enctype="multipart/form-data">
+        {{ csrf_field() }}
+        <div>
+            <label>Nombre de usuario (30)</label>
+            <br>
+            @if ($errors->has('username'))
+                <input class="form-error-content" type="text" name="username">
+            @else
+                <input type="text" name="username" value="{{ old('username') }}">
+            @endif
         </div>
-    </div>
-</div>
+        <br>
+        <div>
+            <label>Contraseña (25)</label>
+            <br>
+            @if ($errors->has('password'))
+                <input class="form-error-content" type="password" name="password">
+            @else
+                <input type="password" name="password">
+            @endif
+        </div>
+        <br>
+        <div>
+            <label>Confirma tu contraseña</label>
+            <br>
+            @if ($errors->has('password'))
+                <input class="form-error-content" type="password" name="password_confirmation">
+            @else
+                <input type="password" name="password_confirmation">
+            @endif
+        </div>
+        <br>
+        <div>
+            <label>Correo electrónico</label>
+            <br>
+            @if ($errors->has('email'))
+                <input class="form-error-content" type="text" name="email">
+            @else
+                <input type="text" name="email" value="{{ old('email') }}">
+            @endif
+        </div>
+        <br>
+        <div>
+            <label>Pregunta secreta (40)</label>
+            <br>
+            @if ($errors->has('s_question'))
+                <input class="form-error-content" type="text" name="s_question">
+            @else
+                <input type="text" name="s_question" value="{{ old('s_question') }}">
+            @endif
+        </div>
+        <br>
+        <div>
+            <label>Respuesta secreta (40)</label>
+            <br>
+            @if ($errors->has('s_answer'))
+                <input class="form-error-content" type="text" name="s_answer">
+            @else
+                <input type="text" name="s_answer" value="{{ old('s_answer') }}">
+            @endif
+        </div>
+        <br>
+        <div>
+            <label>Idioma del sitio</label>
+            <br>
+            <select name="site_lang">
+                @foreach ($langs as $lang => $largeLang)
+                    <option value="{{ $lang }}">{{ $largeLang }}</option>
+                @endforeach
+            </select>
+        </div>
+        <br>
+        <div>
+            <label>Imagen (10mb)</label>
+            <br>
+            <input class="upload-img" type="file" name="user_img">
+        </div>
+        <br>
+        <div>
+            <label><input class="register-input-terms" type="checkbox" name="terms"> He leído y acepto los <a href="{{ route('terms') }}">Términos de Uso</a>.</label>
+        </div>
+        @if (count($errors) > 0)
+            <div class="error-content">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+        <button type="submit">LISTO</button>
+    </form>
 @endsection

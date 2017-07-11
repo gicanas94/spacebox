@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class FaqController extends Controller
+class TermsController extends Controller
 {
     public function returnView()
     {
-        return view('faq', ['title' => 'F.A.Q.']);
+        return view('terms', ['title' => 'Términos de Uso']);
     }
 }

@@ -26,11 +26,11 @@
       <li><a href="index.php"><span class="icon left ion-ios-home"></span>Inicio</a></li>
 
       <?php if (! isset($loggedUser)): ?>
-        <li><a href="faq.php"><span class="icon left ion-help-circled"></span>F.A.Q.</a></li>
+        <li><a href="{{ route('faq') }}"><span class="icon left ion-help-circled"></span>F.A.Q.</a></li>
       <?php endif; ?>
 
       <?php if (! isset($loggedUser)): ?>
-        <li><a href="register.php"><span class="icon left ion-ios-heart"></span>Registrarse</a></li>
+        <li><a href="{{ route('register') }}"><span class="icon left ion-ios-heart"></span>Registrarse</a></li>
       <?php endif; ?>
 
       <?php if (isset($loggedUser) && isset($userSpacebox) && $loggedUser -> getUsername() != "admin"): ?>
@@ -42,7 +42,7 @@
       <?php endif; ?>
 
       <?php if (! isset($loggedUser)): ?>
-        <li><a href="login.php"><span class="icon left ion-happy"></span>Iniciar sesión</a></li>
+        <li><a href="{{ route('login') }}"><span class="icon left ion-happy"></span>Iniciar sesión</a></li>
       <?php endif; ?>
 
       <?php if (isset($loggedUser) && $loggedUser -> getPrivileges() >= 2): ?>
@@ -54,7 +54,7 @@
       <?php endif; ?>
 
       <?php if (isset($loggedUser)): ?>
-        <li><a href="logout.php"><span class="icon left ion-sad"></span>Cerrar sesión</a></li>
+        <li><a href="{{ route('logout') }}"><span class="icon left ion-sad"></span>Cerrar sesión</a></li>
       <?php endif; ?>
 
       <li>

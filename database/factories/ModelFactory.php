@@ -13,12 +13,12 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 $factory->define(App\User::class, function (Faker\Generator $faker) {
-    static $pwd;
+    static $password;
 
     return [
         'username' => $faker->unique()->userName,
         'email' => $faker->unique()->safeEmail,
-        'pwd' => $pwd ?: $pwd = bcrypt('123456'),
+        'password' => $password ?: $password = bcrypt('123456'),
         's_question' => $faker->realText($maxNbChars = 45, $indexSize = 2),
         's_answer' => $faker->realText($maxNbChars = 45, $indexSize = 2),
         'site_lang' => $faker->languageCode,
