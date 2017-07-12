@@ -16,7 +16,7 @@ class PostsTableSeeder extends Seeder
         $spaceboxes = Spacebox::all();
 
         foreach ($spaceboxes as $spacebox) {
-            factory(Post::class, 5)->create([
+            factory(Post::class, 10)->create([
                 'spacebox_id' => $spacebox->id
             ]);
         }

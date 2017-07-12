@@ -20,7 +20,7 @@ class CreateSpaceboxesTable extends Migration
           $table->char('lang', 2);
           $table->char('color', 7);
           $table->integer('visible')->default(1);
-          $table->integer('state')->default(1);
+          $table->integer('active')->default(1);
           $table->integer('user_id')->unsigned();
           $table->foreign('user_id')->references('id')->on('users');
           $table->timestamps();

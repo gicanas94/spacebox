@@ -23,7 +23,7 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         's_answer' => $faker->realText($maxNbChars = 45, $indexSize = 2),
         'site_lang' => $faker->languageCode,
         'privileges' => 1,
-        'state' => rand(0, 1),
+        'active' => rand(0, 1),
         'remember_token' => str_random(10)
     ];
 });
@@ -34,7 +34,7 @@ $factory->define(App\Spacebox::class, function (Faker\Generator $faker) {
         'lang' => $faker->languageCode,
         'color' => $faker->hexcolor,
         'visible' => rand(0, 1),
-        'state' => rand(0, 1)
+        'active' => rand(0, 1)
     ];
 });
 

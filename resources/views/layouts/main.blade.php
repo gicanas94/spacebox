@@ -14,10 +14,8 @@
 
             {{-- HEADER --}}
             @include('layouts.header')
-
-            <div class="content">
-                @yield('content')
-            </div>
+            
+            @yield('content')
 
             {{-- FOOTER --}}
             @include('layouts.footer')
