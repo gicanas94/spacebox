@@ -27,7 +27,7 @@ class LoginController extends Controller
      */
     public function showLoginForm()
     {
-        return view('auth.login', ['title' => 'Ingreso']);
+        return view('auth.login', ['title' => trans('messages.login-title')]);
     }
 
     /**

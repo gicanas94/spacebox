@@ -8,6 +8,6 @@ class TermsController extends Controller
 {
     public function returnView()
     {
-        return view('terms', ['title' => 'Términos de Uso']);
+        return view('terms', ['title' => trans('messages.terms-title')]);
     }
 }

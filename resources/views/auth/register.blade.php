@@ -2,8 +2,8 @@
 
 @section('content')
     <div class="content">
-        <h1>REGISTRO</h1>
-        <h2>¡Estás a tan solo un paso de comenzar a escribir!</h2>
+        <h1>{{ trans('messages.register-h1') }}</h1>
+        <h2>{{ trans('messages.register-h2') }}</h2>
         <form action="{{ route('register') }}" method="post" enctype="multipart/form-data">
             {{ csrf_field() }}
             <div>

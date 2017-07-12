@@ -14,6 +14,6 @@ class SearchController extends Controller
                                 ->where('visible', 1)
                                 ->get();
 
-        return view('search', ['title' => 'Resultados de la búsqueda'])->with('spaceboxes', $spaceboxes);
+        return view('search', ['title' => trans('messages.search-title')])->with('spaceboxes', $spaceboxes);
     }
 }

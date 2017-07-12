@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="content">
-        <h1>F.A.Q.</h1>
+        <h1>{{ trans('messages.faq-h1') }}</h1>
         <br>
         <div class="faq-cont">
             <h2>¿De qué se trata todo esto?</h2>

@@ -31,7 +31,7 @@ class RegisterController extends Controller
     {
         $langs = ["ES" => "Español", "EN" => "English", "PT" => "Português"];
 
-        return view('auth.register', ['title' => 'Registro'])->with('langs', $langs);
+        return view('auth.register', ['title' => trans('messages.register-title')])->with('langs', $langs);
     }
 
     /**

@@ -2,8 +2,8 @@
 
 @section('content')
     <div class="content">
-        <h1>TÉRMINOS DE USO</h1>
-        <h2>Nadie los lee pero...<br>¡contienen información importante!.</h2>
+        <h1>{{ trans('messages.terms-h1') }}</h1>
+        <h2>{{ trans('messages.terms-h2') }}</h2>
         <div class="warn-content">
             PRÓXIMAMENTE
         </div>

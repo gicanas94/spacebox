@@ -12,9 +12,9 @@ class IndexController extends Controller
         $spaceboxes = Spacebox::where('active', 1)
                                 ->where('visible', 1)
                                 ->get();
-                                
+
         $spaceboxes = $spaceboxes->shuffle();
 
-        return view('index', ['title' => 'Inicio'])->with('spaceboxes', $spaceboxes);
+        return view('index', ['title' => trans('messages.index-title')])->with('spaceboxes', $spaceboxes);
     }
 }
