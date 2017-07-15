@@ -15,12 +15,13 @@
             @foreach ($posts as $post)
                 <div class="space-post-cont">
                     @if (Auth::id() == $spacebox->user_id)
-                        <a data-method="DELETE" data-token="{{ csrf_token() }}" class="space-delete-post" href="{{ route('space.destroy', $post->id) }}">
-                            <span class="ion-trash-b"></span>
-                        </a>
-                        {{-- {{ Form::open(['route' => 'space.destroy', 'method' => 'delete']) }}
-                        {{ Form::submit('Eliminar', ['class' => 'space-delete-post']) }}
-                        {{ Form::close() }} --}}
+                        <form action="{{ route('space.destroy', $post->id) }}" method="post">
+                            {{ csrf_field() }}
+                            {{ method_field('DELETE') }}
+                            <button type="submit" class="space-delete-post">
+                                <span class="ion-trash-b"></span>
+                            </button>
+                        </form>
                     @endif
                     <h2>{{ $post->title }}</h2>
                     <p>{{ $post->content }}</p>
