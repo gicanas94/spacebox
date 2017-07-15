@@ -8,6 +8,8 @@ class FaqController extends Controller
 {
     public function returnView()
     {
-        return view('faq', ['title' => trans('messages.faq-title')]);
+        $title = trans('messages.faq-title');
+        
+        return view('faq')->with('title', $title);
     }
 }

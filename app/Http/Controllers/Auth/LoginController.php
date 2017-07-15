@@ -27,7 +27,9 @@ class LoginController extends Controller
      */
     public function showLoginForm()
     {
-        return view('auth.login', ['title' => trans('messages.login-title')]);
+        $title = trans('messages.login-title');
+
+        return view('auth.login')->with('title', $title);
     }
 
     /**

@@ -16,6 +16,7 @@ class CreateSpaceboxesTable extends Migration
         Schema::create('spaceboxes', function (Blueprint $table) {
           $table->increments('id');
           $table->string('name', 50);
+          $table->string('slug', 50);
           $table->string('description', 200);
           $table->char('lang', 2);
           $table->char('color', 7);

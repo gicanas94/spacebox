@@ -29,9 +29,10 @@ class RegisterController extends Controller
      */
     public function showRegistrationForm()
     {
+        $title = trans('messages.register-title');
         $langs = ["ES" => "Español", "EN" => "English", "PT" => "Português"];
 
-        return view('auth.register', ['title' => trans('messages.register-title')])->with('langs', $langs);
+        return view('auth.register', compact('title', 'langs'));
     }
 
     /**

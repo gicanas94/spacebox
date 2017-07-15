@@ -8,6 +8,8 @@ class TermsController extends Controller
 {
     public function returnView()
     {
-        return view('terms', ['title' => trans('messages.terms-title')]);
+        $title = trans('messages.terms-title');
+
+        return view('terms')->with('title', $title);
     }
 }

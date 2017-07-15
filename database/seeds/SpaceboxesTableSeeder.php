@@ -18,7 +18,8 @@ class SpaceboxesTableSeeder extends Seeder
         foreach ($users as $user) {
             factory(Spacebox::class)->create([
                 'name' => $user->username,
-                'user_id' => $user->id
+                'user_id' => $user->id,
+                'slug' => str_slug($user->username, '-')
             ]);
         }
     }

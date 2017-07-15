@@ -9,11 +9,12 @@ class SearchController extends Controller
 {
     public function findSpacebox(Request $request)
     {
+        $title = trans('messages.search-title');
         $spaceboxes = Spacebox::where('name', 'LIKE', "%$request->name%")
                                 ->where('active', 1)
                                 ->where('visible', 1)
                                 ->get();
 
-        return view('search', ['title' => trans('messages.search-title')])->with('spaceboxes', $spaceboxes);
+        return view('search', compact('title', 'spaceboxes'));
     }
 }
