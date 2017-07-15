@@ -1,11 +1,10 @@
 @extends('layouts.main')
 
 @section('content')
-    {{-- Resultados de la búsqueda. --}}
     <section class="spaceboxes">
         @if (count($spaceboxes) > 0)
             <article class="info">
-                <a class="spacebox-name" href="#"><h2>{{ count($spaceboxes) }} RESULTADOS</h2></a>
+                <a class="spacebox-name" href="#"><h2>{{ count($spaceboxes) . trans('messages.search-results') }}</h2></a>
             </article>
             @foreach ($spaceboxes as $spacebox)
                 <article style="background-color: {{ $spacebox->color }}">
@@ -15,7 +14,7 @@
             @endforeach
         @else
             <article class="info">
-                <a class="spacebox-name" href="{{ route('index') }}"><h2>SIN RESULTADOS.</h2></a>
+                <a class="spacebox-name" href="{{ route('index') }}"><h2>{{ trans('messages.search-noresults') }}</h2></a>
             </article>
         @endif
     </section>
