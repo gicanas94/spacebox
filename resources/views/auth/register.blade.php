@@ -85,11 +85,11 @@
             <div>
                 <label><input class="register-input-terms" type="checkbox" name="terms"> He leído y acepto los <a href="{{ route('terms') }}">Términos de Uso</a>.</label>
             </div>
-            @if (count($errors) > 0)
+            @if ($errors->any())
                 <div class="error-content">
                     <ul>
                         @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
+                            <li>- {{ $error }}</li>
                         @endforeach
                     </ul>
                 </div>

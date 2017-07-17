@@ -33,7 +33,7 @@
             <div>
                 <a href="{{ route('password.request') }}">¿Olvidaste tu usuario o contraseña?</a>
             </div>
-            @if (count($errors) > 0)
+            @if ($errors->any())
                 <div class="error-content">
                     <ul>
                         @foreach ($errors->all() as $error)

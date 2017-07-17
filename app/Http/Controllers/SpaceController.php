@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Spacebox;
 use App\Post;
+use App\Http\Requests\StoreSpaceboxPost;
 
 class SpaceController extends Controller
 {
@@ -17,10 +18,17 @@ class SpaceController extends Controller
         return view('space', compact('title', 'spacebox', 'posts'));
     }
 
+    public function store(StoreSpaceboxPost $request)
+    {        
+        Post::create($request->except('_token'));
+
+        return back()->withSuccess(trans('messages.space-newpost'));
+    }
+
     public function destroy($id)
     {
         Post::find($id)->delete();
-        
+
         return back();
     }
 }

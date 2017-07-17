@@ -16,6 +16,10 @@ return [
 
     // -/space
     'space-noposts' => 'Por el momento, no hay publicaciones para mostrar.',
+    'space-titlerequired' => 'Debes escribir un título para tu publicación.',
+    'space-titlemax' => 'El título de la publicación no debe superar los 50 caracteres.',
+    'space-contentrequired' => '¡Tu publicación debe tener contenido!',
+    'space-newpost' => '¡Publicación exitosa!',
 
     // -/search
     'search-title' => 'Resultados de la búsqueda',

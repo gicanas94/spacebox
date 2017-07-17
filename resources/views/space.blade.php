@@ -9,12 +9,56 @@
         <hr>
         <h2 style="margin: 0;">{{ $spacebox->description }}</h2>
         <hr>
+        @if (Auth::id() === $spacebox->user_id)
+            <br>
+            <div class="space-newpost-cont">
+                <form action="{{ route('space.store') }}" method="post">
+                    {{ csrf_field() }}
+                    <div>
+                        <label>Título (50)</label>
+                        @if ($errors->has('title'))
+                            <input class="form-error-content" type="text" name="title">
+                        @else
+                            <input type="text" name="title" value="{{ old('title') }}">
+                        @endif
+                    </div>
+                    <br>
+                    <div>
+                        <label>Contenido</label>
+                        @if ($errors->has('content'))
+                            <textarea class="form-error-content" name="content" rows="5"></textarea>
+                        @else
+                            <textarea name="content" rows="5">{{ old('content') }}</textarea>
+                        @endif
+                    </div>
+                    <br>
+                    @if ($errors->any())
+                        <div class="error-content">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>- {{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+                    <input type="hidden" name="date" value="{{ date("d/m/Y") }}">
+                    <input type="hidden" name="spacebox_id" value="{{  }}">
+                    <div style="text-align: right;">
+                        <button type="submit">PUBLICAR</button>
+                    </div>
+                </form>
+                @if(session()->has('success'))
+                    <div style="text-align: center;" class="succeed-content">{{ session()->get('success') }}    </div>
+                @endif
+            </div>
+            <hr>
+        @endif
         @if (count($posts) == 0)
             <div class="warn-content">{{ trans('messages.space-noposts') }}</div>
         @else
             @foreach ($posts as $post)
                 <div class="space-post-cont">
-                    @if (Auth::id() == $spacebox->user_id)
+                    @if (Auth::id() === $spacebox->user_id)
                         <form action="{{ route('space.destroy', $post->id) }}" method="post">
                             {{ csrf_field() }}
                             {{ method_field('DELETE') }}
