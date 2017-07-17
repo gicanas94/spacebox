@@ -19,7 +19,7 @@
             <div>
                 <label>Contraseña</label>
                 <br>
-                @if ($errors->has('email'))
+                @if ($errors->has('password'))
                     <input class="form-error-content" type="password" name="password">
                 @else
                     <input type="password" name="password">
@@ -37,7 +37,7 @@
                 <div class="error-content">
                     <ul>
                         @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
+                            <li>- {{ $error }}</li>
                         @endforeach
                     </ul>
                 </div>

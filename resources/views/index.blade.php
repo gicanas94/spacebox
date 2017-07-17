@@ -2,7 +2,6 @@
 
 @section('content')
     <section class="spaceboxes">
-        {{-- Recuadros únicamente visibles para usuarios no registrados o que no iniciaron sesión. --}}
         @if (! Auth::check())
             <article class="info">
                 <a class="spacebox-name" href="{{ route('register') }}"><h2>REGISTRATE</h2></a>
@@ -19,7 +18,6 @@
         {{-- Spacebox del usuario, en caso de tener uno.
         # --}}
 
-        {{-- Spaceboxes de usuarios. --}}
         @foreach ($spaceboxes as $spacebox)
             @if (Auth::id() == $spacebox->user_id)
                 <article class="loggeduser-spacebox" style="background-color: {{ $spacebox->color }}">
@@ -33,7 +31,6 @@
             </article>
         @endforeach
 
-        {{-- Cargar más Spaceboxes en pantalla. --}}
         <article class="info">
             <a class="spacebox-name" href="#"><h2>...</h2></a>
         </article>

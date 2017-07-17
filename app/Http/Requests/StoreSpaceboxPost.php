@@ -28,13 +28,4 @@ class StoreSpaceboxPost extends FormRequest
             'content' => 'required'
         ];
     }
-
-    public function messages()
-    {
-        return [
-            'title.required' => trans('messages.space-titlerequired'),
-            'title.max' => trans('messages.space-titlemax'),
-            'content.required'  => trans('messages.space-contentrequired')
-        ];
-    }
 }

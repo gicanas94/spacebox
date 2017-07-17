@@ -102,8 +102,46 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        'username' => [
+            'required' => 'Debes escribir un nombre de usuario.',
+            'min' => 'El nombre de usuario debe tener entre 3 y 30 caracteres.',
+            'max' => 'El nombre de usuario debe tener entre 3 y 30 caracteres.',
+            'unique' => 'El nombre de usuario ingresado ya existe.',
+        ],
+        'email' => [
+            'required' => 'Debes escribir un correo.',
+            'email' => 'Debes escribir un correo válido.',
+            'unique' => 'Ya existe una cuenta registrada con el correo ingresado.'
+        ],
+        'password' => [
+            'required' => 'Debes escribir una contraseña.',
+            'min' => 'La contraseña debe tener entre 4 y 25 caracteres.',
+            'max' => 'La contraseña debe tener entre 4 y 25 caracteres.',
+            'confirmed' => 'Las contraseñas ingresadas no coinciden.'
+        ],
+        's_question' => [
+            'required' => 'Debes escribir una pregunta secreta.',
+            'max' => 'La pregunta secreta no debe superer los 40 caracteres.'
+        ],
+        's_answer' => [
+            'required' => 'Debes escribir una respuesta secreta.',
+            'max' => 'La respuesta secreta no debe superer los 40 caracteres.',
+            'different' => 'La pregunta secreta y la respuesta secreta no pueden ser iguales.'
+        ],
+        'user_img' => [
+            'required' => 'Debes subir una imagen.',
+            'image' => 'El formato de la imagen no es válido. Formatos permitidos: .jpeg, .png, .bmp, .gif, .svg.',
+            'size' => 'El peso de la imagen no debe ser mayor a 10mb.'
+        ],
+        'terms' => [
+            'required' => 'Debes aceptar los Términos de Uso.'
+        ],
+        'title' => [
+            'required' => 'Debes escribir un título para tu publicación.',
+            'max' => 'El título de la publicación no debe superar los 50 caracteres.'
+        ],
+        'content' => [
+            'required' => '¡Tu publicación debe tener contenido!'
         ],
     ],
 

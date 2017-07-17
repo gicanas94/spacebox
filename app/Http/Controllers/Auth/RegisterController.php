@@ -64,9 +64,9 @@ class RegisterController extends Controller
             'username' => 'required|string|min:3|max:30|unique:users',
             'email' => 'required|string|email|unique:users',
             'password' => 'required|string|min:4|max:25|confirmed',
-            's_question' => 'required|string|max:40|',
-            's_answer' => 'required|string|max:40|',
-            'user_img' => 'required',
+            's_question' => 'required|string|max:40',
+            's_answer' => 'required|string|max:40|different:s_question',
+            'user_img' => 'required|image|size:10485760',
             'terms' => 'required'
         ]);
     }

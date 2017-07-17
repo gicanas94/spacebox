@@ -13,8 +13,8 @@
 
 Auth::routes();
 Route::get('/', 'IndexController@returnView')->name('index');
-Route::get('/faq', 'FaqController@returnView')->name('faq');
-Route::get('/terms', 'TermsController@returnView')->name('terms');
-Route::get('/space/{slug}', 'SpaceController@returnView')->name('space');
-Route::get('/search', 'SearchController@findSpacebox')->name('search');
+Route::get('faq', 'FaqController@returnView')->name('faq');
+Route::get('terms', 'TermsController@returnView')->name('terms');
+Route::get('space/{slug}', 'SpaceController@returnView')->name('space');
+Route::get('search', 'SearchController@findSpacebox')->name('search');
 Route::resource('space', 'SpaceController');

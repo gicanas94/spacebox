@@ -42,7 +42,7 @@
                         </div>
                     @endif
                     <input type="hidden" name="date" value="{{ date("d/m/Y") }}">
-                    <input type="hidden" name="spacebox_id" value="{{  }}">
+                    <input type="hidden" name="spacebox_id" value="{{ $spacebox->id }}">
                     <div style="text-align: right;">
                         <button type="submit">PUBLICAR</button>
                     </div>
@@ -53,8 +53,9 @@
             </div>
             <hr>
         @endif
-        @if (count($posts) == 0)
-            <div class="warn-content">{{ trans('messages.space-noposts') }}</div>
+
+        @if (count($posts) === 0)
+            <div class="warn-content">{{ trans('messages.space-no-posts') }}</div>
         @else
             @foreach ($posts as $post)
                 <div class="space-post-cont">

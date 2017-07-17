@@ -19,10 +19,10 @@ class SpaceController extends Controller
     }
 
     public function store(StoreSpaceboxPost $request)
-    {        
+    {
         Post::create($request->except('_token'));
 
-        return back()->withSuccess(trans('messages.space-newpost'));
+        return back()->withSuccess(trans('messages.space-new-post'));
     }
 
     public function destroy($id)

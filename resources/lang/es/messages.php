@@ -15,16 +15,13 @@ return [
     'login-h2' => '¡Bienvenido nuevamente!<br>ingresa los datos a continuación.',
 
     // -/space
-    'space-noposts' => 'Por el momento, no hay publicaciones para mostrar.',
-    'space-titlerequired' => 'Debes escribir un título para tu publicación.',
-    'space-titlemax' => 'El título de la publicación no debe superar los 50 caracteres.',
-    'space-contentrequired' => '¡Tu publicación debe tener contenido!',
-    'space-newpost' => '¡Publicación exitosa!',
+    'space-no-posts' => 'Por el momento, no hay publicaciones para mostrar.',
+    'space-new-post' => '¡Publicación exitosa!',
 
     // -/search
     'search-title' => 'Resultados de la búsqueda',
-    'search-results' => ' RESULTADOS',
-    'search-noresults' => 'SIN RESULTADOS',
+    'search-x-results' => ' RESULTADOS',
+    'search-no-results' => 'SIN RESULTADOS',
 
     // -/terms
     'terms-title' => 'Términos de uso',
