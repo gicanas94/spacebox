@@ -13,6 +13,7 @@
 
 Auth::routes();
 Route::get('/', 'IndexController@returnView')->name('index');
+Route::get('createspace', 'CreateSpaceController@returnView')->name('createspace');
 Route::get('faq', 'FaqController@returnView')->name('faq');
 Route::get('terms', 'TermsController@returnView')->name('terms');
 Route::get('space/{slug}', 'SpaceController@returnView')->name('space');

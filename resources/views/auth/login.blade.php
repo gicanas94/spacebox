@@ -3,7 +3,7 @@
 @section('content')
     <div class="content">
         <h1>{{ trans('messages.login-h1') }}</h1>
-        <h2>{{ trans('messages.login-h2') }}</h2>
+        <h2>{!! trans('messages.login-h2') !!}</h2>
         <form action="{{ route('login') }}" method="post">
             {{ csrf_field() }}
             <div>
