@@ -13,22 +13,22 @@
             @endif
 
             @if (Auth::check())
-                @if (auth()->user()->isAdmin())
-                    <li><a href=""><span class="icon left ion-help-buoy"></span>{{ trans('messages.header-admincp') }}</a></li>
+                @if (Auth::user()->isAdmin())
+                    <li><a href={{ route('admin') }}><span class="icon left ion-help-buoy"></span>{{ trans('messages.header-admin') }}</a></li>
                 @endif
-                @if (empty(auth()->user()->spacebox))
-                    <li><a href=""><span class="icon left ion-ios-compose"></span>{{ trans('messages.header-create-spacebox') }}</a></li>
+                @if (empty(Auth::user()->spacebox))
+                    <li><a href="{{ route('createspace.index') }}"><span class="icon left ion-ios-compose"></span>{{ trans('messages.header-create-spacebox') }}</a></li>
                 @else
                     <li><a href=""><span class="icon left ion-planet"></span>{{ trans('messages.header-my-spacebox') }}</a></li>
-                    <li><a href=""><span class="icon left ion-android-person"></span>{{ trans('messages.header-my-account') }}</a></li>
-                    <li>
-                        <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                        <span class="icon left ion-sad"></span>{{ trans('messages.header-logout') }}</a>
-                    </li>
+                @endif
+                <li><a href=""><span class="icon left ion-android-person"></span>{{ trans('messages.header-my-account') }}</a></li>
+                <li>
+                    <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                    <span class="icon left ion-sad"></span>{{ trans('messages.header-logout') }}</a>
                     <form id="logout-form" action="{{ route('logout') }}" method="post">
                         {{ csrf_field() }}
                     </form>
-                @endif
+                </li>
             @endif
 
             <li>

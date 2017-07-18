@@ -71,7 +71,11 @@
                 <br>
                 <select name="site_lang">
                     @foreach ($langs as $lang => $largeLang)
-                        <option value="{{ $lang }}">{{ $largeLang }}</option>
+                        @if ($lang == old('site_lang'))
+                            <option value="{{ $lang }}" selected>{{ $largeLang }}</option>
+                        @else
+                            <option value="{{ $lang }}">{{ $largeLang }}</option>
+                        @endif
                     @endforeach
                 </select>
             </div>

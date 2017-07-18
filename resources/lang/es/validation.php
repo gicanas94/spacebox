@@ -136,9 +136,20 @@ return [
         'terms' => [
             'required' => 'Debes aceptar los Términos de Uso.'
         ],
+        'name' => [
+            'required' => '¡Tu Spacebox debe tener un nombre!',
+            'max' => 'El nombre no debe superar los 50 caracteres.'
+        ],
+        'description' => [
+            'required' => 'Debes escribir una descripción.',
+            'max' => 'La descripción no debe superer los 200 caracteres.'
+        ],
+        'color' => [
+            'required' => 'Debes elegir un color.'
+        ],
         'title' => [
-            'required' => 'Debes escribir un título para tu publicación.',
-            'max' => 'El título de la publicación no debe superar los 50 caracteres.'
+            'required' => 'Debes escribir un título.',
+            'max' => 'El título no debe superar los 50 caracteres.'
         ],
         'content' => [
             'required' => '¡Tu publicación debe tener contenido!'

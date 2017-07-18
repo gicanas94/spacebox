@@ -5,20 +5,20 @@
         <h1>{{ trans('messages.faq-h1') }}</h1>
         <br>
         <div class="faq-cont">
-            <h2>{{ trans('messages.faq-question1') }}</h2>
-            <p>{{ trans('messages.faq-answer1') }}</p>
+            <h2>{{ trans('messages.faq-question-1') }}</h2>
+            <p>{{ trans('messages.faq-answer-1') }}</p>
             <br>
-            <h2>{{ trans('messages.faq-question2') }}</h2>
-            <p>{!! trans('messages.faq-answer2') !!}</p>
+            <h2>{{ trans('messages.faq-question-2') }}</h2>
+            <p>{!! trans('messages.faq-answer-2') !!}</p>
             <br>
-            <h2>{{ trans('messages.faq-question3') }}</h2>
-            <p>{{ trans('messages.faq-answer3') }}</p>
+            <h2>{{ trans('messages.faq-question-3') }}</h2>
+            <p>{{ trans('messages.faq-answer-3') }}</p>
             <br>
-            <h2>{{ trans('messages.faq-question4') }}</h2>
-            <p>{{ trans('messages.faq-answer4') }}</p>
+            <h2>{{ trans('messages.faq-question-4') }}</h2>
+            <p>{{ trans('messages.faq-answer-4') }}</p>
             <br>
-            <h2>{{ trans('messages.faq-question5') }}</h2>
-            <p>{!! trans('messages.faq-answer5') !!}</p>
+            <h2>{{ trans('messages.faq-question-5') }}</h2>
+            <p>{!! trans('messages.faq-answer-5') !!}</p>
         </div>
     </div>
 @endsection

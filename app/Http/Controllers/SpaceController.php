@@ -9,7 +9,7 @@ use App\Http\Requests\StoreSpaceboxPost;
 
 class SpaceController extends Controller
 {
-    public function returnView($slug)
+    public function show($slug)
     {
         $spacebox = Spacebox::where('slug', $slug)->first();
         $title = '#' . $spacebox->name;
@@ -20,7 +20,14 @@ class SpaceController extends Controller
 
     public function store(StoreSpaceboxPost $request)
     {
-        Post::create($request->except('_token'));
+        $otherStuff = [
+            'date' => date("d/m/Y"),
+            'spacebox_id' => auth()->user()->spacebox->id
+        ];
+
+        $post = array_merge($request->except('_token'), $otherStuff);
+
+        Post::create($post);
 
         return back()->withSuccess(trans('messages.space-new-post'));
     }

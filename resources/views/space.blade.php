@@ -41,8 +41,6 @@
                             </ul>
                         </div>
                     @endif
-                    <input type="hidden" name="date" value="{{ date("d/m/Y") }}">
-                    <input type="hidden" name="spacebox_id" value="{{ $spacebox->id }}">
                     <div style="text-align: right;">
                         <button type="submit">{{ trans('messages.space-form-submit') }}</button>
                     </div>
@@ -59,7 +57,7 @@
         @else
             @foreach ($posts as $post)
                 <div class="space-post-cont">
-                    @if (Auth::id() === $spacebox->user_id)
+                    @if (Auth::id() === $spacebox->user_id || Auth::check() && Auth::user()->isAdmin())
                         <form action="{{ route('space.destroy', $post->id) }}" method="post">
                             {{ csrf_field() }}
                             {{ method_field('DELETE') }}
