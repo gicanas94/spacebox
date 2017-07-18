@@ -12,6 +12,19 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
+        $admin = User::create([
+            'username' => 'Gabriel',
+            'email' => 'gicanas94@gmail.com',
+            'password' => bcrypt('123456'),
+            's_question' => "funciona esto?",
+            's_answer' => 'ya lo veremos...',
+            'site_lang' => 'ES',
+            'active' => 1
+        ]);
+
+        $adminRole = \HttpOz\Roles\Models\Role::findBySlug('admin');
+        $admin->attachRole($adminRole);
+
         factory(User::class, 200)->create();
     }
 }

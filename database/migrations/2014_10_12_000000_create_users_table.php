@@ -21,7 +21,6 @@ class CreateUsersTable extends Migration
           $table->string('s_question', 45);
           $table->string('s_answer', 45);
           $table->char('site_lang', 2);
-          $table->integer('privileges')->default(1);
           $table->integer('active')->default(1);
           $table->rememberToken();
           $table->timestamps();

@@ -86,7 +86,6 @@ class RegisterController extends Controller
             's_question' => $data['s_question'],
             's_answer' => $data['s_answer'],
             'site_lang' => $data['site_lang'],
-            'privileges' => 1,
             'state' => 1
         ]);
     }

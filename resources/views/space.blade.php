@@ -15,7 +15,7 @@
                 <form action="{{ route('space.store') }}" method="post">
                     {{ csrf_field() }}
                     <div>
-                        <label>Título (50)</label>
+                        <label>{{ trans('messages.space-form-title') }}</label>
                         @if ($errors->has('title'))
                             <input class="form-error-content" type="text" name="title">
                         @else
@@ -24,7 +24,7 @@
                     </div>
                     <br>
                     <div>
-                        <label>Contenido</label>
+                        <label>{{ trans('messages.space-form-content') }}</label>
                         @if ($errors->has('content'))
                             <textarea class="form-error-content" name="content" rows="5"></textarea>
                         @else
@@ -44,7 +44,7 @@
                     <input type="hidden" name="date" value="{{ date("d/m/Y") }}">
                     <input type="hidden" name="spacebox_id" value="{{ $spacebox->id }}">
                     <div style="text-align: right;">
-                        <button type="submit">PUBLICAR</button>
+                        <button type="submit">{{ trans('messages.space-form-submit') }}</button>
                     </div>
                 </form>
                 @if(session()->has('success'))

@@ -7,7 +7,7 @@
         <form action="{{ route('login') }}" method="post">
             {{ csrf_field() }}
             <div>
-                <label>Usuario</label>
+                <label>{{ trans('messages.login-form-username') }}</label>
                 <br>
                 @if ($errors->has('username'))
                     <input class="form-error-content" type="text" name="username">
@@ -17,7 +17,7 @@
             </div>
             <br>
             <div>
-                <label>Contraseña</label>
+                <label>{{ trans('messages.login-form-password') }}</label>
                 <br>
                 @if ($errors->has('password'))
                     <input class="form-error-content" type="password" name="password">
@@ -27,11 +27,11 @@
             </div>
             <br>
             <div>
-                <label><input class="login-input-remember" type="checkbox" name="remember"> Recordar mi contraseña</label>
+                <label><input class="login-input-remember" type="checkbox" name="remember">{{ trans('messages.login-form-remember') }}</label>
             </div>
             <br>
             <div>
-                <a href="{{ route('password.request') }}">¿Olvidaste tu usuario o contraseña?</a>
+                <a href="{{ route('password.request') }}">{{ trans('messages.login-form-forgot') }}</a>
             </div>
             @if ($errors->any())
                 <div class="error-content">
@@ -42,7 +42,7 @@
                     </ul>
                 </div>
             @endif
-            <button type="submit">LOGIN</button>
+            <button type="submit">{{ trans('messages.login-form-submit') }}</button>
         </form>
     </div>
 @endsection

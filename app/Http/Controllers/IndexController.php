@@ -10,7 +10,6 @@ class IndexController extends Controller
 {
     public function returnView()
     {
-
         $title = trans('messages.index-title');
         $totalUsers = User::all()->count();
         $spaceboxes = Spacebox::where('active', 1)

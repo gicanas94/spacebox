@@ -22,7 +22,6 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         's_question' => $faker->realText($maxNbChars = 45, $indexSize = 2),
         's_answer' => $faker->realText($maxNbChars = 45, $indexSize = 2),
         'site_lang' => $faker->languageCode,
-        'privileges' => 1,
         'active' => rand(0, 1),
         'remember_token' => str_random(10)
     ];
