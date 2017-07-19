@@ -27,6 +27,12 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
     ];
 });
 
+$factory->define(App\Image::class, function (Faker\Generator $faker) {
+    return [
+        'src' => $faker->imageUrl($width = 500, $height = 500)
+    ];
+});
+
 $factory->define(App\Spacebox::class, function (Faker\Generator $faker) {
     return [
         'description' => $faker->realText($maxNbChars = 200, $indexSize = 2),

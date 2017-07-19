@@ -4,7 +4,7 @@
     <div class="content">
         <h1>{{ $title }}</h1>
         <hr>
-        <img class="space-user-img" src="" alt="">
+        <img class="space-user-img" src="{{ $image->src }}" alt="">
         <br>
         <hr>
         <h2 style="margin: 0;">{{ $spacebox->description }}</h2>

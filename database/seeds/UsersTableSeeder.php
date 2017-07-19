@@ -25,6 +25,6 @@ class UsersTableSeeder extends Seeder
         $adminRole = \HttpOz\Roles\Models\Role::findBySlug('admin');
         $admin->attachRole($adminRole);
 
-        factory(User::class, 200)->create();
+        factory(User::class, 500)->create();
     }
 }

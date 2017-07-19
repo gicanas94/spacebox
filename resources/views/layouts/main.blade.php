@@ -14,7 +14,7 @@
 
             {{-- HEADER --}}
             @include('layouts.header')
-            
+
             @yield('content')
 
             {{-- FOOTER --}}

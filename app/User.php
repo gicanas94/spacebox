@@ -27,6 +27,11 @@ class User extends Authenticatable implements HasRoleContract
         'password', 'remember_token',
     ];
 
+    public function image()
+    {
+        return $this->hasOne('App\Image');
+    }
+
     public function spacebox()
     {
         return $this->hasOne('App\Spacebox');

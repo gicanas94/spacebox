@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Image;
 use App\Spacebox;
 use App\Post;
 use App\Http\Requests\StoreSpaceboxPost;
@@ -13,9 +14,10 @@ class SpaceController extends Controller
     {
         $spacebox = Spacebox::where('slug', $slug)->first();
         $title = '#' . $spacebox->name;
+        $image = Image::where('user_id', $spacebox->user_id)->first();
         $posts = Post::where('spacebox_id', $spacebox->id)->get();
 
-        return view('space', compact('title', 'spacebox', 'posts'));
+        return view('space', compact('spacebox', 'title', 'image', 'posts'));
     }
 
     public function store(StoreSpaceboxPost $request)
