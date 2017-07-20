@@ -16,12 +16,17 @@
                 @if (Auth::user()->isAdmin())
                     <li><a href={{ route('admin') }}><span class="icon left ion-help-buoy"></span>{{ trans('messages.header-admin') }}</a></li>
                 @endif
-                @if (empty(Auth::user()->spacebox))
-                    <li><a href="{{ route('createspace.index') }}"><span class="icon left ion-ios-compose"></span>{{ trans('messages.header-create-spacebox') }}</a></li>
-                @else
-                    <li><a href=""><span class="icon left ion-planet"></span>{{ trans('messages.header-my-spacebox') }}</a></li>
+                @if (Auth::user()->banned != 1)
+                    @if (empty(Auth::user()->spacebox))
+                        <li><a href="{{ route('createspace.index') }}"><span class="icon left ion-ios-compose"></span>{{ trans('messages.header-create-spacebox') }}</a></li>
+                    @else
+                        <li><a href=""><span class="icon left ion-planet"></span>{{ trans('messages.header-my-spacebox') }}</a></li>
+                    @endif
+                    <li><a href=""><span class="icon left ion-android-person"></span>{{ trans('messages.header-my-account') }}</a></li>
                 @endif
-                <li><a href=""><span class="icon left ion-android-person"></span>{{ trans('messages.header-my-account') }}</a></li>
+            @endif
+
+            @if (Auth::check())
                 <li>
                     <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                     <span class="icon left ion-sad"></span>{{ trans('messages.header-logout') }}</a>

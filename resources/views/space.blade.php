@@ -4,12 +4,12 @@
     <div class="content">
         <h1>{{ $title }}</h1>
         <hr>
-        <img class="space-user-img" src="{{ $image->src }}" alt="">
+        <img class="space-user-img" src="{{ asset($image->src) }}" alt="">
         <br>
         <hr>
         <h2 style="margin: 0;">{{ $spacebox->description }}</h2>
         <hr>
-        @if (Auth::id() === $spacebox->user_id)
+        @if (Auth::id() === $spacebox->user_id && Auth::user()->banned != 1)
             <br>
             <div class="space-newpost-cont">
                 <form action="{{ route('space.store') }}" method="post">
@@ -57,7 +57,7 @@
         @else
             @foreach ($posts as $post)
                 <div class="space-post-cont">
-                    @if (Auth::id() === $spacebox->user_id || Auth::check() && Auth::user()->isAdmin())
+                    @if (Auth::id() === $spacebox->user_id && Auth::user()->banned != 1 || Auth::check() && Auth::user()->isAdmin())
                         <form action="{{ route('space.destroy', $post->id) }}" method="post">
                             {{ csrf_field() }}
                             {{ method_field('DELETE') }}

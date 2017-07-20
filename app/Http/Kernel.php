@@ -58,5 +58,6 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'hasSpacebox' => \App\Http\Middleware\HasSpacebox::class,
         'isAdmin' => \App\Http\Middleware\IsAdmin::class,
+        'userIsBanned' => \App\Http\Middleware\UserIsBanned::class,
     ];
 }

@@ -1,8 +1,6 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Spacebox;
-use App\User;
 
 class SpaceboxesTableSeeder extends Seeder
 {
@@ -13,14 +11,18 @@ class SpaceboxesTableSeeder extends Seeder
      */
     public function run()
     {
-        $users = User::all();
+        $users = App\User::all();
+        $colors = App\Spacebox::colors();
 
         foreach ($users as $user) {
-            factory(Spacebox::class)->create([
-                'name' => $user->username,
-                'user_id' => $user->id,
-                'slug' => str_slug($user->username, '-')
-            ]);
+            if ($user->username != 'Gabriel') {
+                factory(App\Spacebox::class)->create([
+                    'name' => $user->username,
+                    'slug' => str_slug($user->username, '-'),
+                    'color' => $colors[array_rand($colors)],
+                    'user_id' => $user->id
+                ]);
+            }
         }
     }
 }

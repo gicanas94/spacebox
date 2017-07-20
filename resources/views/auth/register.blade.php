@@ -69,9 +69,9 @@
             <div>
                 <label>{{ trans('messages.register-form-lang') }}</label>
                 <br>
-                <select name="site_lang">
+                <select name="lang">
                     @foreach ($langs as $lang => $largeLang)
-                        @if ($lang == old('site_lang'))
+                        @if ($lang === old('lang'))
                             <option value="{{ $lang }}" selected>{{ $largeLang }}</option>
                         @else
                             <option value="{{ $lang }}">{{ $largeLang }}</option>
@@ -83,7 +83,7 @@
             <div>
                 <label>{{ trans('messages.register-form-image') }}</label>
                 <br>
-                <input class="upload-img" type="file" name="user_img">
+                <input class="upload-img" type="file" name="img">
             </div>
             <br>
             <div>

@@ -1,8 +1,6 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Image;
-use App\User;
 
 class ImagesTableSeeder extends Seeder
 {
@@ -13,11 +11,10 @@ class ImagesTableSeeder extends Seeder
      */
     public function run()
     {
-        $users = User::all();
+        $users = App\User::all();
 
         foreach ($users as $user) {
-            factory(Image::class)->create([
-                'name' => $user->username,
+            factory(App\Image::class)->create([
                 'user_id' => $user->id
             ]);
         }

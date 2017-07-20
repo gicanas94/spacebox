@@ -128,10 +128,10 @@ return [
             'max' => 'La respuesta secreta no debe superer los 40 caracteres.',
             'different' => 'La pregunta secreta y la respuesta secreta no pueden ser iguales.'
         ],
-        'user_img' => [
+        'img' => [
             'required' => 'Debes subir una imagen.',
             'image' => 'El formato de la imagen no es válido. Formatos permitidos: .jpeg, .png, .bmp, .gif, .svg.',
-            'size' => 'El peso de la imagen no debe ser mayor a 10mb.'
+            'between' => 'El peso de la imagen no debe ser mayor a 10mb.'
         ],
         'terms' => [
             'required' => 'Debes aceptar los Términos de Uso.'

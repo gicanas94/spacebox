@@ -162,6 +162,19 @@ button:hover {
   border: solid 1px #F4FA58;
 }
 
+.banned-content {
+  font-size: 0.9em;
+  background-color: RGBA(70, 0, 0, 0.6);
+  border: solid 1px #DF0101;
+  padding: 15px;
+  margin-top: 80px;
+  margin-bottom: -85px;
+}
+
+.banned-content p {
+  margin: 0;
+}
+
 .small-error-content ul, .succeed-content, .warn-content {
   padding: 10px;
 }

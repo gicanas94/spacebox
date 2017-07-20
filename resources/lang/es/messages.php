@@ -47,6 +47,11 @@ return [
     'index-go-my-spacebox' => 'IR A MI SPACEBOX',
     'index-admin' => 'ADMIN',
 
+    // BANNED -/
+    'index-banned-h2' => 'Tu cuenta se encuentra bloqueada.',
+    'index-banned-reason' => 'Motivo: ',
+    'index-banned-explanation' => 'Un bloqueo de cuenta evita que puedas crear o administrar un Spacebox. Tampoco puedes administrar tu cuenta.',
+
     // -/faq
     'faq-title' => 'F.A.Q.',
     'faq-h1' => 'F.A.Q.',

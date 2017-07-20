@@ -21,8 +21,8 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'password' => $password ?: $password = bcrypt('123456'),
         's_question' => $faker->realText($maxNbChars = 45, $indexSize = 2),
         's_answer' => $faker->realText($maxNbChars = 45, $indexSize = 2),
-        'site_lang' => $faker->languageCode,
-        'active' => rand(0, 1),
+        'lang' => strtoupper($faker->languageCode),
+        'banned' => rand(0, 1),
         'remember_token' => str_random(10)
     ];
 });
@@ -35,11 +35,10 @@ $factory->define(App\Image::class, function (Faker\Generator $faker) {
 
 $factory->define(App\Spacebox::class, function (Faker\Generator $faker) {
     return [
-        'description' => $faker->realText($maxNbChars = 200, $indexSize = 2),
-        'lang' => $faker->languageCode,
-        'color' => $faker->hexcolor,
+        'description' => $faker->realText($maxNbChars = 100, $indexSize = 2),
+        'lang' => strtoupper($faker->languageCode),
         'visible' => rand(0, 1),
-        'active' => rand(0, 1)
+        'banned' => rand(0, 1)
     ];
 });
 

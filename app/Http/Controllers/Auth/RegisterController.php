@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\Image;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -66,7 +67,7 @@ class RegisterController extends Controller
             'password' => 'required|string|min:4|max:25|confirmed',
             's_question' => 'required|string|max:40',
             's_answer' => 'required|string|max:40|different:s_question',
-            'user_img' => 'required|image|size:10485760',
+            'img' => 'required|image|between:1,10000',
             'terms' => 'required'
         ]);
     }
@@ -79,14 +80,34 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $newUser = User::create([
             'username' => $data['username'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
             's_question' => $data['s_question'],
             's_answer' => $data['s_answer'],
-            'site_lang' => $data['site_lang'],
-            'state' => 1
+            'lang' => $data['lang'],
         ]);
+
+        $this->storeImg($data);
+
+        return $newUser;
+    }
+
+    protected function storeImg(array $data)
+    {
+        $user = User::where('username', $data['username'])->first();
+
+        if ($data['img']->isValid()) {
+            $destination = public_path('user_img');
+            $extension = $data['img']->getClientOriginalExtension();
+            $fileName = 'user_id_' . $user->id . '.' . $extension;
+            $data['img']->move($destination, $fileName);
+
+            Image::create([
+                'src' => 'user_img/' . $fileName,
+                'user_id' => $user->id
+            ]);
+        }
     }
 }
