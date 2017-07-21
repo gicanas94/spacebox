@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Support\Facades\Auth;
 
-class HasSpacebox
+class UserHasSpacebox
 {
     /**
      * Handle an incoming request.
@@ -18,8 +18,8 @@ class HasSpacebox
     {
         if (Auth::check() && Auth::user()->spacebox) {
             return redirect('/');
+        } else {
+            return $next($request);
         }
-
-        return $next($request);
     }
 }

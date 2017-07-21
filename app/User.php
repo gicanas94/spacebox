@@ -36,4 +36,9 @@ class User extends Authenticatable implements HasRoleContract
     {
         return $this->hasOne('App\Spacebox');
     }
+
+    public function ban()
+    {
+        return $this->hasOne('App\Ban');
+    }
 }

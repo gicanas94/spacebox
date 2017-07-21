@@ -12,18 +12,32 @@ class IndexController extends Controller
     public function returnView()
     {
         $title = trans('messages.index-title');
-        $totalUsers = User::all()->count();
-        $spaceboxes = Spacebox::where('banned', 0)
+        $totalUsers = $this->totalUsers();
+        $spaceboxes = $this->spaceboxes();
+        $userIsBanned = $this->userIsBanned();
+
+        return view('index', compact('title', 'totalUsers', 'spaceboxes', 'userIsBanned'));
+    }
+
+    protected function totalUsers()
+    {
+        return $totalUsers = User::all()->count();
+    }
+
+    protected function spaceboxes()
+    {
+        return $spaceboxes = Spacebox::where('ban_id', null)
                                 ->where('visible', 1)
                                 ->get()
                                 ->shuffle();
+    }
 
-        if (auth()->check() && auth()->user()->banned === 1) {
-            $userBan = Ban::where('user_id', auth()->user()->id)
-                            ->latest()
-                            ->first();
+    protected function userIsBanned()
+    {
+        if (auth()->user() && auth()->user()->ban != null) {
+            $userIsBanned = auth()->user()->ban->latest()->first();
+
+            return $userIsBanned;
         }
-
-        return view('index', compact('title', 'totalUsers', 'spaceboxes', 'userBan'));
     }
 }

@@ -56,8 +56,8 @@ class Kernel extends HttpKernel
         'can' => \Illuminate\Auth\Middleware\Authorize::class,
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
-        'hasSpacebox' => \App\Http\Middleware\HasSpacebox::class,
-        'isAdmin' => \App\Http\Middleware\IsAdmin::class,
-        'userIsBanned' => \App\Http\Middleware\UserIsBanned::class,
+        'userHasSpacebox' => \App\Http\Middleware\UserHasSpacebox::class,
+        'userIsAdmin' => \App\Http\Middleware\UserIsAdmin::class,
+        'userIsBanned' => \App\Http\Middleware\UserIsBanned::class
     ];
 }

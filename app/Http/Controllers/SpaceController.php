@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Image;
 use App\Spacebox;
 use App\Post;
+use App\Ban;
 use App\Http\Requests\StoreSpaceboxPost;
 
 class SpaceController extends Controller
@@ -16,8 +17,17 @@ class SpaceController extends Controller
         $title = '#' . $spacebox->name;
         $image = Image::where('user_id', $spacebox->user_id)->first();
         $posts = Post::where('spacebox_id', $spacebox->id)->get();
+        $spaceboxIsBanned = $this->spaceboxIsBanned($spacebox);
+        $userCanDoActions = $this->userCanDoActions($spacebox, $spaceboxIsBanned);
 
-        return view('space', compact('spacebox', 'title', 'image', 'posts'));
+        if ($spaceboxIsBanned) {
+            if (auth()->guest() || auth()->user()->id != $spacebox->user_id) {
+                return redirect(route('index'));
+            }
+        }
+
+        return view('space', compact('spacebox', 'title', 'image', 'posts',
+            'spaceboxIsBanned', 'userCanDoActions'));
     }
 
     public function store(StoreSpaceboxPost $request)
@@ -39,5 +49,27 @@ class SpaceController extends Controller
         Post::find($id)->delete();
 
         return back();
+    }
+
+    protected function spaceboxIsBanned($spacebox)
+    {
+        if ($spacebox->ban_id != null) {
+            $spaceboxIsBanned = Ban::where('spacebox_id', $spacebox->id)
+                            ->latest()
+                            ->first();
+
+            return $spaceboxIsBanned;
+        }
+    }
+
+    protected function userCanDoActions($spacebox, $spaceboxIsBanned)
+    {
+        if (auth()->user() &&
+            auth()->user()->id === $spacebox->user_id &&
+            auth()->user()->ban_id === null &&
+            empty($spaceboxIsBanned)) {
+
+            return true;
+        }
     }
 }

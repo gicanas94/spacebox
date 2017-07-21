@@ -11,7 +11,7 @@ class SearchController extends Controller
     {
         $title = trans('messages.search-title');
         $spaceboxes = Spacebox::where('name', 'LIKE', "%$request->name%")
-                                ->where('banned', 0)
+                                ->where('ban_id', null)
                                 ->where('visible', 1)
                                 ->get();
 

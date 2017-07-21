@@ -10,9 +10,7 @@ class CreateSpaceController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
-        $this->middleware('hasSpacebox');
-        $this->middleware('userIsBanned');
+        $this->middleware(['auth', 'userHasSpacebox', 'userIsBanned']);
     }
 
     public function index()

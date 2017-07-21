@@ -16,10 +16,10 @@ class UserIsBanned
      */
     public function handle($request, Closure $next)
     {
-        if (Auth::check() && Auth::user()->banned === 1) {
+        if (Auth::check() && Auth::user()->ban_id != null) {
             return redirect('/');
+        } else {
+            return $next($request);
         }
-
-        return $next($request);
     }
 }

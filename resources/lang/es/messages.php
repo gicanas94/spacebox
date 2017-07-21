@@ -8,7 +8,7 @@ return [
     'header-register' => 'Registrarse',
     'header-login' => 'Iniciar sesión',
     'header-create-spacebox' => 'Crear Spacebox',
-    'header-my-spacebox' => 'Mi Spacebox',
+    'header-edit-spacebox' => 'Editar Spacebox',
     'header-my-account' => 'Mi cuenta',
     'header-logout' => 'Cerrar sesión',
     'header-search' => 'buscar...',
@@ -75,6 +75,18 @@ return [
     'admin-title' => 'Administración',
     'admin-h1' => 'ADMINISTRACIÓN',
     'admin-h2' => '¡Bienvenido administrador!',
+    'admin-form-ban-user-h3' => 'BLOQUEAR USUARIO',
+    'admin-form-ban-user-username' => 'Nombre de usuario',
+    'admin-form-ban-spacebox-h3' => 'BLOQUEAR SPACEBOX',
+    'admin-form-ban-spacebox-name' => 'Nombre del Spacebox',
+    'admin-form-ban-reason' => 'Motivo',
+    'admin-form-ban-submit' => 'BAN',
+    'admin-form-make-admin-username' => 'Nombre de usuario',
+    'admin-form-make-admin-h3' => 'HACER ADMIN',
+    'admin-form-make-admin-submit' => 'LISTO',
+    'admin-ban-user' => 'El usuario fue bloqueado con éxito.',
+    'admin-ban-spacebox' => 'El Spacebox fue bloqueado con éxito.',
+    'admin-make-admin' => 'El usuario es ahora administrador.',
 
     // -/search
     'search-title' => 'Resultados de la búsqueda',
@@ -99,5 +111,10 @@ return [
     'space-form-title' => 'Título (50)',
     'space-form-content' => 'Contenido',
     'space-form-submit' => 'PUBLICAR',
-    'space-banned' => 'Este Spacebox no es accesible en este momento.'
+    'space-banned' => 'Este Spacebox no es accesible en este momento.',
+
+    // BANNED -/space
+    'space-banned-h2' => 'Tu Spacebox se encuentra bloqueado.',
+    'space-banned-reason' => 'Motivo: ',
+    'space-banned-explanation' => 'Un bloqueo de Spacebox evita que otros usuarios lo visiten. Tampoco puedes administrarlo ni crear o eliminar publicaciones.'
 ];

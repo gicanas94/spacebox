@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration
           $table->string('s_question', 45);
           $table->string('s_answer', 45);
           $table->char('lang', 2);
-          $table->integer('banned')->default(0);
+          $table->integer('ban_id')->nullable();
           $table->rememberToken();
           $table->timestamps();
         });

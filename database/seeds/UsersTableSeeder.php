@@ -18,12 +18,12 @@ class UsersTableSeeder extends Seeder
             's_question' => "funciona esto?",
             's_answer' => 'ya lo veremos...',
             'lang' => 'ES',
-            'banned' => 0
+            'ban_id' => null
         ]);
 
         $adminRole = \HttpOz\Roles\Models\Role::findBySlug('admin');
         $admin->attachRole($adminRole);
 
-        factory(App\User::class, 200)->create();
+        factory(App\User::class, 300)->create();
     }
 }

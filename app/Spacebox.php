@@ -18,6 +18,11 @@ class Spacebox extends Model
         return $this->hasMany('App\Post');
     }
 
+    public function ban()
+    {
+        return $this->hasOne('App\Ban');
+    }
+
     public static function colors()
     {
         return $colors = [

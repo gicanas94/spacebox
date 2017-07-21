@@ -1,11 +1,11 @@
 @extends('layouts.main')
 
 @section('content')
-    @isset($userBan)
+    @isset($userIsBanned)
         <div class="banned-content">
             <h1>{{ trans('messages.index-banned-h2') }}</h1>
             <br>
-            <h2>{{ trans('messages.index-banned-reason')}}<i>{{ $userBan->reason }}</i></h2>
+            <h2>{{ trans('messages.index-banned-reason')}}<i>{{ $userIsBanned->reason }}</i></h2>
             <hr>
             <p>{{ trans('messages.index-banned-explanation') }}</p>
         </div>
@@ -24,10 +24,10 @@
         @if (Auth::check())
             @if (Auth::user()->isAdmin())
                 <article class="info">
-                    <a class="spacebox-name" href="{{ route('admin') }}"><h2>{{ trans('messages.index-admin') }}</h2></a>
+                    <a class="spacebox-name" href="{{ route('admin.index') }}"><h2>{{ trans('messages.index-admin') }}</h2></a>
                 </article>
             @endif
-            @if (empty(Auth::user()->spacebox) && ! isset($userBan))
+            @if (empty(Auth::user()->spacebox) && empty($userIsBanned))
                 <article class="info">
                     <a class="spacebox-name" href="{{ route('createspace.index') }}"><h2>{{ trans('messages.index-create-spacebox') }}</h2></a>
                 </article>

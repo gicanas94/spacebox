@@ -1,6 +1,15 @@
 @extends('layouts.main')
 
 @section('content')
+    @if (isset($spaceboxIsBanned) && Auth::id() === $spacebox->user_id)
+        <div class="banned-content">
+            <h1>{{ trans('messages.space-banned-h2') }}</h1>
+            <br>
+            <h2>{{ trans('messages.space-banned-reason')}}<i>{{ $spaceboxIsBanned->reason }}</i></h2>
+            <hr>
+            <p>{{ trans('messages.space-banned-explanation') }}</p>
+        </div>
+    @endif
     <div class="content">
         <h1>{{ $title }}</h1>
         <hr>
@@ -9,7 +18,7 @@
         <hr>
         <h2 style="margin: 0;">{{ $spacebox->description }}</h2>
         <hr>
-        @if (Auth::id() === $spacebox->user_id && Auth::user()->banned != 1)
+        @if ($userCanDoActions)
             <br>
             <div class="space-newpost-cont">
                 <form action="{{ route('space.store') }}" method="post">
@@ -52,12 +61,12 @@
             <hr>
         @endif
 
-        @if (count($posts) === 0)
+        @if (empty($posts))
             <div class="warn-content">{{ trans('messages.space-no-posts') }}</div>
         @else
             @foreach ($posts as $post)
                 <div class="space-post-cont">
-                    @if (Auth::id() === $spacebox->user_id && Auth::user()->banned != 1 || Auth::check() && Auth::user()->isAdmin())
+                    @if ($userCanDoActions)
                         <form action="{{ route('space.destroy', $post->id) }}" method="post">
                             {{ csrf_field() }}
                             {{ method_field('DELETE') }}

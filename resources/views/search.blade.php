@@ -2,7 +2,11 @@
 
 @section('content')
     <section class="spaceboxes">
-        @if (count($spaceboxes) > 0)
+        @if (empty($spaceboxes))
+            <article class="info">
+                <a class="spacebox-name" href="{{ route('index') }}"><h2>{{ trans('messages.search-no-results') }}</h2></a>
+            </article>
+        @else
             <article class="info">
                 <a class="spacebox-name" href="#"><h2>{{ count($spaceboxes) . trans('messages.search-x-results') }}</h2></a>
             </article>
@@ -12,10 +16,6 @@
                     <div class="spacebox-description"><p>{{ $spacebox->description }}</p></div>
                 </article>
             @endforeach
-        @else
-            <article class="info">
-                <a class="spacebox-name" href="{{ route('index') }}"><h2>{{ trans('messages.search-no-results') }}</h2></a>
-            </article>
         @endif
     </section>
 @endsection

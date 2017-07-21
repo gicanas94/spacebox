@@ -107,6 +107,7 @@ return [
             'min' => 'El nombre de usuario debe tener entre 3 y 30 caracteres.',
             'max' => 'El nombre de usuario debe tener entre 3 y 30 caracteres.',
             'unique' => 'El nombre de usuario ingresado ya existe.',
+            'exists' => 'El nombre de usuario ingresado no existe.'
         ],
         'email' => [
             'required' => 'Debes escribir un correo.',
@@ -138,7 +139,8 @@ return [
         ],
         'name' => [
             'required' => '¡Tu Spacebox debe tener un nombre!',
-            'max' => 'El nombre no debe superar los 50 caracteres.'
+            'max' => 'El nombre no debe superar los 50 caracteres.',
+            'exists' => 'El nombre del Spacebox ingresado no existe.'
         ],
         'description' => [
             'required' => 'Debes escribir una descripción.',
@@ -153,6 +155,11 @@ return [
         ],
         'content' => [
             'required' => '¡Tu publicación debe tener contenido!'
+        ],
+        'reason' => [
+            'required' => 'Debes ingresar un motivo.',
+            'min' => 'El motivo debe tener entre 3 y 50 caracteres.',
+            'max' => 'La contraseña debe tener entre 3 y 50 caracteres.'
         ],
     ],
 

@@ -15,20 +15,24 @@ class BansTableSeeder extends Seeder
         $spaceboxes = App\Spacebox::all();
 
         foreach ($users as $user) {
-            if ($user->banned === 1) {
-                App\Ban::create([
+            if ($user->id % 2 != 0 && $user->username != 'Gabriel') {
+                $ban = App\Ban::create([
                     'reason' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
                     'user_id' => $user->id
                 ]);
+
+                App\User::find($user->id)->update(['ban_id' => $ban->id]);
             }
         }
 
         foreach ($spaceboxes as $spacebox) {
-            if ($spacebox->banned === 1) {
-                App\Ban::create([
+            if ($spacebox->id % 3 === 0) {
+                $ban = App\Ban::create([
                     'reason' => 'Nam commodo ipsum leo, eu pharetra augue malesuada sed.',
                     'spacebox_id' => $spacebox->id
                 ]);
+
+                App\Spacebox::find($spacebox->id)->update(['ban_id' => $ban->id]);
             }
         }
     }
