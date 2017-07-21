@@ -12,12 +12,14 @@
 */
 
 Auth::routes();
+
 Route::get('/', 'IndexController@returnView')->name('index');
 Route::get('faq', 'FaqController@returnView')->name('faq');
 Route::get('terms', 'TermsController@returnView')->name('terms');
 Route::get('search', 'SearchController@findSpacebox')->name('search');
+
 Route::resource('createspace', 'CreateSpaceController');
 Route::resource('space', 'SpaceController');
-//Route::resource('account', 'AccountController');
-//Route::resource('editspace', 'EditSpaceController');
+Route::resource('account', 'AccountController');
+Route::resource('editspace', 'EditSpaceController');
 Route::resource('admin', 'AdminController');

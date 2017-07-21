@@ -65,8 +65,8 @@ class RegisterController extends Controller
             'username' => 'required|string|min:3|max:30|unique:users',
             'email' => 'required|string|email|unique:users',
             'password' => 'required|string|min:4|max:25|confirmed',
-            's_question' => 'required|string|max:40',
-            's_answer' => 'required|string|max:40|different:s_question',
+            'question' => 'required|string|max:40',
+            'answer' => 'required|string|max:40|different:s_question',
             'img' => 'required|image|between:1,10000',
             'terms' => 'required'
         ]);
@@ -84,8 +84,8 @@ class RegisterController extends Controller
             'username' => $data['username'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
-            's_question' => $data['s_question'],
-            's_answer' => $data['s_answer'],
+            'question' => $data['question'],
+            'answer' => $data['answer'],
             'lang' => $data['lang'],
         ]);
 

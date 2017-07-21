@@ -15,8 +15,8 @@ class UsersTableSeeder extends Seeder
             'username' => 'Gabriel',
             'email' => 'gicanas94@gmail.com',
             'password' => bcrypt('123456'),
-            's_question' => "funciona esto?",
-            's_answer' => 'ya lo veremos...',
+            'question' => "funciona esto?",
+            'answer' => 'ya lo veremos...',
             'lang' => 'ES',
             'ban_id' => null
         ]);

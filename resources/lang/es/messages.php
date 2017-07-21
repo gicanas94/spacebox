@@ -47,7 +47,7 @@ return [
     'index-go-my-spacebox' => 'IR A MI SPACEBOX',
     'index-admin' => 'ADMIN',
 
-    // BANNED -/
+    // -/ BANNED
     'index-banned-h2' => 'Tu cuenta se encuentra bloqueada.',
     'index-banned-reason' => 'Motivo: ',
     'index-banned-explanation' => 'Un bloqueo de cuenta evita que puedas crear o administrar un Spacebox. Tampoco puedes administrar tu cuenta.',
@@ -65,6 +65,28 @@ return [
     'faq-answer-3' => '¡Nada de nada!, Spacebox brinda un servicio 100% gratuito.',
     'faq-answer-4' => 'Por supuesto, el sitio cuenta con un buscador de espacios, y por si esto fuera poco, es posible filtrar por categoría e idioma de cada uno.',
     'faq-answer-5' => 'Para crear tu cuenta, haz <a href="register">click aquí</a>.',
+
+    // -/account
+    'account-title' => 'Mi cuenta',
+    'account-h1' => 'MI CUENTA',
+    'account-h2' => 'Esta es la información de tu cuenta,<br>puedes ajustarla si quieres.',
+    'account-image-alt' => 'Imagen del usuario',
+    'account-username' => 'Nombre de usuario:',
+    'account-email' => 'Correo electrónico:',
+    'account-question' => 'Pregunta secreta:',
+    'account-lang' => 'Idioma del sitio:',
+    'account-nospace-created' => 'Ningún Spacebox creado. <a href="createspace">Crear uno.</a>',
+    'account-button-edit' => 'EDITAR',
+
+    // -/editspace
+    'editspace-title' => 'Mi Spacebox',
+    'editspace-h1' => 'MI SPACEBOX',
+    'editspace-h2' => 'Esta es la información de tu Spacebox,<br>¡haz los cambios que creas necesarios!',
+    'editspace-name' => 'Nombre:',
+    'editspace-desc' => 'Descripción:',
+    'editspace-lang' => 'Idioma:',
+    'editspace-visible' => 'Visible en inicio:',
+    'editspace-button-edit' => 'EDITAR',
 
     // -/terms
     'terms-title' => 'Términos de uso',
@@ -106,6 +128,7 @@ return [
     'create-form-submit' => 'CREAR',
 
     // -/space
+    'spacebox-image-alt' => 'Imagen del Spacebox',
     'space-no-posts' => 'Por el momento, no hay publicaciones para mostrar.',
     'space-new-post' => '¡Publicación exitosa!',
     'space-form-title' => 'Título (50)',

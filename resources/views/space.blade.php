@@ -13,7 +13,7 @@
     <div class="content">
         <h1>{{ $title }}</h1>
         <hr>
-        <img class="space-user-img" src="{{ asset($image->src) }}" alt="">
+        <img class="space-user-img" src="{{ asset($image->src) }}" alt="{{ trans('messages.spacebox-image-alt') }}">
         <br>
         <hr>
         <h2 style="margin: 0;">{{ $spacebox->description }}</h2>
@@ -61,7 +61,7 @@
             <hr>
         @endif
 
-        @if (empty($posts))
+        @if (count($posts) === 0)
             <div class="warn-content">{{ trans('messages.space-no-posts') }}</div>
         @else
             @foreach ($posts as $post)

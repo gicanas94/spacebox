@@ -13,21 +13,20 @@
                 <li><a href="{{ route('login') }}"><span class="icon left ion-happy"></span>{{ trans('messages.header-login') }}</a></li>
             @endif
 
-            {{-- If logged user is not banned... --}}
-            @if (Auth::check() && Auth::user()->ban_id === null)
+            {{-- Logged user --}}
+            @if (Auth::check())
                 {{-- Admin --}}
-                @if (Auth::check() && Auth::user()->isAdmin())
+                @if (Auth::user()->isAdmin())
                     <li><a href={{ route('admin.index') }}><span class="icon left ion-help-buoy"></span>{{ trans('messages.header-admin') }}</a></li>
                 @endif
-                @if (empty(Auth::user()->spacebox))
+
+                @if (empty(Auth::user()->spacebox) && Auth::user()->ban_id === null)
                     <li><a href="{{ route('createspace.index') }}"><span class="icon left ion-ios-compose"></span>{{ trans('messages.header-create-spacebox') }}</a></li>
                 @else
-                    {{-- If logged user Spacebox is not banned... --}}
-                    @unless (Auth::user()->spacebox->ban_id != null)
-                        <li><a href=""><span class="icon left ion-planet"></span>{{ trans('messages.header-edit-spacebox') }}</a></li>
-                    @endunless
+                    <li><a href="{{ route('editspace.index') }}"><span class="icon left ion-planet"></span>{{ trans('messages.header-edit-spacebox') }}</a></li>
                 @endif
-                <li><a href=""><span class="icon left ion-android-person"></span>{{ trans('messages.header-my-account') }}</a></li>
+                
+                <li><a href="{{ route('account.index') }}"><span class="icon left ion-android-person"></span>{{ trans('messages.header-my-account') }}</a></li>
             @endif
 
             {{-- Logout --}}

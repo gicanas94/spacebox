@@ -57,6 +57,7 @@ class Kernel extends HttpKernel
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'userHasSpacebox' => \App\Http\Middleware\UserHasSpacebox::class,
+        'userHasNoSpacebox' => \App\Http\Middleware\UserHasNoSpacebox::class,
         'userIsAdmin' => \App\Http\Middleware\UserIsAdmin::class,
         'userIsBanned' => \App\Http\Middleware\UserIsBanned::class
     ];

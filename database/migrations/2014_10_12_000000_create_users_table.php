@@ -18,8 +18,8 @@ class CreateUsersTable extends Migration
           $table->string('username', 30)->unique();
           $table->string('email')->unique();
           $table->string('password');
-          $table->string('s_question', 45);
-          $table->string('s_answer', 45);
+          $table->string('question', 45);
+          $table->string('answer', 45);
           $table->char('lang', 2);
           $table->integer('ban_id')->nullable();
           $table->rememberToken();

@@ -49,20 +49,20 @@
             <div>
                 <label>{{ trans('messages.register-form-question') }}</label>
                 <br>
-                @if ($errors->has('s_question'))
-                    <input class="form-error-content" type="text" name="s_question">
+                @if ($errors->has('question'))
+                    <input class="form-error-content" type="text" name="question">
                 @else
-                    <input type="text" name="s_question" value="{{ old('s_question') }}">
+                    <input type="text" name="question" value="{{ old('question') }}">
                 @endif
             </div>
             <br>
             <div>
                 <label>{{ trans('messages.register-form-answer') }}</label>
                 <br>
-                @if ($errors->has('s_answer'))
-                    <input class="form-error-content" type="text" name="s_answer">
+                @if ($errors->has('answer'))
+                    <input class="form-error-content" type="text" name="answer">
                 @else
-                    <input type="text" name="s_answer" value="{{ old('s_answer') }}">
+                    <input type="text" name="answer" value="{{ old('answer') }}">
                 @endif
             </div>
             <br>

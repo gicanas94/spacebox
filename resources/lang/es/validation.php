@@ -120,11 +120,11 @@ return [
             'max' => 'La contraseña debe tener entre 4 y 25 caracteres.',
             'confirmed' => 'Las contraseñas ingresadas no coinciden.'
         ],
-        's_question' => [
+        'question' => [
             'required' => 'Debes escribir una pregunta secreta.',
             'max' => 'La pregunta secreta no debe superer los 40 caracteres.'
         ],
-        's_answer' => [
+        'answer' => [
             'required' => 'Debes escribir una respuesta secreta.',
             'max' => 'La respuesta secreta no debe superer los 40 caracteres.',
             'different' => 'La pregunta secreta y la respuesta secreta no pueden ser iguales.'
