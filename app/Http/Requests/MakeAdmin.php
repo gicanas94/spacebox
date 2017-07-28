@@ -24,7 +24,7 @@ class MakeAdmin extends FormRequest
     public function rules()
     {
         return [
-            'username' => 'required|exists:users,username',
+            'makeadmin-username' => 'required|exists:users,username',
         ];
     }
 }

@@ -19,7 +19,7 @@ class CreateSpaceController extends Controller
         $langs = ["ES" => "Español", "EN" => "English", "PT" => "Português"];
         $colors = Spacebox::colors();
 
-        return view('createspace', compact('title', 'langs', 'colors'));
+        return view('createspace.index', compact('title', 'langs', 'colors'));
     }
 
     public function store(StoreSpacebox $request)

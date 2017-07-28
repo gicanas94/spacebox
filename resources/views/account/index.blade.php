@@ -12,7 +12,7 @@
         <br><br>
         <table>
             <tr>
-                <td>{{ trans('messages.account-username') }}</td>
+                <td>{{ trans('messages.account-index-username') }}</td>
                 <td><i>{{ Auth::user()->username }}</i></td>
             </tr>
             <tr>
@@ -21,7 +21,7 @@
             </tr>
             <tr>
                 <td>{{ trans('messages.account-question') }}</td>
-                <td><i>{{ Auth::user()->question }}</i></td>
+                <td>"<i>{{ Auth::user()->question }}</i>"</td>
             </tr>
             <tr>
                 <td>{{ trans('messages.account-lang') }}</td>
@@ -34,7 +34,10 @@
                         <a href="{{ route('space.show', Auth::user()->spacebox->slug) }}">#{{ Auth::user()->spacebox->name }}</a>
                     @else
                         @if (Auth::user()->ban_id === null)
-                            {!! trans('messages.account-nospace-created') !!}
+                                {{ trans('messages.account-nospace-created-1') }}
+                            <a href="{{ route('createspace.index') }}">
+                                {{ trans('messages.account-nospace-created-2') }}
+                            </a>
                         @else
                             -
                         @endif
@@ -44,7 +47,11 @@
         </table>
         @if (Auth::user()->ban_id === null)
             <hr>
-            <button type="submit" name="edit">{{ trans('messages.account-button-edit') }}</button>
+            <a href="{{ route('account.edit') }}" class="a-button" >{{ trans('messages.account-index-button-edit') }}</a>
+        @endif
+
+        @if(session()->has('success'))
+            <div style="text-align: center;" class="succeed-content">{{ session()->get('success') }}</div>
         @endif
     </div>
 @endsection

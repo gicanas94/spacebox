@@ -24,8 +24,8 @@ class BanSpacebox extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|exists:spaceboxes,name',
-            'reason' => 'required|min:3|max:50'
+            'ban-spacebox-name' => 'required|exists:spaceboxes,name',
+            'ban-spacebox-reason' => 'required|min:3|max:50'
         ];
     }
 }

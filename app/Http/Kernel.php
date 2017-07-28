@@ -59,6 +59,7 @@ class Kernel extends HttpKernel
         'userHasSpacebox' => \App\Http\Middleware\UserHasSpacebox::class,
         'userHasNoSpacebox' => \App\Http\Middleware\UserHasNoSpacebox::class,
         'userIsAdmin' => \App\Http\Middleware\UserIsAdmin::class,
-        'userIsBanned' => \App\Http\Middleware\UserIsBanned::class
+        'userIsBanned' => \App\Http\Middleware\UserIsBanned::class,
+        'spaceboxIsBanned' => \App\Http\Middleware\SpaceboxIsBanned::class
     ];
 }

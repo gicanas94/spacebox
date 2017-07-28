@@ -1,5 +1,5 @@
 /****************************/
-/***** REGLAS GENERALES *****/
+/****** GENERAL RULES *******/
 /****************************/
 
 * {
@@ -98,7 +98,7 @@ ul, ol {
   list-style: none;
 }
 
-button {
+button, .a-button {
   width: 40%;
   background-color: RGBA(0, 0, 0, 0.8);
   border: solid 1px #BDBDBD;
@@ -108,10 +108,19 @@ button {
   margin: 15px 0;
   overflow: hidden;
   text-overflow: ellipsis;
+  display: inline-block;
 }
 
-button:hover {
+button:hover, .a-button:hover {
   background-color: #000000;
+}
+
+.a-button {
+  font-weight: normal;
+}
+
+.a-button:hover {
+  text-decoration: none;
 }
 
 .content {
@@ -396,7 +405,7 @@ button:hover {
   font-size: 1.2em;
 }
 
-/* FAQ.PHP */
+/* FAQ */
 
 .faq-cont {
   text-align: left;
@@ -406,19 +415,19 @@ button:hover {
   margin: 0;
 }
 
-/* REGISTER.PHP */
+/* REGISTER */
 
 .register-input-terms {
   width: auto;
 }
 
-/* LOGIN.PHP */
+/* LOGIN */
 
 .login-input-remember {
   width: auto;
 }
 
-/* CREATESPACE.PHP */
+/* CREATESPACE */
 
 .colors-cont {
   width: 80%;
@@ -441,7 +450,7 @@ button:hover {
   border: solid 4px #FFFFFF;
 }
 
-/* SPACE.PHP */
+/* SPACE */
 
 .space-user-img {
   width: 60%;
@@ -505,7 +514,7 @@ button:hover {
   background-color: transparent;
 }
 
-/* ACCOUNT.PHP */
+/* ACCOUNT */
 
 .account-cont table {
   width: 80%;
@@ -536,7 +545,7 @@ button:hover {
   text-align: left;
 }
 
-/* EDITSPACE.PHP */
+/* EDITSPACE */
 
 .editspace-cont table {
   width: 80%;
@@ -588,7 +597,7 @@ button:hover {
     width: 30%;
   }
 
-  button {
+  button, .a-button {
     width: 25%;
   }
 
@@ -610,7 +619,7 @@ button:hover {
     height: 175px;
   }
 
-  /* EDITSPACE.PHP */
+  /* EDITSPACE */
 
   .spacebox-preview article {
     width: 40%;
@@ -632,7 +641,7 @@ button:hover {
     width: 25%;
   }
 
-  button {
+  button, .a-button {
     width: 20%;
   }
 
@@ -686,6 +695,7 @@ button:hover {
     margin: auto;
     position: fixed;
     z-index: 10;
+    overflow: hidden;
   }
 
   .main-nav {
@@ -801,7 +811,7 @@ button:hover {
     display: inline-block;
   }
 
-  /* EDITSPACE.PHP */
+  /* EDITSPACE */
 
   .spacebox-preview article {
     width: 32%;
@@ -827,7 +837,7 @@ button:hover {
     width: 30%;
   }
 
-  button {
+  button, .a-button {
     width: 25%;
   }
 
@@ -847,7 +857,7 @@ button:hover {
     width: 15.6666%;
   }
 
-  /* EDITSPACE.PHP */
+  /* EDITSPACE */
 
   .spacebox-preview article {
     width: 40%;

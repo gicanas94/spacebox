@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Support\Facades\Auth;
 
-class UserIsBanned
+class SpaceboxIsBanned
 {
     /**
      * Handle an incoming request.
@@ -16,7 +16,7 @@ class UserIsBanned
      */
     public function handle($request, Closure $next)
     {
-        if (Auth::check() && Auth::user()->ban_id != null) {
+        if (Auth::check() && Auth::user()->spacebox->ban_id != null) {
             return back();
         } else {
             return $next($request);

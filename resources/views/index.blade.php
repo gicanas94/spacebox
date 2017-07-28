@@ -24,7 +24,7 @@
         @if (Auth::check())
             @if (Auth::user()->isAdmin())
                 <article class="info">
-                    <a class="spacebox-name" href="{{ route('admin.index') }}"><h2>{{ trans('messages.index-admin') }}</h2></a>
+                    <a class="spacebox-name" href="{{ route('admin') }}"><h2>{{ trans('messages.index-admin') }}</h2></a>
                 </article>
             @endif
             @if (empty(Auth::user()->spacebox) && empty($userIsBanned))

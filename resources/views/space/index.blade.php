@@ -22,7 +22,7 @@
             <br>
             <div class="space-newpost-cont">
                 <form action="{{ route('space.store') }}" method="post">
-                    {{ csrf_field() }}
+                    {!! csrf_field() !!}
                     <div>
                         <label>{{ trans('messages.space-form-title') }}</label>
                         @if ($errors->has('title'))
@@ -55,7 +55,7 @@
                     </div>
                 </form>
                 @if(session()->has('success'))
-                    <div style="text-align: center;" class="succeed-content">{{ session()->get('success') }}    </div>
+                    <div style="text-align: center;" class="succeed-content">{{ session()->get('success') }}</div>
                 @endif
             </div>
             <hr>
@@ -68,8 +68,8 @@
                 <div class="space-post-cont">
                     @if ($userCanDoActions)
                         <form action="{{ route('space.destroy', $post->id) }}" method="post">
-                            {{ csrf_field() }}
-                            {{ method_field('DELETE') }}
+                            {!! csrf_field() !!}
+                            {!! method_field('DELETE') !!}
                             <button type="submit" class="space-delete-post">
                                 <span class="ion-trash-b"></span>
                             </button>

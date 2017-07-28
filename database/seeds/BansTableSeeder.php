@@ -15,7 +15,7 @@ class BansTableSeeder extends Seeder
         $spaceboxes = App\Spacebox::all();
 
         foreach ($users as $user) {
-            if ($user->id % 2 != 0 && $user->username != 'Gabriel') {
+            if ($user->id % 2 != 0 && $user->username != 'demo') {
                 $ban = App\Ban::create([
                     'reason' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
                     'user_id' => $user->id

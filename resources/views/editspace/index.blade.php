@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-    <div class="content account-cont">
+    <div class="content editspace-cont">
         <h1>{{ trans('messages.editspace-h1') }}</h1>
         <h2>{!! trans('messages.editspace-h2') !!}</h2>
         <hr>
@@ -15,11 +15,11 @@
         <br>
         <table>
             <tr>
-                <td>{{ trans('messages.editspace-name') }}</td>
+                <td>{{ trans('messages.editspace-index-name') }}</td>
                 <td><a href="{{ route('space.show', $spacebox->slug) }}">#{{ $spacebox->name }}</a></td>
             </tr>
             <tr>
-                <td>{{ trans('messages.editspace-desc') }}</td>
+                <td>{{ trans('messages.editspace-index-desc') }}</td>
                 <td><i>{{ $spacebox->description }}</i></td>
             </tr>
             <tr>
@@ -43,7 +43,11 @@
         </table>
         @if (Auth::user()->ban_id === null && $spacebox->ban_id === null)
             <hr>
-            <button action="" type="submit">{{ trans('messages.editspace-button-edit') }}</button>
+            <a href="{{ route('editspace.edit') }}" class="a-button" >{{ trans('messages.editspace-index-button-edit') }}</a>
+        @endif
+
+        @if(session()->has('success'))
+            <div style="text-align: center;" class="succeed-content">{{ session()->get('success') }}</div>
         @endif
     </div>
 @endsection

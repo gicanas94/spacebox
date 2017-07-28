@@ -15,7 +15,7 @@ class SpaceboxesTableSeeder extends Seeder
         $colors = App\Spacebox::colors();
 
         foreach ($users as $user) {
-            if ($user->username != 'Gabriel') {
+            if ($user->username != 'demo') {
                 factory(App\Spacebox::class)->create([
                     'name' => $user->username,
                     'slug' => str_slug($user->username, '-'),

@@ -34,7 +34,7 @@ class IndexController extends Controller
 
     protected function userIsBanned()
     {
-        if (auth()->user() && auth()->user()->ban != null) {
+        if (auth()->user() && auth()->user()->ban_id != null) {
             $userIsBanned = auth()->user()->ban->latest()->first();
 
             return $userIsBanned;

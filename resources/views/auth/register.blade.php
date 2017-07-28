@@ -5,7 +5,7 @@
         <h1>{{ trans('messages.register-h1') }}</h1>
         <h2>{{ trans('messages.register-h2') }}</h2>
         <form action="{{ route('register') }}" method="post" enctype="multipart/form-data">
-            {{ csrf_field() }}
+            {!! csrf_field() !!}
             <div>
                 <label>{{ trans('messages.register-form-username') }}</label>
                 <br>

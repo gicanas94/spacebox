@@ -67,26 +67,47 @@ return [
     'faq-answer-5' => 'Para crear tu cuenta, haz <a href="register">click aquí</a>.',
 
     // -/account
-    'account-title' => 'Mi cuenta',
+    'account-index-title' => 'Mi cuenta',
+    'account-edit-title' => 'Editar mi cuenta',
     'account-h1' => 'MI CUENTA',
     'account-h2' => 'Esta es la información de tu cuenta,<br>puedes ajustarla si quieres.',
     'account-image-alt' => 'Imagen del usuario',
-    'account-username' => 'Nombre de usuario:',
     'account-email' => 'Correo electrónico:',
     'account-question' => 'Pregunta secreta:',
     'account-lang' => 'Idioma del sitio:',
-    'account-nospace-created' => 'Ningún Spacebox creado. <a href="createspace">Crear uno.</a>',
-    'account-button-edit' => 'EDITAR',
+    'account-nospace-created-1' => 'Ningún Spacebox creado. ',
+    'account-nospace-created-2' => 'Crear uno.',
+
+    'account-index-username' => 'Nombre de usuario:',
+    'account-index-button-edit' => 'EDITAR',
+
+    'account-edit-username' => 'Nombre de usuario: (30)',
+    'account-edit-image' => 'Imagen: (10mb)',
+    'account-edit-password' => 'Nueva contraseña: (25)',
+    'account-edit-confirm-password' => 'Confirmar contraseña:',
+    'account-edit-current-password' => 'Contraseña actual:',
+    'account-edit-cancel' => 'CANCELAR',
+    'account-edit-save' => 'GUARDAR',
+    'account-edit-success' => 'La información fue actualizada con éxito.',
 
     // -/editspace
-    'editspace-title' => 'Mi Spacebox',
+    'editspace-index-title' => 'Mi Spacebox',
+    'editspace-edit-title' => 'Editar mi Spacebox',
     'editspace-h1' => 'MI SPACEBOX',
     'editspace-h2' => 'Esta es la información de tu Spacebox,<br>¡haz los cambios que creas necesarios!',
-    'editspace-name' => 'Nombre:',
-    'editspace-desc' => 'Descripción:',
     'editspace-lang' => 'Idioma:',
     'editspace-visible' => 'Visible en inicio:',
-    'editspace-button-edit' => 'EDITAR',
+
+    'editspace-index-name' => 'Nombre:',
+    'editspace-index-desc' => 'Descripción:',
+    'editspace-index-button-edit' => 'EDITAR',
+
+    'editspace-edit-name' => 'Nombre: (50)',
+    'editspace-edit-desc' => 'Descripción: (200)',
+    'editspace-edit-current-password' => 'Contraseña actual:',
+    'editspace-edit-cancel' => 'CANCELAR',
+    'editspace-edit-save' => 'GUARDAR',
+    'editspace-edit-success' => 'La información fue actualizada con éxito.',
 
     // -/terms
     'terms-title' => 'Términos de uso',
@@ -98,16 +119,23 @@ return [
     'admin-h1' => 'ADMINISTRACIÓN',
     'admin-h2' => '¡Bienvenido administrador!',
     'admin-form-ban-user-h3' => 'BLOQUEAR USUARIO',
+    'admin-form-unban-user-h3' => 'DESBLOQUEAR USUARIO',
     'admin-form-ban-user-username' => 'Nombre de usuario',
+    'admin-form-unban-user-username' => 'Nombre de usuario',
     'admin-form-ban-spacebox-h3' => 'BLOQUEAR SPACEBOX',
+    'admin-form-unban-spacebox-h3' => 'DESBLOQUEAR SPACEBOX',
     'admin-form-ban-spacebox-name' => 'Nombre del Spacebox',
+    'admin-form-unban-spacebox-name' => 'Nombre del Spacebox',
     'admin-form-ban-reason' => 'Motivo',
-    'admin-form-ban-submit' => 'BAN',
+    'admin-form-ban-submit' => 'BLOQUEAR',
+    'admin-form-unban-submit' => 'DESBLOQUEAR',
     'admin-form-make-admin-username' => 'Nombre de usuario',
     'admin-form-make-admin-h3' => 'HACER ADMIN',
     'admin-form-make-admin-submit' => 'LISTO',
     'admin-ban-user' => 'El usuario fue bloqueado con éxito.',
     'admin-ban-spacebox' => 'El Spacebox fue bloqueado con éxito.',
+    'admin-unban-user' => 'El usuario fue desbloqueado con éxito.',
+    'admin-unban-spacebox' => 'El Spacebox fue desbloqueado con éxito.',
     'admin-make-admin' => 'El usuario es ahora administrador.',
 
     // -/search
@@ -139,5 +167,8 @@ return [
     // BANNED -/space
     'space-banned-h2' => 'Tu Spacebox se encuentra bloqueado.',
     'space-banned-reason' => 'Motivo: ',
-    'space-banned-explanation' => 'Un bloqueo de Spacebox evita que otros usuarios lo visiten. Tampoco puedes administrarlo ni crear o eliminar publicaciones.'
+    'space-banned-explanation' => 'Un bloqueo de Spacebox evita que otros usuarios lo visiten. Tampoco puedes administrarlo ni crear o eliminar publicaciones.',
+
+    // OTHERS
+    'under-construction' => 'EN CONSTRUCCIÓN'
 ];

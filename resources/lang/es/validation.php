@@ -120,6 +120,10 @@ return [
             'max' => 'La contraseña debe tener entre 4 y 25 caracteres.',
             'confirmed' => 'Las contraseñas ingresadas no coinciden.'
         ],
+        'current_password' => [
+            'required' => 'Debes ingresar tu contraseña actual.',
+            'current_password' => 'La contraseña actual ingresada es incorrecta.'
+        ],
         'question' => [
             'required' => 'Debes escribir una pregunta secreta.',
             'max' => 'La pregunta secreta no debe superer los 40 caracteres.'
@@ -156,10 +160,35 @@ return [
         'content' => [
             'required' => '¡Tu publicación debe tener contenido!'
         ],
-        'reason' => [
+        'ban-user-username' => [
+            'required' => 'Debes ingresar un nombre de usuario.',
+            'exists' => 'El nombre de usuario ingresado no existe.'
+        ],
+        'ban-user-reason' => [
             'required' => 'Debes ingresar un motivo.',
             'min' => 'El motivo debe tener entre 3 y 50 caracteres.',
             'max' => 'La contraseña debe tener entre 3 y 50 caracteres.'
+        ],
+        'unban-user-username' => [
+            'required' => 'Debes ingresar un nombre de usuario.',
+            'exists' => 'El nombre de usuario ingresado no existe.'
+        ],
+        'ban-spacebox-name' => [
+            'required' => 'Debes ingresar el nombre del Spacebox.',
+            'exists' => 'El nombre del Spacebox ingresado no existe.'
+        ],
+        'ban-spacebox-reason' => [
+            'required' => 'Debes ingresar un motivo.',
+            'min' => 'El motivo debe tener entre 3 y 50 caracteres.',
+            'max' => 'La contraseña debe tener entre 3 y 50 caracteres.'
+        ],
+        'unban-spacebox-name' => [
+            'required' => 'Debes ingresar el nombre del Spacebox.',
+            'exists' => 'El nombre del Spacebox ingresado no existe.'
+        ],
+        'make-admin-username' => [
+            'required' => 'Debes ingresar un nombre de usuario.',
+            'exists' => 'El nombre de usuario ingresado no existe.'
         ],
     ],
 

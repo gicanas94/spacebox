@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class BanUser extends FormRequest
+class EditSpacebox extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,8 +24,9 @@ class BanUser extends FormRequest
     public function rules()
     {
         return [
-            'ban-user-username' => 'required|exists:users,username',
-            'ban-user-reason' => 'required|min:3|max:50'
+            'name' => 'required|max:50',
+            'description' => 'required|max:200',
+            'current_password' => 'required|current_password'
         ];
     }
 }

@@ -26,7 +26,7 @@ class SpaceController extends Controller
             }
         }
 
-        return view('space', compact('spacebox', 'title', 'image', 'posts',
+        return view('space.index', compact('spacebox', 'title', 'image', 'posts',
             'spaceboxIsBanned', 'userCanDoActions'));
     }
 

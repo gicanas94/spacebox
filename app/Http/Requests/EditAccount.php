@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class BanUser extends FormRequest
+class EditAccount extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,8 +24,11 @@ class BanUser extends FormRequest
     public function rules()
     {
         return [
-            'ban-user-username' => 'required|exists:users,username',
-            'ban-user-reason' => 'required|min:3|max:50'
+            'username' => 'required|string|min:3|max:30|unique:users,id,' . $this->get('id'),
+            'email' => 'required|string|email|unique:users,id,' . $this->get('id'),
+            'img' => 'image|between:1,10000',
+            'password' => 'nullable|string|min:4|max:25|confirmed',
+            'current_password' => 'required|current_password'
         ];
     }
 }

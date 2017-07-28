@@ -14,7 +14,7 @@
         </div>
         <br>
         <form action="{{ route('createspace.store') }}" method="post">
-            {{ csrf_field() }}
+            {!! csrf_field() !!}
             <div>
                 <label>{{ trans('messages.create-form-name') }}</label>
                 <br>
@@ -42,7 +42,7 @@
                     @foreach ($langs as $lang => $largeLang)
                         @if ($lang === old('lang'))
                             <option value="{{ $lang }}" selected>{{ $largeLang }}</option>
-                            @else
+                        @else
                             <option value="{{ $lang }}">{{ $largeLang }}</option>
                         @endif
                     @endforeach
