@@ -1,4 +1,4 @@
-<html lang="{{ app()->getLocale() }}">
+<html lang="{{ Auth::check() ? Auth::user()->lang : app()->getLocale() }}">
     <head>
         <meta name="viewport" content="width=device-width">
         <meta charset="utf-8">

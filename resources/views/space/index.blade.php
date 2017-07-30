@@ -25,22 +25,15 @@
                     {!! csrf_field() !!}
                     <div>
                         <label>{{ trans('messages.space-form-title') }}</label>
-                        @if ($errors->has('title'))
-                            <input class="form-error-content" type="text" name="title">
-                        @else
-                            <input type="text" name="title" value="{{ old('title') }}">
-                        @endif
+                        <input class="{{ $errors->has('title') ? 'form-error-content' : '' }}" type="text" name="title" value="{{ old('title') }}">
                     </div>
                     <br>
                     <div>
                         <label>{{ trans('messages.space-form-content') }}</label>
-                        @if ($errors->has('content'))
-                            <textarea class="form-error-content" name="content" rows="5"></textarea>
-                        @else
-                            <textarea name="content" rows="5">{{ old('content') }}</textarea>
-                        @endif
+                        <textarea class="{{ $errors->has('content') ? 'form-error-content' : '' }}" name="content" rows="5">{{ old('content') }}</textarea>
                     </div>
                     <br>
+
                     @if ($errors->any())
                         <div class="error-content">
                             <ul>
@@ -50,12 +43,14 @@
                             </ul>
                         </div>
                     @endif
-                    <div style="text-align: right;">
+
+                    <div style="text-align: right">
                         <button type="submit">{{ trans('messages.space-form-submit') }}</button>
                     </div>
                 </form>
+
                 @if(session()->has('success'))
-                    <div style="text-align: center;" class="succeed-content">{{ session()->get('success') }}</div>
+                    <div style="text-align: center" class="succeed-content">{{ session()->get('success') }}</div>
                 @endif
             </div>
             <hr>

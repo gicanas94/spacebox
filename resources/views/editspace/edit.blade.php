@@ -19,21 +19,13 @@
                 <tr>
                     <td><label>{{ trans('messages.editspace-edit-name') }}</label></td>
                     <td>
-                        @if ($errors->has('name'))
-                            <input id="nameInput" class="form-error-content" type="text" name="name">
-                        @else
-                            <input id="nameInput" type="text" name="name" value="{{ old('name') }}">
-                        @endif
+                        <input id="nameInput" class="{{ $errors->has('name') ? 'form-error-content' : '' }}" type="text" name="name" value="{{ old('name', $spacebox->name) }}">
                     </td>
                 </tr>
                 <tr>
                     <td><label>{{ trans('messages.editspace-edit-desc') }}</label></td>
                     <td>
-                        @if ($errors->has('description'))
-                            <textarea id="descriptionTextarea" class="form-error-content" rows="5" name="description" type="text"></textarea>
-                        @else
-                            <textarea id="descriptionTextarea" rows="5" name="description">{{ old('description') }}</textarea>
-                        @endif
+                        <textarea class="{{ $errors->has('description') ? 'form-error-content' : '' }}" id="descriptionTextarea" rows="5" name="description">{{ old('description', $spacebox->description) }}</textarea>
                     </td>
                 </tr>
             </table>
@@ -74,15 +66,12 @@
                 <tr>
                     <td><label>{{ trans('messages.account-edit-current-password') }}</label></td>
                     <td>
-                        @if ($errors->has('current_password'))
-                            <input class="form-error-content" type="password" name="current_password">
-                        @else
-                            <input type="password" name="current_password">
-                        @endif
+                        <input class="{{ $errors->has('current_password') ? 'form-error-content' : '' }}" type="password" name="current_password">
                     </td>
                 </tr>
             </table>
             <hr>
+
             @if ($errors->any())
                 <div class="error-content">
                     <ul>
@@ -92,6 +81,7 @@
                     </ul>
                 </div>
             @endif
+
             <a href="{{ route('editspace') }}" class="a-button">{{ trans('messages.editspace-edit-cancel') }}</a>
             <a href="#" class="a-button" onclick="document.getElementById('editSpacebox').submit()">{{ trans('messages.editspace-edit-save') }}</a>
         </form>

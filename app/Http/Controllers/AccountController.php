@@ -28,7 +28,7 @@ class AccountController extends Controller
         $user_id = auth()->user()->id;
         $user = User::find($user_id);
         $image = $this->getImage();
-        $langs = ["ES" => "Español", "EN" => "English", "PT" => "Português"];
+        $langs = ['es' => 'Español', 'en' => 'English'];
 
         return view('account.edit', compact('title', 'user', 'image', 'langs'));
     }

@@ -49,9 +49,9 @@
             <hr>
             <a href="{{ route('account.edit') }}" class="a-button" >{{ trans('messages.account-index-button-edit') }}</a>
         @endif
-
+        
         @if(session()->has('success'))
-            <div style="text-align: center;" class="succeed-content">{{ session()->get('success') }}</div>
+            <div style="text-align: center" class="succeed-content">{{ session()->get('success') }}</div>
         @endif
     </div>
 @endsection

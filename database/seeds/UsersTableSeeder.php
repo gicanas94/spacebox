@@ -17,7 +17,7 @@ class UsersTableSeeder extends Seeder
             'password' => bcrypt('123456'),
             'question' => "Esta es mi pregunta secreta.",
             'answer' => 'Y esta mi respuesta :D',
-            'lang' => 'ES',
+            'lang' => 'es',
             'ban_id' => null
         ]);
 

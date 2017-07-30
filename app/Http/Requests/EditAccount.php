@@ -24,8 +24,8 @@ class EditAccount extends FormRequest
     public function rules()
     {
         return [
-            'username' => 'required|string|min:3|max:30|unique:users,id,' . $this->get('id'),
-            'email' => 'required|string|email|unique:users,id,' . $this->get('id'),
+            'username' => 'required|string|min:3|max:30|unique:users,username,' . auth()->user()->id,
+            'email' => 'required|string|email|unique:users,email,' . auth()->user()->id,
             'img' => 'image|between:1,10000',
             'password' => 'nullable|string|min:4|max:25|confirmed',
             'current_password' => 'required|current_password'

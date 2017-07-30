@@ -26,7 +26,7 @@ class EditSpaceController extends Controller
         $title = trans('messages.editspace-edit-title');
         $spacebox = $this->getSpacebox();
         $colors = Spacebox::colors();
-        $langs = ["ES" => "Español", "EN" => "English", "PT" => "Português"];
+        $langs = ['es' => 'Español', 'en' => 'English'];
 
         return view('editspace.edit', compact('title', 'spacebox', 'colors', 'langs'));
     }

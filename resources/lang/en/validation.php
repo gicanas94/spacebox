@@ -100,8 +100,93 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        'username' => [
+            'required' => 'You must enter a username.',
+            'min' => 'The username must be between 3 and 30 characters.',
+            'max' => 'The username must be between 3 and 30 characters.',
+            'unique' => 'The username entered already exists.',
+            'exists' => 'The username entered does not exist.'
+        ],
+        'email' => [
+            'required' => 'You must enter an e-mail',
+            'email' => 'You must enter a valid e-mail.',
+            'unique' => 'An account already registered with the entered e-mail already exists.'
+        ],
+        'password' => [
+            'required' => 'You must enter a password.',
+            'min' => 'The password must be between 4 and 25 characters.',
+            'max' => 'The password must be between 4 and 25 characters.',
+            'confirmed' => 'The passwords entered do not match.'
+        ],
+        'current_password' => [
+            'required' => 'You must enter your current password. ',
+            'current_password' => 'The current password entered is incorrect.'
+        ],
+        'question' => [
+            'required' => 'You must enter a secret question.',
+            'max' => 'The secret question must not exceed 40 characters.'
+        ],
+        'answer' => [
+            'required' => 'You must enter a secret password.',
+            'max' => 'The secret answer must not exceed 40 characters.',
+            'different' => 'The secret question and the secret answer can not be the same.'
+        ],
+        'img' => [
+            'required' => 'You must upload an image.',
+            'image' => 'The image format is not valid. Allowed format: .jpeg, .png, .bmp, .gif, .svg.',
+            'between' => 'The weight of the image can not exceed 10mb.'
+        ],
+        'terms' => [
+            'required' => 'You must accept our Terms of Use.'
+        ],
+        'name' => [
+            'required' => 'Your Spacebox must to have a name!',
+            'max' => 'The Spacebox name must not exceed 50 characters.',
+            'exists' => 'The Spacebox name you entered does not exist.'
+        ],
+        'description' => [
+            'required' => 'You must write a description.',
+            'max' => 'The description must not exceed 200 characters.'
+        ],
+        'color' => [
+            'required' => 'You must choose a color.'
+        ],
+        'title' => [
+            'required' => 'You must enter a title.',
+            'max' => 'The title must not exceed 50 characters.'
+        ],
+        'content' => [
+            'required' => 'Your post must have content!'
+        ],
+        'ban-user-username' => [
+            'required' => 'You must enter a username.',
+            'exists' => 'The username entered does not exist.'
+        ],
+        'ban-user-reason' => [
+            'required' => 'You must enter a reason.',
+            'min' => 'The reason must be between 3 and 50 characters.',
+            'max' => 'The reason must be between 3 and 50 characters.'
+        ],
+        'unban-user-username' => [
+            'required' => 'You must enter a username.',
+            'exists' => 'The username entered does not exist.'
+        ],
+        'ban-spacebox-name' => [
+            'required' => 'You must enter a Spacebox name.',
+            'exists' => 'The Spacebox name entered does not exist.'
+        ],
+        'ban-spacebox-reason' => [
+            'required' => 'You must enter a reason.',
+            'min' => 'The reason must be between 3 and 50 characters.',
+            'max' => 'The reason must be between 3 and 50 characters.'
+        ],
+        'unban-spacebox-name' => [
+            'required' => 'You must enter a Spacebox name.',
+            'exists' => 'The Spacebox name entered does not exist.'
+        ],
+        'make-admin-username' => [
+            'required' => 'You must enter a username.',
+            'exists' => 'The username entered does not exist.'
         ],
     ],
 

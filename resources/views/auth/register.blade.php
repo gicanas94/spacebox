@@ -9,61 +9,37 @@
             <div>
                 <label>{{ trans('messages.register-form-username') }}</label>
                 <br>
-                @if ($errors->has('username'))
-                    <input class="form-error-content" type="text" name="username">
-                @else
-                    <input type="text" name="username" value="{{ old('username') }}">
-                @endif
+                <input class="{{ $errors->has('username') ? 'form-error-content' : '' }}" type="text" name="username" value="{{ old('username') }}">
             </div>
             <br>
             <div>
                 <label>{{ trans('messages.register-form-password') }}</label>
                 <br>
-                @if ($errors->has('password'))
-                    <input class="form-error-content" type="password" name="password">
-                @else
-                    <input type="password" name="password">
-                @endif
+                <input class="{{ $errors->has('password') ? 'form-error-content' : '' }}" type="password" name="password">
             </div>
             <br>
             <div>
                 <label>{{ trans('messages.register-form-confirm') }}</label>
                 <br>
-                @if ($errors->has('password'))
-                    <input class="form-error-content" type="password" name="password_confirmation">
-                @else
-                    <input type="password" name="password_confirmation">
-                @endif
+                <input class="{{ $errors->has('password') ? 'form-error-content' : '' }}" type="password" name="password_confirmation">
             </div>
             <br>
             <div>
                 <label>{{ trans('messages.register-form-email') }}</label>
                 <br>
-                @if ($errors->has('email'))
-                    <input class="form-error-content" type="text" name="email">
-                @else
-                    <input type="text" name="email" value="{{ old('email') }}">
-                @endif
+                <input class="{{ $errors->has('email') ? 'form-error-content' : '' }}" type="email" name="email" value="{{ old('email') }}">
             </div>
             <br>
             <div>
                 <label>{{ trans('messages.register-form-question') }}</label>
                 <br>
-                @if ($errors->has('question'))
-                    <input class="form-error-content" type="text" name="question">
-                @else
-                    <input type="text" name="question" value="{{ old('question') }}">
-                @endif
+                <input class="{{ $errors->has('question') ? 'form-error-content' : '' }}" type="text" name="question" value="{{ old('question') }}">
             </div>
             <br>
             <div>
                 <label>{{ trans('messages.register-form-answer') }}</label>
                 <br>
-                @if ($errors->has('answer'))
-                    <input class="form-error-content" type="text" name="answer">
-                @else
-                    <input type="text" name="answer" value="{{ old('answer') }}">
-                @endif
+                <input class="{{ $errors->has('answer') ? 'form-error-content' : '' }}" type="text" name="answer" value="{{ old('answer') }}">
             </div>
             <br>
             <div>
@@ -87,8 +63,9 @@
             </div>
             <br>
             <div>
-                <label><input class="register-input-terms" type="checkbox" name="terms"> He leído y acepto los <a href="{{ route('terms') }}">Términos de Uso</a>.</label>
+                <label><input class="register-input-terms" type="checkbox" name="terms">{!! trans('messages.register-form-terms') !!}</label>
             </div>
+
             @if ($errors->any())
                 <div class="error-content">
                     <ul>
@@ -98,6 +75,7 @@
                     </ul>
                 </div>
             @endif
+
             <button type="submit">{{ trans('messages.register-form-submit') }}</button>
         </form>
     </div>

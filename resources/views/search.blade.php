@@ -2,7 +2,7 @@
 
 @section('content')
     <section class="spaceboxes">
-        @if (empty($spaceboxes))
+        @if (count($spaceboxes) === 0)
             <article class="info">
                 <a class="spacebox-name" href="{{ route('index') }}"><h2>{{ trans('messages.search-no-results') }}</h2></a>
             </article>

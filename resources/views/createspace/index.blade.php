@@ -18,21 +18,13 @@
             <div>
                 <label>{{ trans('messages.create-form-name') }}</label>
                 <br>
-                @if ($errors->has('name'))
-                    <input id="nameInput" class="form-error-content" type="text" name="name">
-                @else
-                    <input id="nameInput" type="text" name="name" value="{{ old('name') }}">
-                @endif
+                <input id="nameInput" class="{{ $errors->has('name') ? 'form-error-content' : '' }}" type="text" name="name" value="{{ old('name') }}">
             </div>
             <div>
                 <br>
                 <label>{{ trans('messages.create-form-desc') }}</label>
                 <br>
-                @if ($errors->has('description'))
-                    <textarea id="descriptionTextarea" class="form-error-content" rows="5" name="description" type="text"></textarea>
-                @else
-                    <textarea id="descriptionTextarea" rows="5" name="description">{{ old('description') }}</textarea>
-                @endif
+                <textarea class="{{ $errors->has('description') ? 'form-error-content' : '' }}" id="descriptionTextarea" rows="5" name="description">{{ old('description') }}</textarea>
             </div>
             <br>
             <div>
@@ -57,6 +49,7 @@
                     <div class="color" style="background-color: {{ $color }}" value="{{ $color }}"></div>
                 @endforeach
             </div>
+
             @if ($errors->any())
                 <div class="error-content">
                     <ul>
@@ -66,6 +59,7 @@
                     </ul>
                 </div>
             @endif
+
             <button type="submit">{{ trans('messages.create-form-submit') }}</button>
         </form>
     </div>

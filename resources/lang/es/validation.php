@@ -167,7 +167,7 @@ return [
         'ban-user-reason' => [
             'required' => 'Debes ingresar un motivo.',
             'min' => 'El motivo debe tener entre 3 y 50 caracteres.',
-            'max' => 'La contraseña debe tener entre 3 y 50 caracteres.'
+            'max' =>  'El motivo debe tener entre 3 y 50 caracteres.',
         ],
         'unban-user-username' => [
             'required' => 'Debes ingresar un nombre de usuario.',
@@ -180,7 +180,7 @@ return [
         'ban-spacebox-reason' => [
             'required' => 'Debes ingresar un motivo.',
             'min' => 'El motivo debe tener entre 3 y 50 caracteres.',
-            'max' => 'La contraseña debe tener entre 3 y 50 caracteres.'
+            'max' => 'El motivo debe tener entre 3 y 50 caracteres.',
         ],
         'unban-spacebox-name' => [
             'required' => 'Debes ingresar el nombre del Spacebox.',

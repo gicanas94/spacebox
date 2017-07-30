@@ -23,8 +23,9 @@ return [
     'register-form-email' => 'Correo electrónico',
     'register-form-question' => 'Pregunta secreta (40)',
     'register-form-answer' => 'Respuesta secreta (40)',
-    'register-form-lang' => 'Idioma del sivtio',
+    'register-form-lang' => 'Idioma del sitio',
     'register-form-image' => 'Imagen (10mb)',
+    'register-form-terms' => ' He leído y acepto los <a href="terms">Términos de Uso</a>.',
     'register-form-submit' => 'LISTO',
 
     // -/login
@@ -33,7 +34,7 @@ return [
     'login-h2' => '¡Bienvenido nuevamente!<br>ingresa los datos a continuación.',
     'login-form-username' => 'Usuario',
     'login-form-password' => 'Contraseña',
-    'login-form-remember' => 'Recordar mi contraseña',
+    'login-form-remember' => ' Recordar mi contraseña',
     'login-form-forgot' => '¿Olvidaste tu usuario o contraseña?',
     'login-form-submit' => 'ENTRAR',
 
@@ -110,9 +111,9 @@ return [
     'editspace-edit-success' => 'La información fue actualizada con éxito.',
 
     // -/terms
-    'terms-title' => 'Términos de uso',
+    'terms-title' => 'Términos de Uso',
     'terms-h1' => 'TÉRMINOS DE USO',
-    'terms-h2' => 'Nadie los lee pero...<br>¡contienen información importante!.',
+    'terms-h2' => 'Nadie los lee pero...<br>¡contienen información importante!',
 
     // -/admin
     'admin-title' => 'Administración',

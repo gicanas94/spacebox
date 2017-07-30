@@ -11,21 +11,13 @@
             <div>
                 <label>{{ trans('messages.admin-form-ban-user-username') }}</label>
                 <br>
-                @if ($errors->has('ban-user-username'))
-                    <input class="form-error-content" type="text" name="ban-user-username">
-                @else
-                    <input type="text" name="ban-user-username" value="{{ old('ban-user-username') }}">
-                @endif
+                <input class="{{ $errors->has('ban-user-username') ? 'form-error-content' : '' }}" type="text" name="ban-user-username" value="{{ old('ban-user-username') }}">
             </div>
             <br>
             <div>
                 <label>{{ trans('messages.admin-form-ban-reason') }}</label>
                 <br>
-                @if ($errors->has('ban-user-reason'))
-                    <input class="form-error-content" type="text" name="ban-user-reason">
-                @else
-                    <input type="text" name="ban-user-reason" value="{{ old('ban-user-reason') }}">
-                @endif
+                <input class="{{ $errors->has('ban-user-reason') ? 'form-error-content' : '' }}" type="text" name="ban-user-reason" value="{{ old('ban-user-reason') }}">
             </div>
             <button type="submit">{{ trans('messages.admin-form-ban-submit') }}</button>
         </form>
@@ -36,11 +28,7 @@
             <div>
                 <label>{{ trans('messages.admin-form-unban-user-username') }}</label>
                 <br>
-                @if ($errors->has('unban-user-username'))
-                    <input class="form-error-content" type="text" name="unban-user-username">
-                @else
-                    <input type="text" name="unban-user-username" value="{{ old('unban-user-username') }}">
-                @endif
+                <input class="{{ $errors->has('unban-user-username') ? 'form-error-content' : '' }}" type="text" name="unban-user-username" value="{{ old('unban-user-username') }}">
             </div>
             <button type="submit">{{ trans('messages.admin-form-unban-submit') }}</button>
         </form>
@@ -51,21 +39,13 @@
             <div>
                 <label>{{ trans('messages.admin-form-ban-spacebox-name') }}</label>
                 <br>
-                @if ($errors->has('ban-spacebox-name'))
-                    <input class="form-error-content" type="text" name="ban-spacebox-name">
-                @else
-                    <input type="text" name="ban-spacebox-name" value="{{ old('ban-spacebox-name') }}">
-                @endif
+                <input class="{{ $errors->has('ban-spacebox-name') ? 'form-error-content' : '' }}" type="text" name="ban-spacebox-name" value="{{ old('ban-spacebox-name') }}">
             </div>
             <br>
             <div>
                 <label>{{ trans('messages.admin-form-ban-reason') }}</label>
                 <br>
-                @if ($errors->has('ban-spacebox-reason'))
-                    <input class="form-error-content" type="text" name="ban-spacebox-reason">
-                @else
-                    <input type="text" name="ban-spacebox-reason" value="{{ old('ban-spacebox-reason') }}">
-                @endif
+                <input class="{{ $errors->has('ban-spacebox-reason') ? 'form-error-content' : '' }}" type="text" name="ban-spacebox-reason" value="{{ old('ban-spacebox-reason') }}">
             </div>
             <button type="submit">{{ trans('messages.admin-form-ban-submit') }}</button>
         </form>
@@ -76,11 +56,7 @@
             <div>
                 <label>{{ trans('messages.admin-form-unban-spacebox-name') }}</label>
                 <br>
-                @if ($errors->has('unban-spacebox-name'))
-                    <input class="form-error-content" type="text" name="unban-spacebox-name">
-                @else
-                    <input type="text" name="unban-spacebox-name" value="{{ old('unban-spacebox-name') }}">
-                @endif
+                <input class="{{ $errors->has('unban-spacebox-name') ? 'form-error-content' : '' }}" type="text" name="unban-spacebox-name" value="{{ old('unban-spacebox-name') }}">
             </div>
             <button type="submit">{{ trans('messages.admin-form-unban-submit') }}</button>
         </form>
@@ -91,14 +67,11 @@
             <div>
                 <label>{{ trans('messages.admin-form-make-admin-username') }}</label>
                 <br>
-                @if ($errors->has('make-admin-username'))
-                    <input class="form-error-content" type="text" name="make-admin-username">
-                @else
-                    <input type="text" name="make-admin-username" value="{{ old('make-admin-username') }}">
-                @endif
+                <input class="{{ $errors->has('make-admin-username') ? 'form-error-content' : '' }}" type="text" name="make-admin-username" value="{{ old('make-admin-username') }}">
             </div>
             <button type="submit">{{ trans('messages.admin-form-make-admin-submit') }}</button>
         </form>
+        
         @if ($errors->any())
             <div class="error-content">
                 <ul>
@@ -110,7 +83,7 @@
         @endif
 
         @if(session()->has('success'))
-            <div style="text-align: center;" class="succeed-content">{{ session()->get('success') }}    </div>
+            <div style="text-align: center" class="succeed-content">{{ session()->get('success') }}</div>
         @endif
     </div>
 @endsection

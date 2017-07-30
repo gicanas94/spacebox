@@ -16,21 +16,13 @@
                 <tr>
                     <td><label>{{ trans('messages.account-edit-username') }}</label></td>
                     <td>
-                        @if ($errors->has('username'))
-                            <input class="form-error-content" type="text" name="username">
-                        @else
-                            <input type="text" name="username" value="{{ old('username') }}">
-                        @endif
+                        <input class="{{ $errors->has('username') ? 'form-error-content' : '' }}" type="text" name="username" value="{{ old('username', Auth::user()->username) }}">
                     </td>
                 </tr>
                 <tr>
                     <td><label>{{ trans('messages.account-email') }}</label></td>
                     <td>
-                        @if ($errors->has('email'))
-                            <input class="form-error-content" type="text" name="email">
-                        @else
-                            <input type="text" name="email" value="{{ old('email') }}">
-                        @endif
+                        <input class="{{ $errors->has('email') ? 'form-error-content' : '' }}" type="email" name="email" value="{{ old('email', Auth::user()->email) }}">
                     </td>
                 </tr>
                 <tr>
@@ -106,6 +98,7 @@
                 </tr>
             </table>
             <hr>
+
             @if ($errors->any())
                 <div class="error-content">
                     <ul>
@@ -115,6 +108,7 @@
                     </ul>
                 </div>
             @endif
+
             <a href="{{ route('account') }}" class="a-button">{{ trans('messages.account-edit-cancel') }}</a>
             <a href="#" class="a-button" onclick="document.getElementById('editAccount').submit()">{{ trans('messages.account-edit-save') }}</a>
         </form>
