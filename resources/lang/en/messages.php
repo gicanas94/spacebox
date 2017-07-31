@@ -45,7 +45,7 @@ return [
     'index-register-desc-2' => ' users!',
     'index-login' => 'LOGIN',
     'index-create-spacebox' => 'CREATE MY SPACEBOX',
-    'index-go-my-spacebox' => 'EDIT MY SPACEBOX',
+    'index-go-my-spacebox' => 'GO TO MY SPACEBOX',
     'index-admin' => 'ADMIN',
 
     // -/ BANNED
