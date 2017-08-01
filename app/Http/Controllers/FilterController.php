@@ -13,7 +13,7 @@ class FilterController extends Controller
 
         if (is_numeric($option)) {
             $title = trans('messages.category-' . $option);
-            $spaceboxes = Spacebox::where('category', $option)
+            $spaceboxes = Spacebox::where('category_id', $option)
                                     ->where('ban_id', null)
                                     ->where('visible', 1)
                                     ->get();

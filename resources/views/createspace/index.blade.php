@@ -30,9 +30,9 @@
             <div>
                 <label>{{ trans('messages.create-form-category') }}</label>
                 <br>
-                <select name="category">
+                <select name="category_id">
                     @foreach ($categories as $xCategory => $nameCategory)
-                        @if ($xCategory == old('category'))
+                        @if ($xCategory == old('category_id'))
                             <option value="{{ $xCategory }}" selected>{{ $nameCategory }}</option>
                         @else
                             <option value="{{ $xCategory }}">{{ $nameCategory }}</option>

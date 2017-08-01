@@ -41,9 +41,9 @@
                 <tr>
                     <td><label>{{ trans('messages.editspace-category') }}</label></td>
                     <td>
-                        <select name="category">
+                        <select name="category_id">
                             @foreach ($categories as $xCategory => $nameCategory)
-                                @if ($xCategory == $spacebox->category)
+                                @if ($xCategory == $spacebox->category_id)
                                     <option value="{{ $xCategory }}" selected>{{ $nameCategory }}</option>
                                 @else
                                     <option value="{{ $xCategory }}">{{ $nameCategory }}</option>

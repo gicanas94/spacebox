@@ -25,7 +25,7 @@ class Spacebox extends Model
 
     public static function colors()
     {
-        return $colors = [
+        return [
           '#FF7575', '#FF8A8A', '#FF79E1', '#FFACEC', '#FF73B9', '#FF97CB', '#EA8DFE', '#AD8BFE', '#DD75DD', '#8678E9',
           '#6094DB', '#2F74D0', '#2FAACE', '#23819C', '#57BCD9', '#A5DBEB', '#6A6AFF', '#75B4FF', '#3DE4FC', '#74FEF8',
           '#A3FEBA', '#4AE371', '#6CA870', '#59955C', '#99FD77', '#2DC800', '#95FF4F', '#93BF96', '#B3FF99', '#93EEAA',
@@ -38,7 +38,7 @@ class Spacebox extends Model
 
     public static function categories()
     {
-        return $categories = [
+        return [
             '1' => trans('messages.category-1'),
             '2' => trans('messages.category-2'),
             '3' => trans('messages.category-3'),

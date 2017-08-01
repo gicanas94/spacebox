@@ -169,7 +169,7 @@ return [
 
     // -/search, -/filter
     'search-title' => 'Resultados de la búsqueda',
-    'x-results' => ' RESULTADOS',
+    'x-results' => ' RESULTADO/S',
     'no-results' => 'SIN RESULTADOS',
 
     // SPACEBOX CATEGORIES

@@ -168,7 +168,7 @@ return [
 
     // -/search, -/filter
     'search-title' => 'Search results',
-    'x-results' => ' RESULTS',
+    'x-results' => ' RESULT/S',
     'no-results' => 'NO RESULTS',
 
     // SPACEBOX CATEGORIES
