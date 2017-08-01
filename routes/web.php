@@ -16,7 +16,9 @@ Auth::routes();
 Route::get('/', 'IndexController@returnView')->name('index');
 Route::get('faq', 'FaqController@returnView')->name('faq');
 Route::get('terms', 'TermsController@returnView')->name('terms');
+
 Route::get('search', 'SearchController@findSpacebox')->name('search');
+Route::get('filter', 'FilterController@filter')->name('filter');
 
 Route::get('account', 'AccountController@index')->name('account');
 Route::get('account/edit', ['as' => 'account.edit', 'uses' => 'AccountController@edit'])->middleware('userIsBanned');

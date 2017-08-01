@@ -108,7 +108,7 @@ return [
             'exists' => 'The username entered does not exist.'
         ],
         'email' => [
-            'required' => 'You must enter an e-mail',
+            'required' => 'You must enter an e-mail.',
             'email' => 'You must enter a valid e-mail.',
             'unique' => 'An account already registered with the entered e-mail already exists.'
         ],

@@ -28,6 +28,20 @@
             </div>
             <br>
             <div>
+                <label>{{ trans('messages.create-form-category') }}</label>
+                <br>
+                <select name="category">
+                    @foreach ($categories as $xCategory => $nameCategory)
+                        @if ($xCategory == old('category'))
+                            <option value="{{ $xCategory }}" selected>{{ $nameCategory }}</option>
+                        @else
+                            <option value="{{ $xCategory }}">{{ $nameCategory }}</option>
+                        @endif
+                    @endforeach
+                </select>
+            </div>
+            <br>
+            <div>
                 <label>{{ trans('messages.create-form-lang') }}</label>
                 <br>
                 <select name="lang">

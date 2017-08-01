@@ -4,11 +4,11 @@
     <section class="spaceboxes">
         @if (count($spaceboxes) === 0)
             <article class="info">
-                <a class="spacebox-name" href="{{ route('index') }}"><h2>{{ trans('messages.search-no-results') }}</h2></a>
+                <a class="spacebox-name" href="{{ route('index') }}"><h2>{{ trans('messages.no-results') }}</h2></a>
             </article>
         @else
             <article class="info">
-                <a class="spacebox-name" href="#"><h2>{{ count($spaceboxes) . trans('messages.search-x-results') }}</h2></a>
+                <a class="spacebox-name" href="#"><h2>{{ count($spaceboxes) . trans('messages.x-results') }}</h2></a>
             </article>
             @foreach ($spaceboxes as $spacebox)
                 <article style="background-color: {{ $spacebox->color }}">

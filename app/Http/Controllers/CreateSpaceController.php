@@ -16,10 +16,11 @@ class CreateSpaceController extends Controller
     public function index()
     {
         $title = trans('messages.create-title');
+        $categories = Spacebox::categories();
         $langs = ['es' => 'Español', 'en' => 'English'];
         $colors = Spacebox::colors();
 
-        return view('createspace.index', compact('title', 'langs', 'colors'));
+        return view('createspace.index', compact('title', 'categories', 'langs', 'colors'));
     }
 
     public function store(StoreSpacebox $request)

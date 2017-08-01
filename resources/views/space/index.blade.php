@@ -16,7 +16,7 @@
         <img class="space-user-img" src="{{ asset($image->src) }}" alt="{{ trans('messages.spacebox-image-alt') }}">
         <br>
         <hr>
-        <h2 style="margin: 0;">{{ $spacebox->description }}</h2>
+        <h2 style="margin: 0">{{ $spacebox->description }}</h2>
         <hr>
         @if ($userCanDoActions)
             <br>

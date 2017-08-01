@@ -27,6 +27,10 @@
                 <td><div class="editspace-actualcolor" style="background-color: {{ $spacebox->color }}" value="{{ $spacebox->color }}"></div></td>
             </tr>
             <tr>
+                <td>{{ trans('messages.editspace-category') }}</td>
+                <td><i>{{ $category }}</i></td>
+            </tr>
+            <tr>
                 <td>{{ trans('messages.editspace-lang') }}</td>
                 <td><i>{{ $spacebox->lang }}</i></td>
             </tr>

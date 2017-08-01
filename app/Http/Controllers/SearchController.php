@@ -15,6 +15,6 @@ class SearchController extends Controller
                                 ->where('visible', 1)
                                 ->get();
 
-        return view('search', compact('title', 'spaceboxes'));
+        return view('search-or-filter', compact('title', 'spaceboxes'));
     }
 }

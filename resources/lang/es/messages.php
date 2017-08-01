@@ -96,6 +96,7 @@ return [
     'editspace-edit-title' => 'Editar mi Spacebox',
     'editspace-h1' => 'MI SPACEBOX',
     'editspace-h2' => 'Esta es la información de tu Spacebox,<br>¡haz los cambios que creas necesarios!',
+    'editspace-category' => 'Categoría:',
     'editspace-lang' => 'Idioma:',
     'editspace-visible' => 'Visible en inicio:',
 
@@ -139,11 +140,6 @@ return [
     'admin-unban-spacebox' => 'El Spacebox fue desbloqueado con éxito.',
     'admin-make-admin' => 'El usuario es ahora administrador.',
 
-    // -/search
-    'search-title' => 'Resultados de la búsqueda',
-    'search-x-results' => ' RESULTADOS',
-    'search-no-results' => 'SIN RESULTADOS',
-
     // -/createspace
     'create-title' => 'Crear Spacebox',
     'create-h1' => 'CREAR SPACEBOX',
@@ -152,8 +148,9 @@ return [
     'create-preview-desc' => 'Descripción del Spacebox.',
     'create-form-name' => 'Nombre (50)',
     'create-form-desc' => 'Breve descripción (200)',
+    'create-form-category' => 'Categoría',
     'create-form-lang' => 'Idioma',
-    'create-form-color' => 'Por último y más divertido, el color',
+    'create-form-color' => 'Por último y más divertido, el color!',
     'create-form-submit' => 'CREAR',
 
     // -/space
@@ -169,6 +166,23 @@ return [
     'space-banned-h2' => 'Tu Spacebox se encuentra bloqueado.',
     'space-banned-reason' => 'Motivo: ',
     'space-banned-explanation' => 'Un bloqueo de Spacebox evita que otros usuarios lo visiten. Tampoco puedes administrarlo ni crear o eliminar publicaciones.',
+
+    // -/search, -/filter
+    'search-title' => 'Resultados de la búsqueda',
+    'x-results' => ' RESULTADOS',
+    'no-results' => 'SIN RESULTADOS',
+
+    // SPACEBOX CATEGORIES
+    'category-1' => 'Amor',
+    'category-2' => 'Autos',
+    'category-3' => 'Cocina',
+    'category-4' => 'Deportes',
+    'category-5' => 'Medicina',
+    'category-6' => 'Poesía',
+    'category-7' => 'Política',
+    'category-8' => 'Tecnología',
+    'category-9' => 'Viajes',
+    'category-10' => 'Otra',
 
     // OTHERS
     'under-construction' => 'EN CONSTRUCCIÓN'

@@ -31,7 +31,7 @@ return [
     // -/login
     'login-title' => 'Login',
     'login-h1' => 'LOGIN',
-    'login-h2' => '¡Welcome back!<br>Enter the data below',
+    'login-h2' => 'Welcome back!<br>Enter the data below.',
     'login-form-username' => 'Username',
     'login-form-password' => 'Password',
     'login-form-remember' => ' Remember my password',
@@ -96,6 +96,7 @@ return [
     'editspace-edit-title' => 'Edit my Spacebox',
     'editspace-h1' => 'MY SPACEBOX',
     'editspace-h2' => 'This is the information of your Spacebox,<br>make the changes that you think necessary!',
+    'editspace-category' => 'Categoría:',
     'editspace-lang' => 'Language:',
     'editspace-visible' => 'Visible at home:',
 
@@ -139,11 +140,6 @@ return [
     'admin-unban-spacebox' => 'The Spacebox was successfully unbanned.',
     'admin-make-admin' => 'The user is now an administrator.',
 
-    // -/search
-    'search-title' => 'Search results',
-    'search-x-results' => ' RESULTS',
-    'search-no-results' => 'NO RESULTS',
-
     // -/createspace
     'create-title' => 'Create Spacebox',
     'create-h1' => 'CREATE SPACEBOX',
@@ -152,8 +148,9 @@ return [
     'create-preview-desc' => 'Spacebox description',
     'create-form-name' => 'Name (50)',
     'create-form-desc' => 'Short description (200)',
+    'create-form-category' => 'Categoría',
     'create-form-lang' => 'Language',
-    'create-form-color' => 'Finally and more fun, the color',
+    'create-form-color' => 'Finally and more fun, the color!',
     'create-form-submit' => 'CREATE',
 
     // -/space
@@ -168,6 +165,23 @@ return [
     'space-banned-h2' => 'Your Spacebox is banned.',
     'space-banned-reason' => 'Reason: ',
     'space-banned-explanation' => 'A Spacebox ban prevents other users from visiting it. You also can not manage it or create or delete posts.',
+
+    // -/search, -/filter
+    'search-title' => 'Search results',
+    'x-results' => ' RESULTS',
+    'no-results' => 'NO RESULTS',
+
+    // SPACEBOX CATEGORIES
+    'category-1' => 'Love',
+    'category-2' => 'Cars',
+    'category-3' => 'Cook',
+    'category-4' => 'Sports',
+    'category-5' => 'Medicine',
+    'category-6' => 'Poetry',
+    'category-7' => 'Politics',
+    'category-8' => 'Technology',
+    'category-9' => 'Travel',
+    'category-10' => 'Other',
 
     // OTHERS
     'under-construction' => 'UNDER CONSTRUCTION'

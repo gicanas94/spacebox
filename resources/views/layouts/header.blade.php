@@ -4,6 +4,9 @@
     <a href="#" class="toggle-nav"><span class="ion-chevron-down"></span></a>
     <nav class="main-nav">
         <ul>
+            {{-- Filter --}}
+            <li><a id="filterButton" href="#"><span class="ion-ios-settings-strong"></span></a></li>
+
             <li><a href="{{ route('index') }}"><span class="icon left ion-ios-home"></span>{{ trans('messages.header-index') }}</a></li>
 
             {{-- Guest --}}
@@ -59,3 +62,18 @@
 
     <a href="{{ route('index') }}"><img src="{{ asset('img/logo-2.png') }}" alt="logotipo" class="logo-query1" width="300px"></a>
 </header>
+
+<div class="filter-content">
+    <a class="filter-option" href="{{ route('filter', ['option' => '1']) }}">{{ trans('messages.category-1') }}</a>
+    <a class="filter-option" href="{{ route('filter', ['option' => '2']) }}">{{ trans('messages.category-2') }}</a>
+    <a class="filter-option" href="{{ route('filter', ['option' => '3']) }}">{{ trans('messages.category-3') }}</a>
+    <a class="filter-option" href="{{ route('filter', ['option' => '4']) }}">{{ trans('messages.category-4') }}</a>
+    <a class="filter-option" href="{{ route('filter', ['option' => '5']) }}">{{ trans('messages.category-5') }}</a>
+    <a class="filter-option" href="{{ route('filter', ['option' => '6']) }}">{{ trans('messages.category-6') }}</a>
+    <a class="filter-option" href="{{ route('filter', ['option' => '7']) }}">{{ trans('messages.category-7') }}</a>
+    <a class="filter-option" href="{{ route('filter', ['option' => '8']) }}">{{ trans('messages.category-8') }}</a>
+    <a class="filter-option" href="{{ route('filter', ['option' => '9']) }}">{{ trans('messages.category-9') }}</a>
+    <a class="filter-option" href="{{ route('filter', ['option' => '10']) }}">{{ trans('messages.category-10') }}</a>
+    <a class="filter-option" href="{{ route('filter', ['option' => 'en']) }}">EN</a>
+    <a class="filter-option" href="{{ route('filter', ['option' => 'es']) }}">ES</a>
+</div>
