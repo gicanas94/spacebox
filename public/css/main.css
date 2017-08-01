@@ -316,7 +316,7 @@ button:hover, .a-button:hover {
 }
 
 #filterButton, .filter-content, .filter-option {
-    display: none;
+  display: none;
 }
 
 /***** BODY *****/
@@ -336,6 +336,18 @@ button:hover, .a-button:hover {
   display: block;
   float: left;
   overflow: hidden;
+  transition: 0.2s ease;
+  -moz-transition: 0.2s ease;
+  -webkit-transition: 0.2s ease;
+  -o-transition: 0.2s ease;
+}
+
+.spaceboxes article:hover {
+  transform : scale(1.05);
+  -moz-transform : scale(1.05);
+  -webkit-transform : scale(1.05);
+  -o-transform : scale(1.05);
+  -ms-transform : scale(1.05);
 }
 
 .spacebox-name {
@@ -795,33 +807,32 @@ button:hover, .a-button:hover {
   }
 
   #filterButton {
-      display: block;
+    display: block;
   }
 
   .filter-content {
-      width: 100%;
-      background-color: RGBA(0, 0, 0, 0.8);
-      border: solid 1px #424242;
-      box-shadow: 5px 5px 15px 5px RGBA(0, 0, 0, 0.75);
-      margin-top: 75px;
-      padding: 10px 15px;
-      margin-bottom: -80px;
-      clear: both;
-      overflow: hidden;
+    width: 100%;
+    background-color: RGBA(0, 0, 0, 0.8);
+    border: solid 1px #424242;
+    box-shadow: 5px 5px 15px 5px RGBA(0, 0, 0, 0.75);
+    margin-top: 75px;
+    padding: 10px 15px;
+    margin-bottom: -80px;
+    overflow: hidden;
   }
 
   .filter-content .filter-option {
-      height: 40px;
-      background-color: #2E2E2E;
-      border: solid 1px #6E6E6E;
-      padding: 10px;
-      margin: 5px 5px 5px 0;
-      font-weight: normal;
-      display: inline-block;
+    height: 40px;
+    background-color: #2E2E2E;
+    border: solid 1px #6E6E6E;
+    padding: 10px;
+    margin: 5px 5px 5px 0;
+    font-weight: normal;
+    display: inline-block;
   }
 
   .filter-content .filter-option:last-child {
-      margin: 0;
+    margin: 0;
   }
 
   .filter-content .filter-option:hover {

@@ -26,7 +26,15 @@ $(document).ready(function() {
 
     // FILTER
     $('#filterButton').on('click', function() {
-        $('.filter-content').fadeToggle('slow');
+        $('.filter-content').mouseover(function() {
+            $('.spaceboxes').css('filter', 'grayscale(90%)');
+        })
+
+        $('.filter-content').mouseout(function() {
+            $('.spaceboxes').css('filter', '');
+        });
+
+        $('.filter-content').fadeToggle('fast');
     });
 
 });
