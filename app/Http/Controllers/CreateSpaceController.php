@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Spacebox;
+use App\Category;
 use App\Http\Requests\StoreSpacebox;
 
 class CreateSpaceController extends Controller
@@ -16,7 +17,7 @@ class CreateSpaceController extends Controller
     public function index()
     {
         $title = trans('messages.create-title');
-        $categories = Spacebox::categories();
+        $categories = Category::getCategories();
         $langs = ['es' => 'Español', 'en' => 'English'];
         $colors = Spacebox::colors();
 

@@ -124,6 +124,18 @@ button:hover, .a-button:hover {
   text-decoration: none;
 }
 
+/* Fade de Spaceboxes en Home */
+.fader{
+    opacity: 0.8;
+    filter: grayscale(0.8) blur(3px);
+}
+
+/*.spaceboxes{
+    height: 600px;
+    overflow: scroll;
+}*/
+
+
 .content {
   width: 90%;
   background-color: RGBA(255, 255, 255, 0.15);

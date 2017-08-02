@@ -18,7 +18,7 @@
         <hr>
         <h2 style="margin: 0">{{ $spacebox->description }}</h2>
         <hr>
-        @if ($canPublishOrDeletePost)
+        @if ($canStoreOrDestroyPost)
             <br>
             <div class="space-new-post-cont">
                 <form action="{{ route('space.storePost') }}" method="post">
@@ -34,12 +34,13 @@
                     </div>
                     <br>
 
-                    @if ($errors->any())
+                    @if ($errors->has('content'))
                         <div class="error-content">
                             <ul>
-                                @foreach ($errors->all() as $error)
+                                <li>{{ $errors->first('content') }}</li>
+                                {{-- @foreach ($errors->all() as $error)
                                     <li>- {{ $error }}</li>
-                                @endforeach
+                                @endforeach --}}
                             </ul>
                         </div>
                     @endif
@@ -61,7 +62,7 @@
         @else
             @foreach ($posts as $post)
                 <div class="space-post-cont">
-                    @if ($canPublishOrDeletePost)
+                    @if ($canStoreOrDestroyPost)
                         <form action="{{ route('space.destroyPost', $post->id) }}" method="post">
                             {!! csrf_field() !!}
                             <button type="submit" class="space-delete">
@@ -77,7 +78,7 @@
                         <div class="space-comment-cont">
                             @foreach ($post->comments as $comment)
                                 <div class="space-comment" style="background-color: {{ $colors[rand(1, count($colors) - 1)] }}">
-                                    @if ($canDeleteComment)
+                                    @if ($canDestroyComment && Auth::check() && Auth::id() === $comment->user->id)
                                         <form action="{{ route('space.destroyComment', $comment->id) }}" method="post">
                                             {!! csrf_field() !!}
                                             <button type="submit" class="space-delete">
@@ -109,14 +110,21 @@
                         </div>
                     @endif
 
-                    @if ($canComment)
+                    @if ($canStoreComment)
                         <hr>
                         <div class="space-new-comment-cont">
                             <form action="{{ route('space.storeComment') }}" method="post">
                                 {!! csrf_field() !!}
                                 <label>{{ trans('messages.space-new-comment') }}</label>
                                 <input type="hidden" name="post_id" value="{{ $post->id }}">
-                                <textarea class="textareaComment" name="content" rows="3" required></textarea>
+                                <textarea class="textareaComment" name="comment" rows="3"></textarea>
+                                @if ($errors->has('comment'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('comment') }}</strong>
+                                    </span>
+                                    <br>
+                                @endif
+                                {{-- <button type="submit" >send</button> --}}
                             </form>
                         </div>
                     @endif
