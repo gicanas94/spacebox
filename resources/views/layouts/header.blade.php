@@ -43,6 +43,7 @@
                 </li>
             @endif
 
+            {{-- Search --}}
             <li>
                 <div class="search-bar-q1">
                     <form action="{{ route('search') }}" method="get">
@@ -53,6 +54,7 @@
         </ul>
     </nav>
 
+    {{-- Search --}}
     <div class="search-bar-q2">
         <form action="{{ route('search') }}" method="get">
             <input type="text" name="name" placeholder="{{ trans('messages.header-search') }}" required>
@@ -63,17 +65,14 @@
     <a href="{{ route('index') }}"><img src="{{ asset('img/logo-2.png') }}" alt="logotipo" class="logo-query1" width="300px"></a>
 </header>
 
+{{-- Filter by category and language --}}
 <div class="filter-content">
-    <a class="filter-option" href="{{ route('filter', ['option' => '1']) }}">{{ trans('messages.category-1') }}</a>
-    <a class="filter-option" href="{{ route('filter', ['option' => '2']) }}">{{ trans('messages.category-2') }}</a>
-    <a class="filter-option" href="{{ route('filter', ['option' => '3']) }}">{{ trans('messages.category-3') }}</a>
-    <a class="filter-option" href="{{ route('filter', ['option' => '4']) }}">{{ trans('messages.category-4') }}</a>
-    <a class="filter-option" href="{{ route('filter', ['option' => '5']) }}">{{ trans('messages.category-5') }}</a>
-    <a class="filter-option" href="{{ route('filter', ['option' => '6']) }}">{{ trans('messages.category-6') }}</a>
-    <a class="filter-option" href="{{ route('filter', ['option' => '7']) }}">{{ trans('messages.category-7') }}</a>
-    <a class="filter-option" href="{{ route('filter', ['option' => '8']) }}">{{ trans('messages.category-8') }}</a>
-    <a class="filter-option" href="{{ route('filter', ['option' => '9']) }}">{{ trans('messages.category-9') }}</a>
-    <a class="filter-option" href="{{ route('filter', ['option' => '10']) }}">{{ trans('messages.category-10') }}</a>
+    @foreach (App\Category::getCategories() as $category)
+        <a class="filter-option" href="{{ route('filter', ['option' => $category['id']]) }}">
+            {{ $category['name'] }}
+        </a>
+    @endforeach
+
     <a class="filter-option" href="{{ route('filter', ['option' => 'en']) }}">EN</a>
     <a class="filter-option" href="{{ route('filter', ['option' => 'es']) }}">ES</a>
 </div>

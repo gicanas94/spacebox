@@ -31,11 +31,11 @@
                 <label>{{ trans('messages.create-form-category') }}</label>
                 <br>
                 <select name="category_id">
-                    @foreach ($categories as $xCategory => $nameCategory)
-                        @if ($xCategory == old('category_id'))
-                            <option value="{{ $xCategory }}" selected>{{ $nameCategory }}</option>
+                    @foreach ($categories as $category)
+                        @if ($category['id'] == old('category_id'))
+                            <option value="{{ $category['id'] }}" selected>{{ $category['name'] }}</option>
                         @else
-                            <option value="{{ $xCategory }}">{{ $nameCategory }}</option>
+                            <option value="{{ $category['id'] }}">{{ $category['name'] }}</option>
                         @endif
                     @endforeach
                 </select>

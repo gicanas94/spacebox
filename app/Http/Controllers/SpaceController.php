@@ -19,9 +19,9 @@ class SpaceController extends Controller
         $image = Image::where('user_id', $spacebox->user_id)->first();
         $posts = $this->getPosts($spacebox);
         $spaceboxIsBanned = $this->spaceboxIsBanned($spacebox);
-        $canPublishOrDeletePost = $this->canPublishOrDeletePost($spacebox, $spaceboxIsBanned);
-        $canComment = $this->canComment($spaceboxIsBanned);
-        $canDeleteComment = $this->canDeleteComment($spacebox, $spaceboxIsBanned);
+        $canStoreOrDestroyPost = $this->canStoreOrDestroyPost($spacebox, $spaceboxIsBanned);
+        $canStoreComment = $this->canStoreComment($spaceboxIsBanned);
+        $canDestroyComment = $this->canDestroyComment($spacebox, $spaceboxIsBanned);
         $colors = Spacebox::colors();
 
         if ($spaceboxIsBanned) {
@@ -31,7 +31,8 @@ class SpaceController extends Controller
         }
 
         return view('space.index', compact('spacebox', 'title', 'image', 'posts',
-            'spaceboxIsBanned', 'canPublishOrDeletePost', 'canComment', 'canDeleteComment', 'colors'));
+        'spaceboxIsBanned', 'canStoreOrDestroyPost', 'canStoreComment',
+        'canDestroyComment', 'colors'));
     }
 
     //--------------------------------------------------------------------------
@@ -104,7 +105,7 @@ class SpaceController extends Controller
 
     //--------------------------------------------------------------------------
 
-    protected function canPublishOrDeletePost($spacebox, $spaceboxIsBanned)
+    protected function canStoreOrDestroyPost($spacebox, $spaceboxIsBanned)
     {
         if (auth()->user() &&
             auth()->user()->id === $spacebox->user_id &&
@@ -117,7 +118,7 @@ class SpaceController extends Controller
 
     //--------------------------------------------------------------------------
 
-    protected function canComment($spaceboxIsBanned)
+    protected function canStoreComment($spaceboxIsBanned)
     {
         if (auth()->user() &&
             auth()->user()->ban_id === null &&
@@ -129,12 +130,13 @@ class SpaceController extends Controller
 
     //--------------------------------------------------------------------------
 
-    protected function canDeleteComment($spacebox, $spaceboxIsBanned)
+    protected function canDestroyComment($spacebox, $spaceboxIsBanned)
     {
         if (auth()->user() &&
             auth()->user()->id === $spacebox->user_id &&
             auth()->user()->ban_id === null &&
-            empty($spaceboxIsBanned)) {
+            empty($spaceboxIsBanned) ||
+            auth()->user() && auth()->user()->ban_id === null) {
 
             return true;
         }

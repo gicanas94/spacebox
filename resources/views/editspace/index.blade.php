@@ -28,7 +28,7 @@
             </tr>
             <tr>
                 <td>{{ trans('messages.editspace-category') }}</td>
-                <td><i>{{ $category }}</i></td>
+                <td><i>{{ $category['name'] }}</i></td>
             </tr>
             <tr>
                 <td>{{ trans('messages.editspace-lang') }}</td>

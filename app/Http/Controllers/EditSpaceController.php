@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Spacebox;
+use App\Category;
 use App\Http\Requests\EditSpacebox;
 
 class EditSpaceController extends Controller
@@ -17,7 +18,7 @@ class EditSpaceController extends Controller
     {
         $title = trans('messages.editspace-index-title');
         $spacebox = $this->getSpacebox();
-        $category = $this->getCategory($spacebox->category_id);
+        $category = Category::find($spacebox->category_id);
 
         return view('editspace.index', compact('title', 'spacebox', 'category'));
     }
@@ -27,7 +28,7 @@ class EditSpaceController extends Controller
         $title = trans('messages.editspace-edit-title');
         $spacebox = $this->getSpacebox();
         $colors = Spacebox::colors();
-        $categories = Spacebox::categories();
+        $categories = Category::getCategories();
         $langs = ['es' => 'Español', 'en' => 'English'];
 
         return view('editspace.edit', compact('title', 'spacebox', 'colors', 'categories', 'langs'));
@@ -61,12 +62,5 @@ class EditSpaceController extends Controller
     protected function getSpacebox()
     {
         return auth()->user()->spacebox;
-    }
-
-    protected function getCategory($id)
-    {
-        $categories = Spacebox::categories();
-
-        return $categories[$id];
     }
 }

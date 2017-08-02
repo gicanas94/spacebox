@@ -18,7 +18,7 @@
         <hr>
         <h2 style="margin: 0">{{ $spacebox->description }}</h2>
         <hr>
-        @if ($canPublishOrDeletePost)
+        @if ($canStoreOrDestroyPost)
             <br>
             <div class="space-new-post-cont">
                 <form action="{{ route('space.storePost') }}" method="post">
@@ -61,7 +61,7 @@
         @else
             @foreach ($posts as $post)
                 <div class="space-post-cont">
-                    @if ($canPublishOrDeletePost)
+                    @if ($canStoreOrDestroyPost)
                         <form action="{{ route('space.destroyPost', $post->id) }}" method="post">
                             {!! csrf_field() !!}
                             <button type="submit" class="space-delete">
@@ -77,7 +77,7 @@
                         <div class="space-comment-cont">
                             @foreach ($post->comments as $comment)
                                 <div class="space-comment" style="background-color: {{ $colors[rand(1, count($colors) - 1)] }}">
-                                    @if ($canDeleteComment)
+                                    @if ($canDestroyComment && Auth::check() && Auth::id() === $comment->user->id)
                                         <form action="{{ route('space.destroyComment', $comment->id) }}" method="post">
                                             {!! csrf_field() !!}
                                             <button type="submit" class="space-delete">
@@ -109,7 +109,7 @@
                         </div>
                     @endif
 
-                    @if ($canComment)
+                    @if ($canStoreComment)
                         <hr>
                         <div class="space-new-comment-cont">
                             <form action="{{ route('space.storeComment') }}" method="post">

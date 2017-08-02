@@ -13,6 +13,11 @@ class Spacebox extends Model
         return $this->belongsTo('App\User');
     }
 
+    public function category()
+    {
+        return $this->belongsTo('App\Category');
+    }
+
     public function post()
     {
         return $this->hasMany('App\Post');
@@ -33,22 +38,6 @@ class Spacebox extends Model
           '#FF800D', '#FFAC62', '#D1D17A', '#C27E3A', '#C47557', '#D29680', '#C17753', '#B96F6F', '#D1A0A0', '#B05F3C',
           '#F70000', '#FF2626', '#FF5353', '#FF7373', '#B9264F', '#D73E68', '#DD597D', '#E37795', '#5EAE9E', '#4A9586',
           '#8DC7BB', '#8ED6EA', '#4FBDDD', '#29AFD6', '#1F88A7', '#A8A8FF', '#8282FF'
-        ];
-    }
-
-    public static function categories()
-    {
-        return [
-            '1' => trans('messages.category-1'),
-            '2' => trans('messages.category-2'),
-            '3' => trans('messages.category-3'),
-            '4' => trans('messages.category-4'),
-            '5' => trans('messages.category-5'),
-            '6' => trans('messages.category-6'),
-            '7' => trans('messages.category-7'),
-            '8' => trans('messages.category-8'),
-            '9' => trans('messages.category-9'),
-            '10' => trans('messages.category-10')
         ];
     }
 }

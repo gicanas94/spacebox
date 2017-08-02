@@ -18,7 +18,7 @@ class CreateSpaceboxesTable extends Migration
           $table->string('name', 50);
           $table->string('slug', 50);
           $table->string('description', 200);
-          $table->string('category_id')->nullable();
+          $table->integer('category_id')->unsigned();
           $table->char('lang', 2);
           $table->char('color', 7);
           $table->integer('visible')->default(1);
