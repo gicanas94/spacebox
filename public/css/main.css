@@ -79,6 +79,7 @@ select {
 }
 
 textarea {
+  resize: none;
   height: auto;
   font-family: 'PT Sans', sans-serif;
 }
@@ -473,17 +474,17 @@ button:hover, .a-button:hover {
   border: solid 1px #000000;
 }
 
-.space-newpost-cont {
+.space-new-post-cont {
   width: 95%;
   text-align: left;
   margin: auto;
 }
 
-.space-newpost-cont h3 {
+.space-new-post-cont h3 {
   margin-bottom: 0;
 }
 
-.space-newpost-cont input, .space-newpost-cont textarea {
+.space-new-post-cont input, .space-new-post-cont textarea {
   text-align: left;
   width: 100% !important;
 }
@@ -492,7 +493,7 @@ button:hover, .a-button:hover {
   width: 95%;
   background-color: RGBA(0, 0, 0, 0.7);
   border: solid 1px #000000;
-  padding: 10px 15px;
+  padding: 10px;
   margin: 25px auto 15px auto;
   text-align: left;
   position: relative;
@@ -508,12 +509,62 @@ button:hover, .a-button:hover {
   font-size: 0.9em;
 }
 
-.space-postdate {
+.space-post-date {
   font-size: 0.8em;
   text-align: right;
 }
 
-.space-delete-post {
+.space-post-cont hr {
+    margin: 20px 0;
+}
+
+.space-new-comment-cont textarea {
+    width: 100%;
+    resize: vertical;
+    border: none;
+    text-align: left;
+    border: solid 1px #424242;
+    background-color: rgba(26, 9, 25, 1);
+    margin-top: 5px;
+}
+
+.space-comment {
+    background-color: #000000;
+    border: solid 1px #424242;
+    padding: 10px;
+    margin-top: 10px;
+    position: relative;
+}
+
+.space-comment-user {
+    margin-bottom: 10px;
+}
+
+.space-comment-user-image {
+    width: 35px;
+    height: 35px;
+    border: solid 1px #424242;
+}
+
+.space-comment-user-username {
+    display: inline-block;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: 5px;
+}
+
+.space-comment-text {
+    font-size: 0.8em;
+    padding-left: 7px;
+}
+
+.space-comment-date {
+  font-size: 0.6em;
+  text-align: right;
+  margin-top: 5px;
+}
+
+.space-delete {
   font-size: 1.3em;
   color: #B40404;
   width: 20px;
@@ -525,7 +576,7 @@ button:hover, .a-button:hover {
   right: 8px;
 }
 
-.space-delete-post:hover {
+.space-delete:hover {
   color: #FE2E2E;
   background-color: transparent;
 }

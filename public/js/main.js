@@ -26,15 +26,24 @@ $(document).ready(function() {
 
     // FILTER
     $('#filterButton').on('click', function() {
-        $('.filter-content').mouseover(function() {
-            $('.spaceboxes').css('filter', 'grayscale(90%)');
-        })
-
-        $('.filter-content').mouseout(function() {
-            $('.spaceboxes').css('filter', '');
-        });
+        // $('.filter-content').mouseover(function() {
+        //     $('.spaceboxes').css('filter', 'grayscale(90%)');
+        // })
+        //
+        // $('.filter-content').mouseout(function() {
+        //     $('.spaceboxes').css('filter', '');
+        // });
 
         $('.filter-content').fadeToggle('fast');
+    });
+
+    // SUBMIT SPACE POST COMMENT
+    $('.textareaComment').on('keypress', function(e) {
+        if(e.which == 13 && ! e.shiftKey) {
+            $(this).closest('form').submit();
+            e.preventDefault();
+            return false;
+        }
     });
 
 });

@@ -16,7 +16,7 @@
         <table>
             <tr>
                 <td>{{ trans('messages.editspace-index-name') }}</td>
-                <td><a href="{{ route('space.show', $spacebox->slug) }}">#{{ $spacebox->name }}</a></td>
+                <td><a href="{{ route('space', $spacebox->slug) }}">#{{ $spacebox->name }}</a></td>
             </tr>
             <tr>
                 <td>{{ trans('messages.editspace-index-desc') }}</td>

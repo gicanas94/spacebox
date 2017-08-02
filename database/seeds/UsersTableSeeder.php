@@ -15,15 +15,15 @@ class UsersTableSeeder extends Seeder
             'username' => 'demo',
             'email' => 'gicanas94@gmail.com',
             'password' => bcrypt('123456'),
-            'question' => "Esta es mi pregunta secreta.",
-            'answer' => 'Y esta mi respuesta :D',
-            'lang' => 'es',
+            'question' => "This is my secret question.",
+            'answer' => 'And this... this is my answer :P',
+            'lang' => 'en',
             'ban_id' => null
         ]);
 
         $adminRole = \HttpOz\Roles\Models\Role::findBySlug('admin');
         $admin->attachRole($adminRole);
 
-        factory(App\User::class, 300)->create();
+        factory(App\User::class, 500)->create();
     }
 }

@@ -31,7 +31,7 @@
                 <td>Spacebox:</td>
                 <td>
                     @if (Auth::user()->spacebox != null)
-                        <a href="{{ route('space.show', Auth::user()->spacebox->slug) }}">#{{ Auth::user()->spacebox->name }}</a>
+                        <a href="{{ route('space', Auth::user()->spacebox->slug) }}">#{{ Auth::user()->spacebox->name }}</a>
                     @else
                         @if (Auth::user()->ban_id === null)
                                 {{ trans('messages.account-nospace-created-1') }}
@@ -49,7 +49,7 @@
             <hr>
             <a href="{{ route('account.edit') }}" class="a-button" >{{ trans('messages.account-index-button-edit') }}</a>
         @endif
-        
+
         @if(session()->has('success'))
             <div style="text-align: center" class="succeed-content">{{ session()->get('success') }}</div>
         @endif

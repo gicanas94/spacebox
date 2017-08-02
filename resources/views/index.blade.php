@@ -33,7 +33,7 @@
                 </article>
             @else
                 <article class="info">
-                    <a class="spacebox-name" href="{{ route('space.show', Auth::user()->spacebox->slug) }}"><h2>{{ trans('messages.index-go-my-spacebox') }}</h2></a>
+                    <a class="spacebox-name" href="{{ route('space', Auth::user()->spacebox->slug) }}"><h2>{{ trans('messages.index-go-my-spacebox') }}</h2></a>
                 </article>
             @endif
         @endif
@@ -41,12 +41,12 @@
         @foreach ($spaceboxes as $spacebox)
             @if (Auth::id() === $spacebox->user_id)
                 <article class="loggeduser-spacebox" style="background-color: {{ $spacebox->color }}">
-                    <a class="spacebox-name" href="{{ route('space.show', $spacebox->slug) }}"><h2>#{{ $spacebox->name }}</h2></a>
+                    <a class="spacebox-name" href="{{ route('space', $spacebox->slug) }}"><h2>#{{ $spacebox->name }}</h2></a>
                     <div class="spacebox-description"><p>{{ $spacebox->description }}</p></div>
                 </article>
             @else
                 <article style="background-color: {{ $spacebox->color }}">
-                    <a class="spacebox-name" href="{{ route('space.show', $spacebox->slug) }}"><h2>#{{ $spacebox->name }}</h2></a>
+                    <a class="spacebox-name" href="{{ route('space', $spacebox->slug) }}"><h2>#{{ $spacebox->name }}</h2></a>
                     <div class="spacebox-description"><p>{{ $spacebox->description }}</p></div>
                 </article>
             @endif

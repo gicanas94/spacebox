@@ -161,6 +161,7 @@ return [
     'space-form-content' => 'Contenido',
     'space-form-submit' => 'PUBLICAR',
     'space-banned' => 'Este Spacebox no es accesible en este momento.',
+    'space-new-comment' => 'Nuevo comentario...',
 
     // BANNED -/space
     'space-banned-h2' => 'Tu Spacebox se encuentra bloqueado.',

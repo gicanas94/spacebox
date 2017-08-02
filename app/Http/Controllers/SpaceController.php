@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Image;
 use App\Spacebox;
 use App\Post;
+use App\Comment;
 use App\Ban;
 use App\Http\Requests\StoreSpaceboxPost;
 
@@ -16,9 +17,11 @@ class SpaceController extends Controller
         $spacebox = Spacebox::where('slug', $slug)->first();
         $title = '#' . $spacebox->name;
         $image = Image::where('user_id', $spacebox->user_id)->first();
-        $posts = Post::where('spacebox_id', $spacebox->id)->get();
+        $posts = $this->getPosts($spacebox);
         $spaceboxIsBanned = $this->spaceboxIsBanned($spacebox);
-        $userCanDoActions = $this->userCanDoActions($spacebox, $spaceboxIsBanned);
+        $canPublishOrDeletePost = $this->canPublishOrDeletePost($spacebox, $spaceboxIsBanned);
+        $canComment = $this->canComment($spaceboxIsBanned);
+        $canDeleteComment = $this->canDeleteComment($spacebox, $spaceboxIsBanned);
 
         if ($spaceboxIsBanned) {
             if (auth()->guest() || auth()->user()->id != $spacebox->user_id) {
@@ -27,10 +30,12 @@ class SpaceController extends Controller
         }
 
         return view('space.index', compact('spacebox', 'title', 'image', 'posts',
-            'spaceboxIsBanned', 'userCanDoActions'));
+            'spaceboxIsBanned', 'canPublishOrDeletePost', 'canComment', 'canDeleteComment'));
     }
 
-    public function store(StoreSpaceboxPost $request)
+    //--------------------------------------------------------------------------
+
+    public function storePost(StoreSpaceboxPost $request)
     {
         $otherStuff = [
             'date' => date("d/m/Y"),
@@ -44,12 +49,46 @@ class SpaceController extends Controller
         return back()->withSuccess(trans('messages.space-new-post'));
     }
 
-    public function destroy($id)
+    //--------------------------------------------------------------------------
+
+    public function destroyPost($id)
     {
         Post::find($id)->delete();
 
         return back();
     }
+
+    //--------------------------------------------------------------------------
+
+    protected function storeComment(Request $request)
+    {
+        if ($request->content === null) {
+            return back();
+        }
+
+        $otherStuff = [
+            'date' => date("d/m/Y"),
+            'user_id' => auth()->user()->id,
+        ];
+
+        $comment = array_merge($request->except('_token'), $otherStuff);
+
+        Comment::create($comment);
+
+        return back();
+    }
+
+    //--------------------------------------------------------------------------
+
+    protected function destroyComment($id)
+    {
+        Comment::find($id)->delete();
+
+        return back();
+    }
+
+    //--------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 
     protected function spaceboxIsBanned($spacebox)
     {
@@ -62,7 +101,9 @@ class SpaceController extends Controller
         }
     }
 
-    protected function userCanDoActions($spacebox, $spaceboxIsBanned)
+    //--------------------------------------------------------------------------
+
+    protected function canPublishOrDeletePost($spacebox, $spaceboxIsBanned)
     {
         if (auth()->user() &&
             auth()->user()->id === $spacebox->user_id &&
@@ -71,5 +112,39 @@ class SpaceController extends Controller
 
             return true;
         }
+    }
+
+    //--------------------------------------------------------------------------
+
+    protected function canComment($spaceboxIsBanned)
+    {
+        if (auth()->user() &&
+            auth()->user()->ban_id === null &&
+            empty($spaceboxIsBanned)) {
+
+            return true;
+        }
+    }
+
+    //--------------------------------------------------------------------------
+
+    protected function canDeleteComment($spacebox, $spaceboxIsBanned)
+    {
+        if (auth()->user() &&
+            auth()->user()->id === $spacebox->user_id &&
+            auth()->user()->ban_id === null &&
+            empty($spaceboxIsBanned)) {
+
+            return true;
+        }
+    }
+
+    //--------------------------------------------------------------------------
+
+    protected function getPosts($spacebox)
+    {
+        $posts = Post::where('spacebox_id', $spacebox->id);
+
+        return $posts->with('comments')->get();
     }
 }

@@ -34,6 +34,6 @@ class CreateSpaceController extends Controller
 
         Spacebox::create($spacebox);
 
-        return redirect()->route('space.show', $spacebox['slug']);
+        return redirect()->route('space', $spacebox['slug']);
     }
 }

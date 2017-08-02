@@ -47,7 +47,7 @@
                     <td><label>Spacebox:</label></td>
                     <td>
                         @if (Auth::user()->spacebox != null)
-                            <a href="{{ route('space.show', Auth::user()->spacebox->slug) }}">#{{ Auth::user()->spacebox->name }}</a>
+                            <a href="{{ route('space', Auth::user()->spacebox->slug) }}">#{{ Auth::user()->spacebox->name }}</a>
                         @else
                             @if (Auth::user()->ban_id === null)
                                     {{ trans('messages.account-nospace-created-1') }}

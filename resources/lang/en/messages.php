@@ -160,6 +160,7 @@ return [
     'space-form-title' => 'Title (50)',
     'space-form-content' => 'Content',
     'space-form-submit' => 'PUBLISH',
+    'space-new-comment' => 'New comment...',
 
     // BANNED -/space
     'space-banned-h2' => 'Your Spacebox is banned.',

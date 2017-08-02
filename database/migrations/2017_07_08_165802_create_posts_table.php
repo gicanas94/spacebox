@@ -19,7 +19,7 @@ class CreatePostsTable extends Migration
           $table->string('title', 50);
           $table->text('content');
           $table->integer('spacebox_id')->unsigned();
-          $table->foreign('spacebox_id')->references('id')->on('spaceboxes');
+          $table->foreign('spacebox_id')->references('id')->on('spaceboxes')->onDelete('cascade');
           $table->timestamps();
         });
     }

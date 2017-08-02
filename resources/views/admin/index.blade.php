@@ -5,7 +5,7 @@
         <h1>{{ trans('messages.admin-h1') }}</h1>
         <h2>{{ trans('messages.admin-h2') }}</h2>
         <hr>
-        <form action="{{ route('admin.banuser') }}" method="post">
+        <form action="{{ route('admin.banUser') }}" method="post">
             {!! csrf_field() !!}
             <h3>{{ trans('messages.admin-form-ban-user-h3') }}</h3>
             <div>
@@ -22,7 +22,7 @@
             <button type="submit">{{ trans('messages.admin-form-ban-submit') }}</button>
         </form>
         <hr>
-        <form action="{{ route('admin.unbanuser') }}" method="post">
+        <form action="{{ route('admin.unbanUser') }}" method="post">
             {!! csrf_field() !!}
             <h3>{{ trans('messages.admin-form-unban-user-h3') }}</h3>
             <div>
@@ -33,7 +33,7 @@
             <button type="submit">{{ trans('messages.admin-form-unban-submit') }}</button>
         </form>
         <hr>
-        <form action="{{ route('admin.banspacebox') }}" method="post">
+        <form action="{{ route('admin.banSpacebox') }}" method="post">
             {!! csrf_field() !!}
             <h3>{{ trans('messages.admin-form-ban-spacebox-h3') }}</h3>
             <div>
@@ -50,7 +50,7 @@
             <button type="submit">{{ trans('messages.admin-form-ban-submit') }}</button>
         </form>
         <hr>
-        <form action="{{ route('admin.unbanspacebox') }}" method="post">
+        <form action="{{ route('admin.unbanSpacebox') }}" method="post">
             {!! csrf_field() !!}
             <h3>{{ trans('messages.admin-form-unban-spacebox-h3') }}</h3>
             <div>
@@ -61,7 +61,7 @@
             <button type="submit">{{ trans('messages.admin-form-unban-submit') }}</button>
         </form>
         <hr>
-        <form action="{{ route('admin.makeadmin') }}" method="post">
+        <form action="{{ route('admin.makeAdmin') }}" method="post">
             {!! csrf_field() !!}
             <h3>{{ trans('messages.admin-form-make-admin-h3') }}</h3>
             <div>
@@ -71,7 +71,7 @@
             </div>
             <button type="submit">{{ trans('messages.admin-form-make-admin-submit') }}</button>
         </form>
-        
+
         @if ($errors->any())
             <div class="error-content">
                 <ul>

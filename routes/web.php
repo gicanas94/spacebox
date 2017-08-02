@@ -29,11 +29,16 @@ Route::get('editspace/edit', ['as' => 'editspace.edit', 'uses' => 'EditSpaceCont
 Route::post('editspace/update', ['as' => 'editspace.update', 'uses' => 'EditSpaceController@update']);
 
 Route::get('admin', 'AdminController@index')->name('admin');
-Route::post('admin/banuser', ['as' => 'admin.banuser', 'uses' => 'AdminController@banUser']);
-Route::post('admin/banspacebox', ['as' => 'admin.banspacebox', 'uses' => 'AdminController@banSpacebox']);
-Route::post('admin/unbanuser', ['as' => 'admin.unbanuser', 'uses' => 'AdminController@unbanUser']);
-Route::post('admin/unbanspacebox', ['as' => 'admin.unbanspacebox', 'uses' => 'AdminController@unbanSpacebox']);
-Route::post('admin/makeadmin', ['as' => 'admin.makeadmin', 'uses' => 'AdminController@makeAdmin']);
+Route::post('admin/banuser', ['as' => 'admin.banUser', 'uses' => 'AdminController@banUser']);
+Route::post('admin/banspacebox', ['as' => 'admin.banSpacebox', 'uses' => 'AdminController@banSpacebox']);
+Route::post('admin/unbanuser', ['as' => 'admin.unbanUser', 'uses' => 'AdminController@unbanUser']);
+Route::post('admin/unbanspacebox', ['as' => 'admin.unbanSpacebox', 'uses' => 'AdminController@unbanSpacebox']);
+Route::post('admin/makeadmin', ['as' => 'admin.makeAdmin', 'uses' => 'AdminController@makeAdmin']);
 
-Route::resource('createspace', 'CreateSpaceController');
-Route::resource('space', 'SpaceController');
+Route::get('space/{slug}', 'SpaceController@show')->name('space');
+Route::post('space/storepost', ['as' => 'space.storePost', 'uses' => 'SpaceController@storePost']);
+Route::post('space/destroypost/{id}', ['as' => 'space.destroyPost', 'uses' => 'SpaceController@destroyPost']);
+Route::post('space/storecomment', ['as' => 'space.storeComment', 'uses' => 'SpaceController@storeComment']);
+Route::post('space/destroycomment/{id}', ['as' => 'space.destroyComment', 'uses' => 'SpaceController@destroyComment']);
+
+Route::resource('createspace', 'CreateSpaceController', ['only' => ['index', 'store']]);

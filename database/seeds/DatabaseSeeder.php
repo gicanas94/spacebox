@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
         $this->call(ImagesTableSeeder::class);
         $this->call(SpaceboxesTableSeeder::class);
         $this->call(PostsTableSeeder::class);
+        $this->call(CommentsTableSeeder::class);
         $this->call(BansTableSeeder::class);
     }
 }
