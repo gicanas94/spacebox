@@ -40,12 +40,12 @@
 
         @foreach ($spaceboxes as $spacebox)
             @if (Auth::id() === $spacebox->user_id)
-                <article class="loggeduser-spacebox" style="background-color: {{ $spacebox->color }}">
+                <article class="loggeduser-spacebox lazy" style="background-color: {{ $spacebox->color }}">
                     <a class="spacebox-name" href="{{ route('space', $spacebox->slug) }}"><h2>#{{ $spacebox->name }}</h2></a>
                     <div class="spacebox-description"><p>{{ $spacebox->description }}</p></div>
                 </article>
             @else
-                <article style="background-color: {{ $spacebox->color }}">
+                <article style="background-color: {{ $spacebox->color }}" class="lazy">
                     <a class="spacebox-name" href="{{ route('space', $spacebox->slug) }}"><h2>#{{ $spacebox->name }}</h2></a>
                     <div class="spacebox-description"><p>{{ $spacebox->description }}</p></div>
                 </article>
@@ -56,4 +56,6 @@
             <a class="spacebox-name" href="#"><h2>...</h2></a>
         </article>
     </section>
+
+    
 @endsection

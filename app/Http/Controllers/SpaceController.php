@@ -62,11 +62,35 @@ class SpaceController extends Controller
 
     //--------------------------------------------------------------------------
 
+    // protected function storeComment(Request $request)
+    // {
+    //     if ($request->content === null) {
+    //         return back();
+    //     }
+    //
+    //     $otherStuff = [
+    //         'date' => date("d/m/Y"),
+    //         'user_id' => auth()->user()->id,
+    //     ];
+    //
+    //     $comment = array_merge($request->except('_token'), $otherStuff);
+    //
+    //     Comment::create($comment);
+    //
+    //     return back();
+    // }
     protected function storeComment(Request $request)
     {
-        if ($request->content === null) {
-            return back();
-        }
+        $reglas = [
+            "comment" => "required",
+        ];
+
+        $mensajes = [
+            "required" => "Este campo es obligatorio",
+        ];
+
+        $this->validate($request, $reglas, $mensajes);
+
 
         $otherStuff = [
             'date' => date("d/m/Y"),

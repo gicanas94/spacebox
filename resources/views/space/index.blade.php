@@ -34,12 +34,13 @@
                     </div>
                     <br>
 
-                    @if ($errors->any())
+                    @if ($errors->has('content'))
                         <div class="error-content">
                             <ul>
-                                @foreach ($errors->all() as $error)
+                                <li>{{ $errors->first('content') }}</li>
+                                {{-- @foreach ($errors->all() as $error)
                                     <li>- {{ $error }}</li>
-                                @endforeach
+                                @endforeach --}}
                             </ul>
                         </div>
                     @endif
@@ -116,7 +117,14 @@
                                 {!! csrf_field() !!}
                                 <label>{{ trans('messages.space-new-comment') }}</label>
                                 <input type="hidden" name="post_id" value="{{ $post->id }}">
-                                <textarea class="textareaComment" name="content" rows="3" required></textarea>
+                                <textarea class="textareaComment" name="comment" rows="3"></textarea>
+                                @if ($errors->has('comment'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('comment') }}</strong>
+                                    </span>
+                                    <br>
+                                @endif
+                                {{-- <button type="submit" >send</button> --}}
                             </form>
                         </div>
                     @endif
