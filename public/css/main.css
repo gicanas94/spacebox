@@ -79,7 +79,7 @@ select {
 }
 
 textarea {
-  resize: none;
+  resize: vertical;
   height: auto;
   font-family: 'PT Sans', sans-serif;
 }
