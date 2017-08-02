@@ -22,6 +22,7 @@ class SpaceController extends Controller
         $canPublishOrDeletePost = $this->canPublishOrDeletePost($spacebox, $spaceboxIsBanned);
         $canComment = $this->canComment($spaceboxIsBanned);
         $canDeleteComment = $this->canDeleteComment($spacebox, $spaceboxIsBanned);
+        $colors = Spacebox::colors();
 
         if ($spaceboxIsBanned) {
             if (auth()->guest() || auth()->user()->id != $spacebox->user_id) {
@@ -30,7 +31,7 @@ class SpaceController extends Controller
         }
 
         return view('space.index', compact('spacebox', 'title', 'image', 'posts',
-            'spaceboxIsBanned', 'canPublishOrDeletePost', 'canComment', 'canDeleteComment'));
+            'spaceboxIsBanned', 'canPublishOrDeletePost', 'canComment', 'canDeleteComment', 'colors'));
     }
 
     //--------------------------------------------------------------------------

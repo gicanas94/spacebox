@@ -14,7 +14,7 @@ class CommentsTableSeeder extends Seeder
         $posts = App\Post::all();
 
         foreach ($posts as $post) {
-            factory(App\Comment::class, 2)->create([
+            factory(App\Comment::class)->create([
                 'user_id' => rand(1,500),
                 'post_id' => $post->id
             ]);

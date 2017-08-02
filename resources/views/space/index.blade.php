@@ -76,7 +76,7 @@
                     @if (count($post->comments) > 0)
                         <div class="space-comment-cont">
                             @foreach ($post->comments as $comment)
-                                <div class="space-comment">
+                                <div class="space-comment" style="background-color: {{ $colors[rand(1, count($colors) - 1)] }}">
                                     @if ($canDeleteComment)
                                         <form action="{{ route('space.destroyComment', $comment->id) }}" method="post">
                                             {!! csrf_field() !!}

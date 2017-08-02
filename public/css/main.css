@@ -523,17 +523,28 @@ button:hover, .a-button:hover {
     resize: vertical;
     border: none;
     text-align: left;
-    border: solid 1px #424242;
-    background-color: rgba(26, 9, 25, 1);
+    border: solid 2px #424242;
+    background-color: rgba(26, 9, 25, 0.7);
     margin-top: 5px;
 }
 
+.space-new-comment-cont textarea:focus {
+    background-color: #1A0919;
+}
+
 .space-comment {
-    background-color: #000000;
-    border: solid 1px #424242;
+    border: solid 2px #424242;
     padding: 10px;
     margin-top: 10px;
     position: relative;
+}
+
+.space-comment:hover {
+  color: #000000;
+}
+
+.space-comment:hover a {
+  color: #000000;
 }
 
 .space-comment-user {
