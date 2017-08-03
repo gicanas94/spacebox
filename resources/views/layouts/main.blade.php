@@ -23,15 +23,5 @@
         </div>
         <script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
         <script src="{{ asset('js/main.js') }}"></script>
-
-        <script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
-        <script src="{{ asset('js/jquery.lazyload.js') }}"></script>
-        <script>
-            $(function() {
-                $("article.lazy").lazyload({
-                    container: $(".spaceboxes"),
-                });
-            });
-        </script>
     </body>
 </html>

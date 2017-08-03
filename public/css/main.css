@@ -21,6 +21,11 @@
   top: 0;
 }
 
+.fader {
+  opacity: 0.8;
+  filter: grayscale(0.6) blur(3px);
+}
+
 body {
   background-image: url("../img/bg-body3.jpg");
   background-attachment: fixed;
@@ -56,6 +61,7 @@ a:hover {
 p {
   overflow: hidden;
   text-overflow: ellipsis;
+  white-space: pre-wrap;
 }
 
 form {
@@ -116,6 +122,13 @@ button:hover, .a-button:hover {
   background-color: #000000;
 }
 
+hr {
+    background-color: RGBA(255, 255, 255, 0.3);
+    border: none;
+    height: 3px;
+    margin: 30px 0;
+}
+
 .a-button {
   font-weight: normal;
 }
@@ -123,18 +136,6 @@ button:hover, .a-button:hover {
 .a-button:hover {
   text-decoration: none;
 }
-
-/* Fade de Spaceboxes en Home */
-.fader{
-    opacity: 0.8;
-    filter: grayscale(0.8) blur(3px);
-}
-
-/*.spaceboxes{
-    height: 600px;
-    overflow: scroll;
-}*/
-
 
 .content {
   width: 90%;
@@ -154,6 +155,29 @@ button:hover, .a-button:hover {
 
 .content h2 {
   margin: 10px 0 30px 0;
+}
+
+.content input,
+.content textarea,
+.content select,
+.content button,
+.a-button {
+    transition: 0.2s ease;
+    -moz-transition: 0.2s ease;
+    -webkit-transition: 0.2s ease;
+    -o-transition: 0.2s ease;
+  }
+
+.content input:focus,
+.content textarea:focus,
+.content select:focus,
+.content button:hover,
+.a-button:hover {
+    transform : scale(1.02);
+    -moz-transform : scale(1.02);
+    -webkit-transform : scale(1.02);
+    -o-transform : scale(1.02);
+    -ms-transform : scale(1.02);
 }
 
 .error-content {
@@ -202,16 +226,16 @@ button:hover, .a-button:hover {
 }
 
 .form-error-content {
-  background-color: RGBA(20, 0, 0, 0.6);
-  border: solid 1px #DF0101;
+  background-color: RGBA(20, 0, 0, 0.6) !important;
+  border: solid 1px #DF0101 !important;
 }
 
 .form-error-content:hover {
-  background-color: RGBA(20, 0, 0, 0.7);
+  background-color: RGBA(20, 0, 0, 0.7) !important;
 }
 
 .form-error-content:focus {
-  background-color: RGBA(20, 0, 0, 0.8);
+  background-color: RGBA(20, 0, 0, 0.8) !important;
 }
 
 .upload-img {
@@ -382,7 +406,7 @@ button:hover, .a-button:hover {
   width: 100%;
   font-size: 0.7em;
   background-color: RGBA(0, 0, 0, 0.6);
-  border-top: solid 1px #000000;
+  /*border-top: solid 1px #000000;*/
   padding: 7px;
   display: inline-block;
   margin: 0;
@@ -420,6 +444,18 @@ button:hover, .a-button:hover {
   margin: auto;
   text-align: left;
   overflow: hidden;
+  transition: 0.2s ease;
+  -moz-transition: 0.2s ease;
+  -webkit-transition: 0.2s ease;
+  -o-transition: 0.2s ease;
+}
+
+.spacebox-preview article:hover {
+  transform : scale(1.05);
+  -moz-transform : scale(1.05);
+  -webkit-transform : scale(1.05);
+  -o-transform : scale(1.05);
+  -ms-transform : scale(1.05);
 }
 
 .spacebox-preview h2 {
@@ -517,8 +553,9 @@ button:hover, .a-button:hover {
   margin: 0;
 }
 
-.space-post-cont p {
-  font-size: 0.9em;
+.space-post-cont .post {
+    font-size: 0.9em;
+    padding: 0 15px;
 }
 
 .space-post-date {
@@ -540,23 +577,20 @@ button:hover, .a-button:hover {
     margin-top: 5px;
 }
 
+.space-new-comment-cont textarea:hover,
 .space-new-comment-cont textarea:focus {
     background-color: #1A0919;
 }
 
 .space-comment {
-    border: solid 2px #424242;
+    border: solid 1px #000000;
     padding: 10px;
     margin-top: 10px;
     position: relative;
 }
 
 .space-comment:hover {
-  color: #000000;
-}
-
-.space-comment:hover a {
-  color: #000000;
+  filter: grayscale(0.8);
 }
 
 .space-comment-user {
@@ -566,7 +600,7 @@ button:hover, .a-button:hover {
 .space-comment-user-image {
     width: 35px;
     height: 35px;
-    border: solid 1px #424242;
+    border: solid 1px #000000;
 }
 
 .space-comment-user-username {
@@ -885,7 +919,7 @@ button:hover, .a-button:hover {
   }
 
   .filter-content {
-    width: 100%;
+    width: 70%;
     background-color: RGBA(0, 0, 0, 0.8);
     border: solid 1px #424242;
     box-shadow: 5px 5px 15px 5px RGBA(0, 0, 0, 0.75);
@@ -893,6 +927,11 @@ button:hover, .a-button:hover {
     padding: 10px 15px;
     margin-bottom: -80px;
     overflow: hidden;
+    position: fixed;
+    z-index: 20;
+    top: 4%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 
   .filter-content .filter-option {

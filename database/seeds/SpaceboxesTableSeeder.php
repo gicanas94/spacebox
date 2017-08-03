@@ -18,7 +18,7 @@ class SpaceboxesTableSeeder extends Seeder
             if ($user->username != 'demo') {
                 factory(App\Spacebox::class)->create([
                     'name' => $user->username,
-                    'slug' => str_slug($user->username, '-'),
+                    'slug' => str_slug($user->username, '-') . '-' . $user->id,
                     'category_id' => rand(1,10),
                     'color' => $colors[array_rand($colors)],
                     'user_id' => $user->id

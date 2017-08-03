@@ -51,6 +51,6 @@ $factory->define(App\Post::class, function (Faker\Generator $faker) {
 $factory->define(App\Comment::class, function (Faker\Generator $faker) {
     return [
         'date' => $faker->date($format = 'd/m/Y', $max = 'now'),
-        'content' => $faker->realText($maxNbChars = 200, $indexSize = 2)
+        'comment' => $faker->realText($maxNbChars = 200, $indexSize = 2)
     ];
 });

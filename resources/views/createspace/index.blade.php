@@ -5,7 +5,6 @@
         <h1>{{ trans('messages.create-h1') }}</h1>
         <h2>{{ trans('messages.create-h2') }}</h2>
         <hr>
-        <br>
         <div class="spacebox-preview">
             <article style="background-color: #B9264F" id="colorPreview">
                 <a class="spacebox-name"><h2 id="namePreview">{{ trans('messages.create-preview-name') }}</h2></a>

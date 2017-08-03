@@ -12,14 +12,11 @@
     @endif
     <div class="content">
         <h1>{{ $title }}</h1>
-        <hr>
-        <img class="space-user-img" src="{{ asset($image->src) }}" alt="{{ trans('messages.spacebox-image-alt') }}">
-        <br>
-        <hr>
         <h2 style="margin: 0">{{ $spacebox->description }}</h2>
+        <br>
+        <img class="space-user-img" src="{{ asset($spacebox->user->image->src) }}" alt="{{ trans('messages.spacebox-image-alt') }}">
         <hr>
         @if ($canStoreOrDestroyPost)
-            <br>
             <div class="space-new-post-cont">
                 <form action="{{ route('space.storePost') }}" method="post">
                     {!! csrf_field() !!}
@@ -34,13 +31,12 @@
                     </div>
                     <br>
 
-                    @if ($errors->has('content'))
+                    @if ($errors->has('title') || $errors->has('content'))
                         <div class="error-content">
                             <ul>
-                                <li>{{ $errors->first('content') }}</li>
-                                {{-- @foreach ($errors->all() as $error)
+                                @foreach ($errors->all() as $error)
                                     <li>- {{ $error }}</li>
-                                @endforeach --}}
+                                @endforeach
                             </ul>
                         </div>
                     @endif
@@ -71,7 +67,7 @@
                         </form>
                     @endif
                     <h2>{{ $post->title }}</h2>
-                    <p>{{ $post->content }}</p>
+                    <p class="post">{{ $post->content }}</p>
                     <div class="space-post-date">{{ $post->date }}</div>
 
                     @if (count($post->comments) > 0)
@@ -88,7 +84,7 @@
                                     @endif
 
                                     <div class="space-comment-user">
-                                        <img class="space-comment-user-image" src="{{ asset($comment->user->image->src) }}" alt="">
+                                        <img class="space-comment-user-image" src="{{ asset($comment->user->image->src) }}" alt="{{ trans('messages.account-image-alt') }}">
                                         <div class="space-comment-user-username">
                                             {{ $comment->user->username }}
                                             @if ($comment->user->spacebox)
@@ -102,7 +98,7 @@
                                     </div>
 
                                     <div class="space-comment-text">
-                                        {{ $comment->content }}
+                                        <p>{{ $comment->comment }}</p>
                                     </div>
                                     <div class="space-comment-date">{{ $comment->date }}</div>
                                 </div>
@@ -117,14 +113,7 @@
                                 {!! csrf_field() !!}
                                 <label>{{ trans('messages.space-new-comment') }}</label>
                                 <input type="hidden" name="post_id" value="{{ $post->id }}">
-                                <textarea class="textareaComment" name="comment" rows="3"></textarea>
-                                @if ($errors->has('comment'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('comment') }}</strong>
-                                    </span>
-                                    <br>
-                                @endif
-                                {{-- <button type="submit" >send</button> --}}
+                                <textarea class="{{ $errors->has('comment') ? 'textareaComment form-error-content' : 'textareaComment' }}" name="comment" rows="3"></textarea>
                             </form>
                         </div>
                     @endif

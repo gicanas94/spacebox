@@ -27,7 +27,7 @@ class CreateSpaceController extends Controller
     public function store(StoreSpacebox $request)
     {
         $otherStuff = [
-            'slug' => str_slug($request->input('name')),
+            'slug' => str_slug($request->input('name')) . '-' . auth()->id(),
             'user_id' => auth()->id()
         ];
 

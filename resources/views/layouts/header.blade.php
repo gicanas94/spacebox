@@ -5,7 +5,7 @@
     <nav class="main-nav">
         <ul>
             {{-- Filter --}}
-            <li><a id="filterButton" href="#"><span class="ion-ios-settings-strong"></span></a></li>
+            <li><a id="filterButton" href="#" onclick="javascipt:return false;"><span class="ion-ios-settings-strong"></span></a></li>
 
             <li><a href="{{ route('index') }}"><span class="icon left ion-ios-home"></span>{{ trans('messages.header-index') }}</a></li>
 

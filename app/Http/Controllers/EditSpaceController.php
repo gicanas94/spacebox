@@ -18,7 +18,7 @@ class EditSpaceController extends Controller
     {
         $title = trans('messages.editspace-index-title');
         $spacebox = $this->getSpacebox();
-        $category = Category::find($spacebox->category_id);
+        $category = $spacebox->category;
 
         return view('editspace.index', compact('title', 'spacebox', 'category'));
     }
@@ -40,6 +40,7 @@ class EditSpaceController extends Controller
         $spacebox = $this->getSpacebox();
 
         $spacebox->name = $data['name'];
+        $spacebox->slug = str_slug($data['name'], '-') . '-' . auth()->id();
         $spacebox->description = $data['description'];
         $spacebox->category_id = $data['category_id'];
         $spacebox->lang = $data['lang'];

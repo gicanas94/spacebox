@@ -5,9 +5,8 @@
         <h1>{{ trans('messages.account-h1') }}</h1>
         <h2>{!! trans('messages.account-h2') !!}</h2>
         <hr>
-        <br>
         <div class="account-user-img">
-            <img src="{{ asset($image->src) }}" alt="{{ trans('messages.account-image-alt') }}">
+            <img src="{{ asset(Auth::user()->image->src) }}" alt="{{ trans('messages.account-image-alt') }}">
         </div>
         <br><br>
         <form id="editAccount" action="{{ route('account.update') }}" method="post" enctype="multipart/form-data">

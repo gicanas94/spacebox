@@ -26,38 +26,19 @@ $(document).ready(function() {
 
     // FILTER
     $('#filterButton').on('click', function() {
-        $('.filter-content').fadeToggle('fast');
+        $('.content').toggleClass('fader');
         $('.spaceboxes').toggleClass('fader');
-
-        // $('.filter-content').mouseover(function() {
-        //     $('.spaceboxes').css('filter', 'grayscale(90%)');
-        // })
-        //
-        // $('.filter-content').mouseout(function() {
-        //     $('.spaceboxes').css('filter', '');
-        // });
-        
-        // if( $('.filter-content:not(:visible)') ){
-        //     $('.spaceboxes').css({
-        //         'opacity': '0.8',
-        //         'filter': 'blur(3px) grayscale(0.8)'
-        //     });
-        // } else {
-        //     $('.spaceboxes').css({
-        //         'opacity': '1',
-        //         'filter': 'blur(0x) grayscale(0)'
-        //     });
-        // }
-
+        $('.filter-content').fadeToggle('fast');
+        $('#filterButton').preventDefault();
     });
 
     // SUBMIT SPACE POST COMMENT
-    // $('.textareaComment').on('keypress', function(e) {
-    //     if(e.which == 13 && ! e.shiftKey) {
-    //         $(this).closest('form').submit();
-    //         e.preventDefault();
-    //         return false;
-    //     }
-    // });
+    $('.textareaComment').on('keypress', function(e) {
+        if(e.which == 13 && ! e.shiftKey) {
+            $(this).closest('form').submit();
+            e.preventDefault();
+            return false;
+        }
+    });
 
 });

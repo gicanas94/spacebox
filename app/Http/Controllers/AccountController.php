@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
-use App\Image;
 use App\Http\Requests\EditAccount;
 
 class AccountController extends Controller
@@ -17,9 +16,8 @@ class AccountController extends Controller
     public function index()
     {
         $title = trans('messages.account-index-title');
-        $image = $this->getImage();
 
-        return view('account.index', compact('title', 'image'));
+        return view('account.index', compact('title'));
     }
 
     public function edit()
@@ -27,10 +25,9 @@ class AccountController extends Controller
         $title = trans('messages.account-edit-title');
         $user_id = auth()->user()->id;
         $user = User::find($user_id);
-        $image = $this->getImage();
         $langs = ['es' => 'Español', 'en' => 'English'];
 
-        return view('account.edit', compact('title', 'user', 'image', 'langs'));
+        return view('account.edit', compact('title', 'user', 'langs'));
     }
 
     public function update(EditAccount $request)
@@ -54,11 +51,6 @@ class AccountController extends Controller
         $user->save();
 
         return redirect(route('account'))->withSuccess(trans('messages.account-edit-success'));
-    }
-
-    protected function getImage()
-    {
-        return Image::where('user_id', auth()->user()->id)->first();
     }
 
     protected function storeImg(array $data, $user_id)

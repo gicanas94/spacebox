@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Image;
 use App\Spacebox;
 use App\Post;
 use App\Comment;
@@ -16,13 +15,12 @@ class SpaceController extends Controller
     {
         $spacebox = Spacebox::where('slug', $slug)->first();
         $title = '#' . $spacebox->name;
-        $image = Image::where('user_id', $spacebox->user_id)->first();
         $posts = $this->getPosts($spacebox);
         $spaceboxIsBanned = $this->spaceboxIsBanned($spacebox);
         $canStoreOrDestroyPost = $this->canStoreOrDestroyPost($spacebox, $spaceboxIsBanned);
         $canStoreComment = $this->canStoreComment($spaceboxIsBanned);
         $canDestroyComment = $this->canDestroyComment($spacebox, $spaceboxIsBanned);
-        $colors = Spacebox::colors();
+        $colors = Comment::colors();
 
         if ($spaceboxIsBanned) {
             if (auth()->guest() || auth()->user()->id != $spacebox->user_id) {
@@ -30,7 +28,7 @@ class SpaceController extends Controller
             }
         }
 
-        return view('space.index', compact('spacebox', 'title', 'image', 'posts',
+        return view('space.index', compact('spacebox', 'title', 'posts',
         'spaceboxIsBanned', 'canStoreOrDestroyPost', 'canStoreComment',
         'canDestroyComment', 'colors'));
     }
@@ -62,34 +60,11 @@ class SpaceController extends Controller
 
     //--------------------------------------------------------------------------
 
-    // protected function storeComment(Request $request)
-    // {
-    //     if ($request->content === null) {
-    //         return back();
-    //     }
-    //
-    //     $otherStuff = [
-    //         'date' => date("d/m/Y"),
-    //         'user_id' => auth()->user()->id,
-    //     ];
-    //
-    //     $comment = array_merge($request->except('_token'), $otherStuff);
-    //
-    //     Comment::create($comment);
-    //
-    //     return back();
-    // }
     protected function storeComment(Request $request)
     {
-        $reglas = [
-            "comment" => "required",
-        ];
+        $rules = ["comment" => "required"];
 
-        $mensajes = [
-            "required" => "Este campo es obligatorio",
-        ];
-
-        $this->validate($request, $reglas, $mensajes);
+        $this->validate($request, $rules);
 
 
         $otherStuff = [
@@ -157,10 +132,10 @@ class SpaceController extends Controller
     protected function canDestroyComment($spacebox, $spaceboxIsBanned)
     {
         if (auth()->user() &&
-            auth()->user()->id === $spacebox->user_id &&
+            auth()->user()->id === $spacebox->user_id ||
+            auth()->user() &&
             auth()->user()->ban_id === null &&
-            empty($spaceboxIsBanned) ||
-            auth()->user() && auth()->user()->ban_id === null) {
+            empty($spaceboxIsBanned)) {
 
             return true;
         }
@@ -172,6 +147,6 @@ class SpaceController extends Controller
     {
         $posts = Post::where('spacebox_id', $spacebox->id);
 
-        return $posts->with('comments')->get();
+        return $posts->with('comments')->orderBy('id', 'desc')->get();
     }
 }

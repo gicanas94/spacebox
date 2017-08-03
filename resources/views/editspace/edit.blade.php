@@ -5,7 +5,6 @@
         <h1>{{ trans('messages.editspace-h1') }}</h1>
         <h2>{!! trans('messages.editspace-h2') !!}</h2>
         <hr>
-        <br>
         <div class="spacebox-preview">
             <article style="background-color: {{ $spacebox->color }}" id="colorPreview">
                 <a class="spacebox-name"><h2 id="namePreview">#{{ $spacebox->name }}</h2></a>
