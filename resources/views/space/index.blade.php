@@ -74,7 +74,7 @@
                         <div class="space-comment-cont">
                             @foreach ($post->comments as $comment)
                                 <div class="space-comment" style="background-color: {{ $colors[rand(1, count($colors) - 1)] }}">
-                                    @if ($canDestroyComment && Auth::check() && Auth::id() === $comment->user->id)
+                                    @if ($canDestroyComment || Auth::check() && Auth::id() === $comment->user->id && Auth::user()->ban_id === null)
                                         <form action="{{ route('space.destroyComment', $comment->id) }}" method="post">
                                             {!! csrf_field() !!}
                                             <button type="submit" class="space-delete">

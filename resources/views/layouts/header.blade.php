@@ -47,14 +47,13 @@
             <li>
                 <div class="search-bar-q1">
                     <form action="{{ route('search') }}" method="get">
-                        <input type="text" name="search" placeholder="{{ trans('messages.header-search') }}" required>
+                        <input type="text" name="name" placeholder="{{ trans('messages.header-search') }}" required>
                 	</form>
                 </div>
             </li>
         </ul>
     </nav>
 
-    {{-- Search --}}
     <div class="search-bar-q2">
         <form action="{{ route('search') }}" method="get">
             <input type="text" name="name" placeholder="{{ trans('messages.header-search') }}" required>
@@ -62,7 +61,7 @@
         </form>
     </div>
 
-    <a href="{{ route('index') }}"><img src="{{ asset('img/logo-2.png') }}" alt="logotipo" class="logo-query1" width="300px"></a>
+    <a href="{{ route('index') }}"><img src="{{ asset('img/logo-2.png') }}" alt="logotipo" class="logo-query1" width="350px"></a>
 </header>
 
 {{-- Filter by category and language --}}

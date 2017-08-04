@@ -96,7 +96,7 @@ return [
     'editspace-edit-title' => 'Edit my Spacebox',
     'editspace-h1' => 'MY SPACEBOX',
     'editspace-h2' => 'This is the information of your Spacebox,<br>make the changes that you think necessary!',
-    'editspace-category' => 'Categoría:',
+    'editspace-category' => 'Category:',
     'editspace-lang' => 'Language:',
     'editspace-visible' => 'Visible at home:',
 
@@ -114,7 +114,7 @@ return [
     // -/terms
     'terms-title' => 'Terms of Use',
     'terms-h1' => 'TERMS OF USE',
-    'terms-h2' => 'No one reads them but...<br>they contain important information!',
+    'terms-h2' => 'No one reads them but...<br>they contain important info.!',
 
     // -/admin
     'admin-title' => 'Administration',

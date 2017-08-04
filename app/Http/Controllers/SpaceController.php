@@ -132,8 +132,7 @@ class SpaceController extends Controller
     protected function canDestroyComment($spacebox, $spaceboxIsBanned)
     {
         if (auth()->user() &&
-            auth()->user()->id === $spacebox->user_id ||
-            auth()->user() &&
+            auth()->user()->id === $spacebox->user_id &&
             auth()->user()->ban_id === null &&
             empty($spaceboxIsBanned)) {
 
