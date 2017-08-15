@@ -29,7 +29,6 @@ $(document).ready(function() {
         $('.content').toggleClass('fader');
         $('.spaceboxes').toggleClass('fader');
         $('.filter-content').fadeToggle('fast');
-        $('#filterButton').preventDefault();
     });
 
     // SUBMIT SPACE POST COMMENT
