@@ -1,0 +1,134 @@
+.spaceboxes
+    width: 100%
+    padding: 0 1%
+    article
+        width: 48%
+        border: solid 2px #FFFFFF
+        margin: 1%
+        position: relative
+        display: block
+        float: left
+        overflow: hidden
+        transition: 0.2s ease
+        -moz-transition: 0.2s ease
+        -webkit-transition: 0.2s ease
+        -o-transition: 0.2s ease
+        &:hover
+            transform: scale(1.05)
+            -moz-transform: scale(1.05)
+            -webkit-transform: scale(1.05)
+            -o-transform: scale(1.05)
+            -ms-transform: scale(1.05)
+            h2
+                font-size: 1.2em
+        h2
+            margin: 0
+            position: absolute
+            top: 50%
+            left: 50%
+            transform: translate(-50%, -50%)
+        .spacebox-name
+            width: 100%
+            height: 180px
+            font-size: 1.4em
+            text-align: center
+            display: block
+            overflow: hidden
+        .spacebox-description
+            width: 100%
+            position: absolute
+            bottom: 0
+            p
+                width: 100%
+                font-size: 0.7em
+                background-color: RGBA(0, 0, 0, 0.6)
+                padding: 7px
+                display: inline-block
+                margin: 0
+    .info
+        background-color: #3F3F3F
+    .loggeduser-spacebox
+        border: solid 2px #FFCA33
+        h2
+            color: #FFCA33
+    @media screen and (min-width: $small-media)
+        article
+            width: 31.9333%
+            margin: 0.7%
+            .spacebox-name
+                width: 100%
+                height: 175px
+    @media screen and (min-width: $medium-media)
+        margin-top: 100px
+        article
+            width: 19%
+            margin: 0.5%
+            .spacebox-description
+                p
+                    display: none
+            &:hover
+                p
+                    display: inline-block
+    @media screen and (min-width: $large-media)
+        article
+            width: 15.6666%
+
+// -----------------------------------------------------------------------------
+
+.spacebox-preview
+    article
+        margin: auto
+        width: 60%
+        border: solid 2px #FFFFFF
+        position: relative
+        display: block
+        text-align: left
+        overflow: hidden
+        transition: 0.2s ease
+        -moz-transition: 0.2s ease
+        -webkit-transition: 0.2s ease
+        -o-transition: 0.2s ease
+        &:hover
+            transform: scale(1.05)
+            -moz-transform: scale(1.05)
+            -webkit-transform: scale(1.05)
+            -o-transform: scale(1.05)
+            -ms-transform: scale(1.05)
+            h2
+                font-size: 1.2em
+        h2
+            margin: 0
+            position: absolute
+            top: 50%
+            left: 50%
+            transform: translate(-50%, -50%)
+        .spacebox-name
+            width: 100%
+            height: 180px
+            font-size: 1.4em
+            text-align: center
+            display: block
+            overflow: hidden
+        .spacebox-description
+            width: 100%
+            position: absolute
+            bottom: 0
+            p
+                width: 100%
+                font-size: 0.7em
+                background-color: RGBA(0, 0, 0, 0.6)
+                padding: 7px
+                display: inline-block
+                margin: 0
+    @media screen and (min-width: $small-media)
+        article
+            width: 40%
+    @media screen and (min-width: $medium-media)
+        article
+            width: 32%
+            &:hover
+                p
+                    display: inline-block
+    @media screen and (min-width: $large-media)
+        article
+            width: 40%

@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-    <div class="content editspace-cont">
+    <div class="content editspace-content">
         <h1>{{ trans('messages.editspace-h1') }}</h1>
         <h2>{!! trans('messages.editspace-h2') !!}</h2>
         <hr>

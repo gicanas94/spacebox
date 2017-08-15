@@ -1,0 +1,102 @@
+.content
+    width: 90%
+    background-color: RGBA(255, 255, 255, 0.15)
+    border: solid 2px #000000
+    text-align: center
+    margin: auto
+    margin-bottom: 30px
+    padding: 15px
+    position: relative
+    overflow: hidden
+    h1
+        margin: 10px 0
+    h2
+        margin: 10px 0 30px 0
+    input,
+    textarea,
+    select
+        transition: 0.2s ease
+        -moz-transition: 0.2s ease
+        -webkit-transition: 0.2s ease
+        -o-transition: 0.2s ease
+        &:focus
+            transform: scale(1.02)
+            -moz-transform: scale(1.02)
+            -webkit-transform: scale(1.02)
+            -o-transform: scale(1.02)
+            -ms-transform: scale(1.02)
+    @media screen and (min-width: $small-media)
+        width: 80%
+    @media screen and (min-width: $medium-media)
+        width: 70%
+        margin-top: 100px
+    @media screen and (min-width: $large-media)
+        width: 45%
+
+// -----------------------------------------------------------------------------
+
+.error-content
+    width: 70%
+    font-size: 0.9em
+    background-color: RGBA(70, 0, 0, 0.6)
+    border: solid 1px #DF0101
+    padding: 15px
+    margin: 15px auto
+    text-align: left
+
+// -----------------------------------------------------------------------------
+
+.small-error-content
+    font-size: 0.9em
+    background-color: RGBA(70, 0, 0, 0.6)
+    border: solid 1px #DF0101
+
+// -----------------------------------------------------------------------------
+
+.succeed-content
+    font-size: 0.9em
+    background-color: RGBA(0, 70, 0, 0.6)
+    border: solid 1px #1BBF1D
+
+// -----------------------------------------------------------------------------
+
+.warn-content
+    font-size: 0.9em
+    background-color: RGBA(70, 70, 0, 0.6)
+    border: solid 1px #F4FA58
+
+// -----------------------------------------------------------------------------
+
+.banned-content
+    font-size: 0.9em
+    background-color: RGBA(70, 0, 0, 0.6)
+    border: solid 1px #DF0101
+    padding: 15px
+    margin-top: 80px
+    margin-bottom: -85px
+    p
+        margin: 0
+
+// -----------------------------------------------------------------------------
+
+.small-error-content ul,
+.succeed-content,
+.warn-content
+    padding: 10px
+
+// -----------------------------------------------------------------------------
+
+.form-error-content
+    background-color: RGBA(20, 0, 0, 0.6) !important
+    border: solid 1px #DF0101 !important
+    &:hover
+        background-color: RGBA(20, 0, 0, 0.7) !important
+    &:focus
+        background-color: RGBA(20, 0, 0, 0.8) !important
+
+// -----------------------------------------------------------------------------
+
+.faq-content
+    text-align: left
+    h2
+        margin: 0

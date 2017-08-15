@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-    <div class="content createspace-cont">
+    <div class="content createspace-content">
         <h1>{{ trans('messages.create-h1') }}</h1>
         <h2>{{ trans('messages.create-h2') }}</h2>
         <hr>
@@ -54,7 +54,7 @@
                 </select>
             </div>
             <br>
-            <div class="colors-cont">
+            <div class="colors-content">
                 <label>{{ trans('messages.create-form-color') }}</label>
                 <input id="selectedColor" type="hidden" name="color">
                 <br><br>

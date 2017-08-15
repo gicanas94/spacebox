@@ -17,7 +17,7 @@
         <img class="space-user-img" src="{{ asset($spacebox->user->image->src) }}" alt="{{ trans('messages.spacebox-image-alt') }}">
         <hr>
         @if ($canStoreOrDestroyPost)
-            <div class="space-new-post-cont">
+            <div class="space-new-post-content">
                 <form action="{{ route('space.storePost') }}" method="post">
                     {!! csrf_field() !!}
                     <div>
@@ -57,7 +57,7 @@
             <div class="warn-content">{{ trans('messages.space-no-posts') }}</div>
         @else
             @foreach ($posts as $post)
-                <div class="space-post-cont">
+                <div class="space-post-content">
                     @if ($canStoreOrDestroyPost)
                         <form action="{{ route('space.destroyPost', $post->id) }}" method="post">
                             {!! csrf_field() !!}
@@ -71,7 +71,7 @@
                     <div class="space-post-date">{{ $post->date }}</div>
 
                     @if (count($post->comments) > 0)
-                        <div class="space-comment-cont">
+                        <div class="space-comment-content">
                             @foreach ($post->comments as $comment)
                                 <div class="space-comment" style="background-color: {{ $colors[rand(1, count($colors) - 1)] }}">
                                     @if ($canDestroyComment || Auth::check() && Auth::id() === $comment->user->id && Auth::user()->ban_id === null)
@@ -108,7 +108,7 @@
 
                     @if ($canStoreComment)
                         <hr>
-                        <div class="space-new-comment-cont">
+                        <div class="space-new-comment-content">
                             <form action="{{ route('space.storeComment') }}" method="post">
                                 {!! csrf_field() !!}
                                 <label>{{ trans('messages.space-new-comment') }}</label>

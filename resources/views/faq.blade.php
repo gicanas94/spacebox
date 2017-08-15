@@ -4,7 +4,7 @@
     <div class="content">
         <h1>{{ trans('messages.faq-h1') }}</h1>
         <br>
-        <div class="faq-cont">
+        <div class="faq-content">
             <h2>{{ trans('messages.faq-question-1') }}</h2>
             <p>{{ trans('messages.faq-answer-1') }}</p>
             <br>

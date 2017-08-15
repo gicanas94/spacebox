@@ -148,7 +148,7 @@ return [
     'create-preview-desc' => 'Spacebox description',
     'create-form-name' => 'Name (50)',
     'create-form-desc' => 'Short description (200)',
-    'create-form-category' => 'Categoría',
+    'create-form-category' => 'Category',
     'create-form-lang' => 'Language',
     'create-form-color' => 'Finally and more fun, the color!',
     'create-form-submit' => 'CREATE',

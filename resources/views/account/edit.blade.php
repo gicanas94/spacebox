@@ -1,7 +1,7 @@
-@extends('layouts.main')
+content"@extends('layouts.main')
 
 @section('content')
-    <div class="content account-cont">
+    <div class="content account-content">
         <h1>{{ trans('messages.account-h1') }}</h1>
         <h2>{!! trans('messages.account-h2') !!}</h2>
         <hr>
