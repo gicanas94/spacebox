@@ -17,12 +17,12 @@ $(document).ready(function() {
     $('#nameInput').keyup(function() {
         var valueInputName = $(this).val();
         $('#namePreview').text('#' + valueInputName);
-    })
+    });
 
     $('#descriptionTextarea').keyup(function() {
         var valueTextareaDescription = $(this).val();
         $('#descriptionPreview').text(valueTextareaDescription);
-    })
+    });
 
     // FILTER
     $('#filterButton').on('click', function() {

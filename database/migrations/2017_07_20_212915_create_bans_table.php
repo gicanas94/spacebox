@@ -14,11 +14,11 @@ class CreateBansTable extends Migration
     public function up()
     {
         Schema::create('bans', function (Blueprint $table) {
-          $table->increments('id');
-          $table->string('reason');
-          $table->integer('user_id')->nullable();
-          $table->integer('spacebox_id')->nullable();
-          $table->timestamps();
+            $table->increments('id');
+            $table->string('reason');
+            $table->integer('user_id')->nullable();
+            $table->integer('spacebox_id')->nullable();
+            $table->timestamps();
         });
     }
 
